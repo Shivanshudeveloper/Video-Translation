@@ -41,8 +41,8 @@
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	width: 95% !important;
-	margin: 0 2.5% !important;
+	width: 98% !important;
+	margin: 0 1% !important;
 	.row {
 		.left {
 			width: 50%;
@@ -61,6 +61,9 @@
 			.output {
 				text-align: center;
 				width: 90% !important;
+				.PreviewData{
+					width:5.5vw;
+				}
 				.speechtotext {
 					width: 95% !important;
 					margin: 0 2.5%;
