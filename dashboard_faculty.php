@@ -160,9 +160,19 @@
                 <td>
                     <select class="form-select" name="domain" id="domain">
                         <option value="">- Select Your Domain -</option>
-                        <option value="Engineering & Technology">Engineering & Technology</option>
-                        <option value="Self Paced">Self Paced</option>
-                        <option value="Yoga">Yoga</option>
+                        <option value="BASIC SCIENCE (Physics)">BASIC SCIENCE (Physics)</option>
+                        <option value="BASIC SCIENCE (Maths)">BASIC SCIENCE (Maths)</option>
+                        <option value="BASIC SCIENCE (Chemistry)">BASIC SCIENCE (Chemistry)</option>
+                        <option value="ELECTRONICS AND COMMUNICATION ENGINEERING">ELECTRONICS AND COMMUNICATION ENGINEERING</option>
+                        <option value="MECHANICAL ENGINEERING">MECHANICAL ENGINEERING</option>
+                        <option value="CIVIL ENGINEERING">CIVIL ENGINEERING</option>
+                        <option value="ELECTRICAL ENGINEERING">ELECTRICAL ENGINEERING</option>
+                        <option value="BIOTECHNOLOGY">BIOTECHNOLOGY</option>
+                        <option value="COMPUTER SCIENCE AND ENGINEERING">COMPUTER SCIENCE AND ENGINEERING</option>
+                        <option value="METALLURGICAL ENGINEERING AND MATERIAL SCIENCE">METALLURGICAL ENGINEERING AND MATERIAL SCIENCE</option>
+                        <option value="CHEMICAL ENGINEERING">CHEMICAL ENGINEERING</option>
+                        <option value="HUMANITIES">HUMANITIES</option>
+                        <option value="OTHER">OTHER</option>
                     </select>
                 </td>
             </tr>
