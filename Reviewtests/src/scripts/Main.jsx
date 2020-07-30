@@ -22,6 +22,17 @@ export default class Main extends Component {
 			},
 			() => console.log(this.state)
 		)
+		let result_doc = await axios.post(
+			options.link + 'update/test/document',
+			{
+				auth: {
+					email: localStorage.getItem('email'),
+					token: localStorage.getItem('token'),
+				},
+				doc: this.state.doc,
+			}
+		)
+		this.setState({doc:result_doc.data.test_data})
 		console.log(this.state.course);
 	}
 	onTextCallback(text) {
@@ -34,9 +45,26 @@ export default class Main extends Component {
 		doc += '\n' + text
 
 		this.setState({ doc: doc })
+		// console.log(doc);
 	}
 
 	getCourse(course) {}
+	async save() {
+		let result = await axios.post(
+			options.link + 'update/test/document',
+			{
+				auth: {
+					email: localStorage.getItem('email'),
+					token: localStorage.getItem('token'),
+				},
+				doc: this.state.doc,
+			}
+			)
+			
+			console.log(this.state.doc);
+		console.log(result)
+		alert('saved')
+	}
 	render() {
 		return (
 			<>
@@ -225,6 +253,21 @@ export default class Main extends Component {
 											})
 										}
 									></textarea>
+									<div
+						style={{
+							position: 'fixed',
+							padding: '10px ',
+							width:"43%",
+							backgroundColor: 'green',
+							color: 'white',
+						}}
+						className='save'
+						onClick={() => {
+							this.save()
+						}}
+					>
+						Save
+					</div>
 								</div>
 							</div>
 						</div>
