@@ -32,8 +32,8 @@ export default class Main extends Component {
 				doc: this.state.doc,
 			}
 		)
-		this.setState({doc:result_doc.data.test_data})
-		console.log(this.state.course);
+		this.setState({ doc: result_doc.data.test_data })
+		console.log(this.state.course)
 	}
 	onTextCallback(text) {
 		this.setState({ text: text })
@@ -50,18 +50,15 @@ export default class Main extends Component {
 
 	getCourse(course) {}
 	async save() {
-		let result = await axios.post(
-			options.link + 'update/test/document',
-			{
-				auth: {
-					email: localStorage.getItem('email'),
-					token: localStorage.getItem('token'),
-				},
-				doc: this.state.doc,
-			}
-			)
-			
-			console.log(this.state.doc);
+		let result = await axios.post(options.link + 'update/test/document', {
+			auth: {
+				email: localStorage.getItem('email'),
+				token: localStorage.getItem('token'),
+			},
+			doc: this.state.doc,
+		})
+
+		console.log(this.state.doc)
 		console.log(result)
 		alert('saved')
 	}
@@ -69,6 +66,10 @@ export default class Main extends Component {
 		return (
 			<>
 				<div className='App'>
+					{/* edit */}
+					<a href='http://localhost/video-translation'>
+						<div className='button buttonLogOut'>LogOut</div>
+					</a>
 					<div className='outer'>
 						<div className='row'>
 							<div className='left'>
@@ -254,20 +255,48 @@ export default class Main extends Component {
 										}
 									></textarea>
 									<div
-						style={{
-							position: 'fixed',
-							padding: '10px ',
-							width:"43%",
-							backgroundColor: 'green',
-							color: 'white',
-						}}
-						className='save'
-						onClick={() => {
-							this.save()
-						}}
-					>
-						Save
-					</div>
+										style={{
+											position: 'fixed',
+											padding: '10px ',
+											width: '43%',
+											backgroundColor: 'green',
+											color: 'white',
+											borderRadius: '3px',
+											fontWeight: '500',
+										}}
+										className='save'
+										onClick={() => {
+											this.save()
+										}}
+									>
+										Save
+									</div>
+									<div className='reviewexitbutton'>
+										<a
+											href='./Thankyou'
+											onClick={() => {
+												this.save()
+											}}
+										>
+											<div
+												style={{
+													position: 'fixed',
+													padding: '10px ',
+													width: '43%',
+													backgroundColor: 'red',
+													color: 'white',
+													borderRadius: '3px',
+													fontWeight: '500',
+												}}
+												onClick={() => {
+													this.save()
+												}}
+												className='save'
+											>
+												Save & Exit
+											</div>
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
