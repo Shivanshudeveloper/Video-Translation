@@ -6,6 +6,7 @@ import Thankyou from './Thankyou.jsx'
 const App = () => {
 	return (
 		<>
+			{/* /React won't apply on deploy builds, Needs to be added as a basename for routing. */}
 			<Router basename='app'>
 				<Switch>
 					<Route path='/' component={Main} exact />
