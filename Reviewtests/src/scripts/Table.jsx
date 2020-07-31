@@ -40,7 +40,54 @@ export default class Table extends Component {
 		return (
 			<React.Fragment>
 				<section id='admin'>
-					Pages:{' '}
+					
+					<br />
+					<br />
+					<table className="table">
+						<thead>
+							<tr>
+								<th>created_at</th>
+								<th>email</th>
+								<th>first</th>
+
+								<th>last</th>
+								<th>language</th>
+
+								<th>test_data</th>
+
+								<th>course_id.discipline</th>
+								<th>course_id.course_name</th>
+							</tr>
+						</thead>
+						<tbody>
+							{this.state.data.map((elem) => {
+								return (
+									<React.Fragment key={elem._id}>
+										<tr>
+											<td>{elem.created_at}</td>
+											<td>{elem.email}</td>
+											<td>{elem.first}</td>
+
+											<td>{elem.last}</td>
+											<td>{elem.language}</td>
+
+											<td>{elem.test_data}</td>
+
+											<td>{elem.course_id.discipline}</td>
+											<td>
+												{elem.course_id.course_name}
+											</td>
+										</tr>
+									</React.Fragment>
+								)
+							})}
+						</tbody>
+					</table>
+				</section>
+				<br />
+					<br />	<br />
+					<br />
+				Pages:{' '}
 					<span className='pages'>
 						{this.state.arr.map((num) => (
 							<a
@@ -53,64 +100,20 @@ export default class Table extends Component {
 							</a>
 						))}
 					</span>
-					<br/>
+					<br />
 					Number on a page:
 					<span className='pages'>
-						<a href={`?qty=10&page=${this.state.parsed.page}`}>10</a>
-						<a href={`?qty=50&page=${this.state.parsed.page}`}>50</a>
-						<a href={`?qty=100&page=${this.state.parsed.page}`}>100</a>
+						<a href={`?qty=10&page=${this.state.parsed.page}`}>
+							10
+						</a>
+						<a href={`?qty=50&page=${this.state.parsed.page}`}>
+							50
+						</a>
+						<a href={`?qty=100&page=${this.state.parsed.page}`}>
+							100
+						</a>
 					</span>
-					<table>
-						<thead>
-							<tr>
-								<th>created_at</th>
-								<th>email</th>
-								<th>first</th>
-								<th>gender</th>
-								<th>iam</th>
-								<th>language</th>
-								<th>last</th>
-								<th>phone</th>
-								<th>qualification</th>
-								<th>test_data</th>
-								<th>title</th>
-								<th>course_id.stream</th>
-								<th>course_id.discipline</th>
-								<th>course_id.course_name</th>
-								<th>updated_at</th>
-								<th>user_type</th>
-							</tr>
-						</thead>
-						<tbody>
-							{this.state.data.map((elem) => {
-								return (
-									<React.Fragment key={elem._id}>
-										<tr>
-											<td>{elem.created_at}</td>
-											<td>{elem.email}</td>
-											<td>{elem.first}</td>
-											<td>{elem.gender}</td>
-											<td>{elem.iam}</td>
-											<td>{elem.language}</td>
-											<td>{elem.last}</td>
-											<td>{elem.phone}</td>
-											<td>{elem.qualification}</td>
-											<td>{elem.test_data}</td>
-											<td>{elem.title}</td>
-											<td>{elem.course_id.stream}</td>
-											<td>{elem.course_id.discipline}</td>
-											<td>
-												{elem.course_id.course_name}
-											</td>
-											<td>{elem.updated_at}</td>
-											<td>{elem.user_type}</td>
-										</tr>
-									</React.Fragment>
-								)
-							})}
-						</tbody>
-					</table>
-				</section>
+					<br />
 			</React.Fragment>
 		)
 	}
