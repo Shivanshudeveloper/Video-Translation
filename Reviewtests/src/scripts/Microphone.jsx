@@ -18,13 +18,16 @@ export default class Microphone extends Component {
 				},
 			},
 			elem: {},
-        }
-        this.handleAudioStop=this.handleAudioStop.bind(this)					
-        this.handleAudioUpload=this.handleAudioUpload.bind(this)
-        this.handleRest=this.handleRest.bind(this)
+		}
+		this.handleAudioStop = this.handleAudioStop.bind(this)
+		this.handleAudioUpload = this.handleAudioUpload.bind(this)
+		this.handleRest = this.handleRest.bind(this)
 	}
 	componentDidMount() {
-		this.setState({ elem: this.props.elem })
+		setTimeout(
+			this.setState({ elem: this.props.elem, _id: this.props._id }),
+			100
+		)
 	}
 	handleAudioStop(data) {
 		this.setState({ audioDetails: data })
@@ -35,7 +38,7 @@ export default class Microphone extends Component {
 		let formdata = new FormData()
 		formdata.append('sound', file, `sound-${elem}.mp3`)
 		formdata.append('id', elem)
-		await axios.post(options.link + 'upload/test/audio/'+elem, formdata)
+		await axios.post(options.link + 'upload/test/audio/' + elem, formdata)
 		// this.props.upload(elem.index)
 		// let arr = this.state.arr
 		// arr[elem.index].audio = true
@@ -66,6 +69,9 @@ export default class Microphone extends Component {
 					handleAudioUpload={(data) => this.handleAudioUpload(data)}
 					handleRest={() => this.handleRest()}
 				/>
+				<audio
+					src={options.link + 'get/stream/' + this.state._id}
+				></audio>
 			</React.Fragment>
 		)
 	}

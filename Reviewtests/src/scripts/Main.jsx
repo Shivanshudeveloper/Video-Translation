@@ -5,7 +5,14 @@ import qs from 'query-string'
 import axios from 'axios'
 import Microphone from './Microphone'
 export default class Main extends Component {
-	state = { lang: 'hi-IN', email: '', text: '', doc: '', course: '' }
+	state = {
+		lang: 'hi-IN',
+		email: '',
+		text: '',
+		doc: '',
+		course: '',
+		result: { _id: '' },
+	}
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
 		this.setState({ email: usere }, () => {
@@ -28,7 +35,7 @@ export default class Main extends Component {
 				course: result.data.course.discipline,
 				lang: options.lang[result.data.language],
 			},
-			
+			// () => console.log(this.state.result)
 		)
 		let result_doc = await axios.post(
 			options.link + 'update/test/document',
@@ -41,7 +48,6 @@ export default class Main extends Component {
 			}
 		)
 		this.setState({ doc: result_doc.data.test_data })
-	
 	}
 	onTextCallback(text) {
 		this.setState({ text: text })
@@ -53,7 +59,6 @@ export default class Main extends Component {
 		doc += '\n' + text
 
 		this.setState({ doc: doc })
-		
 	}
 
 	getCourse(course) {}
@@ -65,8 +70,7 @@ export default class Main extends Component {
 			},
 			doc: this.state.doc,
 		})
-		if(result.status===200)
-		alert('saved')
+		if (result.status === 200) alert('saved')
 	}
 	render() {
 		return (
@@ -81,7 +85,10 @@ export default class Main extends Component {
 					}}
 					className=''
 				>
-					<Microphone elem={this.state.email}></Microphone>
+					<Microphone
+						elem={this.state.email}
+						_id={this.state.result._id}
+					></Microphone>
 				</div>
 
 				<div className='App'>
@@ -319,24 +326,24 @@ export default class Main extends Component {
 										</a>
 									</div>
 								</div>
-							<div className='record'>
-								<div
-									style={{
-										// position: 'absolute',
-										// top: 0,
-										// right: "50%",
-										// transform:"translatey(50%)",
-										// zIndex: 3,
-										// width:"40vw",
-										backgroundColor: '#cddc30',
-									}}
-									className='recorder'
+								<div className='record'>
+									<div
+										style={{
+											// position: 'absolute',
+											// top: 0,
+											// right: "50%",
+											// transform:"translatey(50%)",
+											// zIndex: 3,
+											// width:"40vw",
+											backgroundColor: '#cddc30',
+										}}
+										className='recorder'
 									>
-									<Microphone
-										elem={this.state.email}
+										<Microphone
+											elem={this.state.email}
 										></Microphone>
+									</div>
 								</div>
-										</div>
 							</div>
 						</div>
 					</div>
