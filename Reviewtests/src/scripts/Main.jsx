@@ -66,19 +66,6 @@ export default class Main extends Component {
 	render() {
 		return (
 			<>
-				<div
-					style={{
-						position: 'absolute',
-						top: 0,
-						right: 0,
-						zIndex: 3,
-						backgroundColor:'#cddc30'
-					}}
-					className=''
-				>
-					<Microphone elem={this.state.email}></Microphone>
-				</div>
-
 				<div className='App'>
 					{/* edit */}
 
@@ -256,6 +243,7 @@ export default class Main extends Component {
 										</div>
 									</div>
 									<span className='title'>Output:</span>
+									<br />
 									<textarea
 										className='outputtext'
 										name='outputtext'
@@ -313,6 +301,24 @@ export default class Main extends Component {
 										</a>
 									</div>
 								</div>
+							<div className='record'>
+								<div
+									style={{
+										// position: 'absolute',
+										// top: 0,
+										// right: "50%",
+										// transform:"translatey(50%)",
+										// zIndex: 3,
+										// width:"40vw",
+										backgroundColor: '#cddc30',
+									}}
+									className='recorder'
+									>
+									<Microphone
+										elem={this.state.email}
+										></Microphone>
+								</div>
+										</div>
 							</div>
 						</div>
 					</div>

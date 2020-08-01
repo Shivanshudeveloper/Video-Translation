@@ -37,13 +37,13 @@
 	}
 }
 
-.buttonLogOut{
+.buttonLogOut {
 	float: left;
 	padding: 10px 15px;
 	font-weight: 700;
 	background-color: #ccc;
 	border-radius: 0 10px 10px 0px;
-	margin: 10px 10px 0 0 ;
+	margin: 10px 10px 0 0;
 }
 .outer {
 	position: absolute;
@@ -65,11 +65,21 @@
 			width: 50%;
 			float: right;
 			text-align: center;
+			height: 70vh;
+			overflow-y: auto;
+			.record {
+				height: 40vh;
+				.recorder{
+					width:90%;
+				}
+			}
 			.output {
 				text-align: center;
 				width: 90% !important;
-				.PreviewData{
-					width:5.5vw;
+				height: 80vh;
+
+				.PreviewData {
+					width: 5.5vw;
 				}
 				.speechtotext {
 					width: 95% !important;
@@ -96,23 +106,22 @@
 		}
 	}
 }
-.reviewexitbutton{
+.reviewexitbutton {
 	margin-top: 45px;
 }
-.logoAicte{
+.logoAicte {
 	width: 20%;
 }
 
-.buttonThanks{
+.buttonThanks {
 	padding: 10px 15px;
 	background-color: #ccc;
-	width:30%;
-	margin:10px 34%;
+	width: 30%;
+	margin: 10px 34%;
 	font-weight: 800;
-	border-radius: 4px;;
-	
+	border-radius: 4px;
 }
-.table{
+.table {
 	width: 100%;
 	border-collapse: collapse;
 }
