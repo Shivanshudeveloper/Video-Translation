@@ -8,33 +8,40 @@ export default class Main extends Component {
 	state = { lang: 'hi-IN', email: '', text: '', doc: '', course: '' }
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
-		this.setState({ email: usere }, () => this.get_data())
+		this.setState({ email: usere }, () => {
+			this.get_data()
+			this.forceUpdate()
+		})
 	}
 	async get_data() {
 		const result = await axios.post(options.link + 'auth/login', {
 			email: this.state.email,
 			password: 'password',
 		})
+
+		localStorage.setItem('email', this.state.email)
+		localStorage.setItem('auth', result.data.token)
+
 		this.setState(
 			{
 				result: result.data,
 				course: result.data.course.discipline,
 				lang: options.lang[result.data.language],
 			},
-			() => console.log(this.state)
+			
 		)
 		let result_doc = await axios.post(
 			options.link + 'update/test/document',
 			{
 				auth: {
 					email: localStorage.getItem('email'),
-					token: localStorage.getItem('token'),
+					token: localStorage.getItem('auth'),
 				},
 				doc: this.state.doc,
 			}
 		)
 		this.setState({ doc: result_doc.data.test_data })
-		console.log(this.state.course)
+	
 	}
 	onTextCallback(text) {
 		this.setState({ text: text })
@@ -46,7 +53,7 @@ export default class Main extends Component {
 		doc += '\n' + text
 
 		this.setState({ doc: doc })
-		// console.log(doc);
+		
 	}
 
 	getCourse(course) {}
@@ -54,13 +61,11 @@ export default class Main extends Component {
 		let result = await axios.post(options.link + 'update/test/document', {
 			auth: {
 				email: localStorage.getItem('email'),
-				token: localStorage.getItem('token'),
+				token: localStorage.getItem('auth'),
 			},
 			doc: this.state.doc,
 		})
-
-		console.log(this.state.doc)
-		console.log(result)
+		if(result.status===200)
 		alert('saved')
 	}
 	render() {
@@ -72,7 +77,7 @@ export default class Main extends Component {
 						top: 0,
 						right: 0,
 						zIndex: 3,
-						backgroundColor:'#cddc30'
+						backgroundColor: '#cddc30',
 					}}
 					className=''
 				>
