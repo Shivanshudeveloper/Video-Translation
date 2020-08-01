@@ -72,10 +72,11 @@ export default class Main extends Component {
 						top: 0,
 						right: 0,
 						zIndex: 3,
+						backgroundColor:'#cddc30'
 					}}
 					className=''
 				>
-					<Microphone></Microphone>
+					<Microphone elem={this.state.email}></Microphone>
 				</div>
 
 				<div className='App'>

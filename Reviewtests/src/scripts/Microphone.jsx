@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import options from './config'
-import axios from 'axios'
+// import options from './config'
+// import axios from 'axios'
 import { Recorder } from 'react-voice-recorder'
 
 export default class Microphone extends Component {
