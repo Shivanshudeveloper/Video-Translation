@@ -9096,6 +9096,11 @@ react-scripts@3.4.1:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-voice-recorder@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-voice-recorder/-/react-voice-recorder-2.0.1.tgz#bd8755ddd32ab759f455b5445698b664de560762"
+  integrity sha512-pPTan5L8lBNF+XH5e9dFgmwuk5RavyvNkvUxGcN8YCRypbKiWGhvTmYg9w2q4jXrSm2RIfHDsr42SQJBcdP01A==
+
 react@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"

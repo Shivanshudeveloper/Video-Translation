@@ -18,10 +18,10 @@ export default class Microphone extends Component {
 				},
 			},
 			elem: {},
-		}
-		this.handleAudioStop = this.handleAudioStop.bind(this)
-		this.handleAudioUpload = this.handleAudioUpload.bind(this)
-		this.handleRest = this.handleRest.bind(this)
+        }
+        this.handleAudioStop=this.handleAudioStop.bind(this)					
+        this.handleAudioUpload=this.handleAudioUpload.bind(this)
+        this.handleRest=this.handleRest.bind(this)
 	}
 	componentDidMount() {
 		this.setState({ elem: this.props.elem })
