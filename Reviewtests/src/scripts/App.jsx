@@ -3,6 +3,8 @@ import '../styles/App.scss'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Main from './Main.jsx'
 import Thankyou from './Thankyou.jsx'
+
+import Table from './Table'
 const App = () => {
 	return (
 		<>

@@ -3,6 +3,7 @@ import ReactSpeech from './lib'
 import options from './config'
 import qs from 'query-string'
 import axios from 'axios'
+import Microphone from './Microphone'
 export default class Main extends Component {
 	state = { lang: 'hi-IN', email: '', text: '', doc: '', course: '' }
 	componentDidMount() {
@@ -65,8 +66,21 @@ export default class Main extends Component {
 	render() {
 		return (
 			<>
+				<div
+					style={{
+						position: 'absolute',
+						top: 0,
+						right: 0,
+						zIndex: 3,
+					}}
+					className=''
+				>
+					<Microphone></Microphone>
+				</div>
+
 				<div className='App'>
 					{/* edit */}
+
 					<a href='http://localhost/video-translation'>
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
