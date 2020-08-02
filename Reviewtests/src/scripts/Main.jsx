@@ -3,37 +3,51 @@ import ReactSpeech from './lib'
 import options from './config'
 import qs from 'query-string'
 import axios from 'axios'
+import Microphone from './Microphone'
 export default class Main extends Component {
-	state = { lang: 'hi-IN', email: '', text: '', doc: '', course: '' }
+	state = {
+		lang: 'hi-IN',
+		email: '',
+		text: '',
+		doc: '',
+		course: '',
+		result: { _id: '' },
+	}
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
-		this.setState({ email: usere }, () => this.get_data())
+		this.setState({ email: usere }, () => {
+			this.get_data()
+			this.forceUpdate()
+		})
 	}
 	async get_data() {
 		const result = await axios.post(options.link + 'auth/login', {
 			email: this.state.email,
 			password: 'password',
 		})
+
+		localStorage.setItem('email', this.state.email)
+		localStorage.setItem('auth', result.data.token)
+
 		this.setState(
 			{
 				result: result.data,
 				course: result.data.course.discipline,
 				lang: options.lang[result.data.language],
-			},
-			() => console.log(this.state)
+			}
+			// () => console.log(this.state.result)
 		)
 		let result_doc = await axios.post(
 			options.link + 'update/test/document',
 			{
 				auth: {
 					email: localStorage.getItem('email'),
-					token: localStorage.getItem('token'),
+					token: localStorage.getItem('auth'),
 				},
 				doc: this.state.doc,
 			}
 		)
 		this.setState({ doc: result_doc.data.test_data })
-		console.log(this.state.course)
 	}
 	onTextCallback(text) {
 		this.setState({ text: text })
@@ -45,7 +59,6 @@ export default class Main extends Component {
 		doc += '\n' + text
 
 		this.setState({ doc: doc })
-		// console.log(doc);
 	}
 
 	getCourse(course) {}
@@ -53,20 +66,34 @@ export default class Main extends Component {
 		let result = await axios.post(options.link + 'update/test/document', {
 			auth: {
 				email: localStorage.getItem('email'),
-				token: localStorage.getItem('token'),
+				token: localStorage.getItem('auth'),
 			},
 			doc: this.state.doc,
 		})
-
-		console.log(this.state.doc)
-		console.log(result)
-		alert('saved')
+		if (result.status === 200) alert('saved')
 	}
 	render() {
 		return (
 			<>
+				<div
+					style={{
+						position: 'absolute',
+						top: 0,
+						right: 0,
+						zIndex: 3,
+						backgroundColor: '#cddc30',
+					}}
+					className=''
+				>
+					{/* <Microphone
+						elem={this.state.email}
+						_id={this.state.result._id}
+					></Microphone> */}
+				</div>
+
 				<div className='App'>
 					{/* edit */}
+
 					<a href='http://localhost/video-translation'>
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
@@ -241,6 +268,7 @@ export default class Main extends Component {
 										</div>
 									</div>
 									<span className='title'>Output:</span>
+									<br />
 									<textarea
 										className='outputtext'
 										name='outputtext'
@@ -296,6 +324,25 @@ export default class Main extends Component {
 												Save & Exit
 											</div>
 										</a>
+									</div>
+								</div>
+								<div className='record'>
+									<div
+										style={{
+											// position: 'absolute',
+											// top: 0,
+											// right: "50%",
+											// transform:"translatey(50%)",
+											// zIndex: 3,
+											// width:"40vw",
+											backgroundColor: '#cddc30',
+										}}
+										className='recorder'
+									>
+										<Microphone
+											elem={this.state.email}
+											_id={this.state.result._id}
+										></Microphone>
 									</div>
 								</div>
 							</div>
