@@ -18,16 +18,19 @@ export default class Microphone extends Component {
 				},
 			},
 			elem: {},
+			updated: false,
 		}
 		this.handleAudioStop = this.handleAudioStop.bind(this)
 		this.handleAudioUpload = this.handleAudioUpload.bind(this)
 		this.handleRest = this.handleRest.bind(this)
 	}
 	componentDidMount() {
-		setTimeout(
-			this.setState({ elem: this.props.elem, _id: this.props._id }),
-			100
-		)
+		setTimeout(() => {
+			this.setState({ elem: this.props.elem, _id: this.props._id })
+			this.setState({ updated: true })
+			console.log(this.state)
+			console.log(this.props)
+		}, 1000)
 	}
 	handleAudioStop(data) {
 		this.setState({ audioDetails: data })
@@ -69,9 +72,16 @@ export default class Microphone extends Component {
 					handleAudioUpload={(data) => this.handleAudioUpload(data)}
 					handleRest={() => this.handleRest()}
 				/>
-				<audio
-					src={options.link + 'get/stream/' + this.state._id}
-				></audio>
+				{this.state.updated===true ? (
+					<audio controls>
+						<source
+							src={options.link + 'get/stream/' + this.state._id}
+							type='audio/mp3'
+						/>
+					</audio>
+				) : (
+					''
+				)}
 			</React.Fragment>
 		)
 	}

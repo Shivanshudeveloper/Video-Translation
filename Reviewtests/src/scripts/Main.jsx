@@ -34,7 +34,7 @@ export default class Main extends Component {
 				result: result.data,
 				course: result.data.course.discipline,
 				lang: options.lang[result.data.language],
-			},
+			}
 			// () => console.log(this.state.result)
 		)
 		let result_doc = await axios.post(
@@ -85,10 +85,10 @@ export default class Main extends Component {
 					}}
 					className=''
 				>
-					<Microphone
+					{/* <Microphone
 						elem={this.state.email}
 						_id={this.state.result._id}
-					></Microphone>
+					></Microphone> */}
 				</div>
 
 				<div className='App'>
@@ -341,6 +341,7 @@ export default class Main extends Component {
 									>
 										<Microphone
 											elem={this.state.email}
+											_id={this.state.result._id}
 										></Microphone>
 									</div>
 								</div>
