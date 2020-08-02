@@ -43,6 +43,7 @@ export default class Microphone extends Component {
 		formdata.append('id', elem)
 		await axios.post(options.link + 'upload/test/audio/' + elem, formdata)
 		// this.props.upload(elem.index)
+		this.setState({updated:true})
 		// let arr = this.state.arr
 		// arr[elem.index].audio = true
 		// this.setState({ arr: arr })
