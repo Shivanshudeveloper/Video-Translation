@@ -20,4 +20,4 @@ echo $sql;
 mysqli_query($conn, $sql);
 
 
-header("Location: http://localhost:3000/React?usere=".$email);
+header("Location: http://localhost:3000/app?usere=".$email);

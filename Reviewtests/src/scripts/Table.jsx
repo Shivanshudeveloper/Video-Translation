@@ -8,7 +8,7 @@ import axios from 'axios'
 import '../styles/Table.scss'
 
 export default class Table extends Component {
-	state = { data: [], arr: [], parsed: { qty: 10, page: 1 } }
+	state = { data: [], arr: [], parsed: { qty: 10, page: 1 }, discipline: [] }
 	async componentDidMount() {
 		let parsed = qs.parse(this.props.location.search)
 		if (!parsed.page) {
@@ -40,23 +40,53 @@ export default class Table extends Component {
 		return (
 			<React.Fragment>
 				<section id='admin'>
-					
+					<div className='dropdowns'>
+						<div class='dropdown'>
+							<select
+								class='dropbtn'
+								name='Discipline'
+								id='Discipline'
+							>
+								{this.state.data.map((elem) => (
+									<option value={elem.course_id.discipline}>
+										{elem.course_id.discipline}
+									</option>
+								))}
+								{/* {this.state.data.map((elem) => {
+									<option value={elem.course_id.discipline}>
+										{elem.course_id.discipline}
+									</option>
+								})} */}
+							</select>
+							<select
+								class='dropbtn'
+								name='language'
+								id='language'
+							>
+								{this.state.data.map((elem) => (
+									<option value={elem.language}>
+										{elem.language}
+									</option>
+								))}
+							</select>{' '}
+						</div>
+					</div>
 					<br />
 					<br />
-					<table className="table">
+					<table className='table'>
 						<thead>
 							<tr>
-								<th>created_at</th>
-								<th>email</th>
-								<th>first</th>
+								<th>Email</th>
+								<th>First</th>
 
-								<th>last</th>
-								<th>language</th>
+								<th>Last</th>
+								<th>Language</th>
 
-								<th>test_data</th>
+								<th>Data</th>
 
-								<th>course_id.discipline</th>
-								<th>course_id.course_name</th>
+								<th>Discipline</th>
+								<th>Course</th>
+								<th>Open Document</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -64,7 +94,6 @@ export default class Table extends Component {
 								return (
 									<React.Fragment key={elem._id}>
 										<tr>
-											<td>{elem.created_at}</td>
 											<td>{elem.email}</td>
 											<td>{elem.first}</td>
 
@@ -77,6 +106,16 @@ export default class Table extends Component {
 											<td>
 												{elem.course_id.course_name}
 											</td>
+											<td>
+												<a
+													href={
+														'http://localhost:3000/app?usere=' +
+														elem.email
+													}
+												>
+													Open
+												</a>
+											</td>
 										</tr>
 									</React.Fragment>
 								)
@@ -85,35 +124,37 @@ export default class Table extends Component {
 					</table>
 				</section>
 				<br />
-					<br />	<br />
-					<br />
+				<br /> <br />
+				<br />
 				Pages:{' '}
-					<span className='pages'>
-						{this.state.arr.map((num) => (
-							<a
-								key={num}
-								href={`?page=${num + 1}&qty=${
-									this.state.parsed.qty
-								}`}
-							>
-								{num + 1}
-							</a>
-						))}
-					</span>
-					<br />
-					Number on a page:
-					<span className='pages'>
-						<a href={`?qty=10&page=${this.state.parsed.page}`}>
-							10
+				<span className='pages'>
+					{this.state.arr.map((num) => (
+						<a
+							key={num}
+							href={`?page=${num + 1}&qty=${
+								this.state.parsed.qty
+							}`}
+						>
+							{num + 1}
 						</a>
-						<a href={`?qty=50&page=${this.state.parsed.page}`}>
-							50
-						</a>
-						<a href={`?qty=100&page=${this.state.parsed.page}`}>
-							100
-						</a>
-					</span>
-					<br />
+					))}
+				</span>
+				<br />
+				Number on a page:
+				<span className='pages'>
+					<a href={`?qty=10&page=${this.state.parsed.page}`}>
+						<button className='button'>10</button>{' '}
+					</a>
+					<a href={`?qty=50&page=${this.state.parsed.page}`}>
+						{' '}
+						<button className='button'>50</button>{' '}
+					</a>
+					<a href={`?qty=100&page=${this.state.parsed.page}`}>
+						{' '}
+						<button className='button'>100</button>{' '}
+					</a>
+				</span>
+				<br />
 			</React.Fragment>
 		)
 	}
