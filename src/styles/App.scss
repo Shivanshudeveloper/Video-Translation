@@ -37,20 +37,12 @@
 	}
 }
 
-.buttonLogOut {
-	float: left;
-	padding: 10px 15px;
-	font-weight: 700;
-	background-color: #ccc;
-	border-radius: 0 10px 10px 0px;
-	margin: 10px 10px 0 0;
-}
 .outer {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	width: 98% !important;
-	margin: 0 1% !important;
+	width: 95% !important;
+	margin: 0 2.5% !important;
 	.row {
 		.left {
 			width: 50%;
@@ -65,21 +57,12 @@
 			width: 50%;
 			float: right;
 			text-align: center;
-			height: 70vh;
-			overflow-y: auto;
-			.record {
-				height: 40vh;
-				.recorder{
-					width:90%;
-				}
-			}
+
 			.output {
 				text-align: center;
 				width: 90% !important;
-				height: 80vh;
-
-				.PreviewData {
-					width: 5.5vw;
+				.PreviewData{
+					width:5.5vw;
 				}
 				.speechtotext {
 					width: 95% !important;
@@ -98,36 +81,11 @@
 				.outputtext {
 					padding: 10px 20px !important;
 					width: 90% !important;
-					height: 40vh;
+					height: 50vh;
 					font-weight: 600;
 					font-size: 1.4rem;
 				}
 			}
 		}
 	}
-}
-.reviewexitbutton {
-	margin-top: 45px;
-}
-.logoAicte {
-	width: 20%;
-}
-.buttonThanks {
-	padding: 10px 15px;
-	background-color: #ccc;
-	width: 30%;
-	margin: 10px 34%;
-	font-weight: 800;
-	border-radius: 4px;
-}
-.table {
-	width: 96%;
-	border-collapse: collapse;
-	margin:0 2%;
-}
-.dropdowns{
-	text-align: center;
-}
-a{
-	text-decoration: none;
 }
