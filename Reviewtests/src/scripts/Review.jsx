@@ -94,8 +94,8 @@ export default class Main extends Component {
 				<div className='App'>
 					{/* edit */}
 
-					<a href='http://localhost/video-translation'>
-						<div className='button buttonLogOut'>LogOut</div>
+					<a href='http://localhost:3000/table'>
+						<div className='button buttonLogOut'>Dashboard</div>
 					</a>
 					<div className='outer'>
 						<div className='row'>
