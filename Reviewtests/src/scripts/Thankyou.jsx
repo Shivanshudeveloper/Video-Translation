@@ -18,7 +18,7 @@ class Thankyou extends Component {
 							We will get back to the shortlisted candidates soon
 						</h5>
 <div className="buttonOuter">
-<a href='http://localhost/video-translation'>
+<a href='https://free.aicte-india.org/video/index.php'>
 
 						<div className='button buttonThanks'>Log Out</div>
                         </a>

@@ -157,7 +157,7 @@ export default class Table extends Component {
 											<td>
 												<a
 													href={
-														'http://localhost:3000/review?usere=' +
+														'./review?usere=' +
 														elem.email
 													}
 												>

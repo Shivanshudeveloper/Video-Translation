@@ -94,7 +94,7 @@ export default class Main extends Component {
 				<div className='App'>
 					{/* edit */}
 
-					<a href='http://localhost/video-translation'>
+					<a href='https://free.aicte-india.org/video/index.php'>
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
 					<div className='outer'>
