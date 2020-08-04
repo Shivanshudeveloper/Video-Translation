@@ -106,9 +106,12 @@ export default class Table extends Component {
 						<a href={`?qty=10&page=${this.state.parsed.page}`}>
 							10
 						</a>
+						{' '}
 						<a href={`?qty=50&page=${this.state.parsed.page}`}>
 							50
 						</a>
+						{' '}
+
 						<a href={`?qty=100&page=${this.state.parsed.page}`}>
 							100
 						</a>

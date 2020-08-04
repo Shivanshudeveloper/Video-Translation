@@ -1,4 +1,4 @@
-const env = 'production'
+const env = 'testing'
 
 let options = {}
 
