@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Main from './Main.jsx'
 import Thankyou from './Thankyou.jsx'
 import Table from './Table.jsx'
+import Review from './Review.jsx'
 const App = () => {
 	return (
 		<>
@@ -13,6 +14,7 @@ const App = () => {
 					<Route path='/' component={Main} exact />
 					<Route path='/table' component={Table} />
 					<Route path='/thankyou' component={Thankyou} />
+					<Route path='/Review' component={Review} />
 				</Switch>
 			</Router>
 		</>
