@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReactSpeech from './lib'
+// import ReactSpeech from './lib'
 import options from './config'
 import qs from 'query-string'
 import axios from 'axios'
@@ -267,7 +267,7 @@ export default class Main extends Component {
 											</div>
 										</div>
 									</div>*/}
-									<span className='title'>Output:</span> 
+									<span className='title'>Output:</span>
 									<br />
 									<textarea
 										className=' outputtext outputtextReview'
