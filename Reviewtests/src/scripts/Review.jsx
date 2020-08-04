@@ -274,6 +274,7 @@ export default class Main extends Component {
 										name='outputtext'
 										id=''
 										cols='30'
+										disabled
 										rows='20'
 										value={this.state.doc}
 										onChange={(e) =>
