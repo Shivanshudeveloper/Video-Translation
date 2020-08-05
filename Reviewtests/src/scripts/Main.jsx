@@ -12,6 +12,8 @@ export default class Main extends Component {
 		doc: '',
 		course: '',
 		result: { _id: '' },
+		approval:"Progress",
+		localApprove: "hello"
 	}
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
@@ -71,6 +73,13 @@ export default class Main extends Component {
 			doc: this.state.doc,
 		})
 		if (result.status === 200) alert('saved')
+	}
+	approval() {
+		this.setState({ approval: "approved" })
+		console.log(this.state.approval)
+		alert("Sent for approval")
+		localStorage.setItem('approval', "approved")
+		this.setState({localApprove: localStorage.getItem('approval')})
 	}
 	render() {
 		return (
@@ -229,6 +238,8 @@ export default class Main extends Component {
 									''
 								)}
 							</div>
+							{this.state.approval}
+							{this.state.localApprove}
 							<div className='right'>
 								<div className='output'>
 									<span className='title'>
@@ -318,10 +329,11 @@ export default class Main extends Component {
 												}}
 												onClick={() => {
 													this.save()
+													this.approval()
 												}}
 												className='save'
 											>
-												Save & Exit
+												Save & Send for approval
 											</div>
 										</a>
 									</div>

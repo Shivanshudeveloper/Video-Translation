@@ -283,6 +283,12 @@ export default class Main extends Component {
 											})
 										}
 									></textarea>
+										<a
+											href='./table'
+											// onClick={() => {
+											// 	this.save()
+											// }}
+										>
 									<div
 										style={{
 											position: 'fixed',
@@ -294,18 +300,19 @@ export default class Main extends Component {
 											fontWeight: '500',
 										}}
 										className='save'
-										onClick={() => {
-											this.save()
-										}}
+										// onClick={() => {
+										// 	this.save()
+										// }}
 									>
-										Save
+										Approve
 									</div>
+									</a>
 									<div className='reviewexitbutton'>
 										<a
-											href='./Thankyou'
-											onClick={() => {
-												this.save()
-											}}
+											href='./table'
+											// onClick={() => {
+											// 	this.save()
+											// }}
 										>
 											<div
 												style={{
@@ -322,7 +329,7 @@ export default class Main extends Component {
 												}}
 												className='save'
 											>
-												Save & Exit
+												Reject
 											</div>
 										</a>
 									</div>
