@@ -26,7 +26,7 @@ export default class Table extends Component {
 		],
 		lang: undefined,
 		course: undefined,
-		statusDoc: "Under Review"
+		statusDoc: 'Under Review',
 	}
 	async componentDidMount() {
 		let parsed = qs.parse(this.props.location.search)
@@ -36,10 +36,10 @@ export default class Table extends Component {
 		if (!parsed.qty) {
 			parsed.qty = 10
 		}
-		if (parsed.lang && parsed.lang!=='undefined') {
+		if (parsed.lang && parsed.lang !== 'undefined') {
 			this.setState({ lang: parsed.lang })
 		}
-		if (parsed.course && parsed.course!=='undefined') {
+		if (parsed.course && parsed.course !== 'undefined') {
 			this.setState({ course: parsed.course.toUpperCase() })
 		}
 
@@ -74,7 +74,7 @@ export default class Table extends Component {
 			<React.Fragment>
 				{this.state.course ? this.state.course : ''}
 				<br />
-				{this.state.lang? this.state.lang : ''}
+				{this.state.lang ? this.state.lang : ''}
 				<section id='admin'>
 					<div className='dropdowns'>
 						<div class='dropdown'>
@@ -135,8 +135,8 @@ export default class Table extends Component {
 
 								<th>Discipline</th>
 								<th>Course</th>
-								<th>Open Document</th>
 								<th>Status</th>
+								<th>Open Document</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -146,29 +146,13 @@ export default class Table extends Component {
 										<tr>
 											<td>{elem.email}</td>
 											<td>{elem.first}</td>
-
 											<td>{elem.last}</td>
 											<td>{elem.language}</td>
-
 											<td>{elem.test_data}</td>
-
 											<td>{elem.course_id.discipline}</td>
-											<td>
-												{elem.course_id.course_name}
-											</td>
-											<td>
-												<a
-													href={
-														'./review?usere=' +
-														elem.email
-													}
-												>
-													Open
-												</a>
-											</td>
-											<td>
-												{this.state.statusDoc}
-											</td>
+											<td>{elem.course_id.course_name}</td>
+											<td>{this.state.statusDoc}</td>
+											<td><a href={'./review?usere=' + elem.email}>Open</a></td>
 										</tr>
 									</React.Fragment>
 								)

@@ -238,8 +238,8 @@ export default class Main extends Component {
 									''
 								)}
 							</div>
-							{this.state.approval}
-							{this.state.localApprove}
+							{/* {this.state.approval}
+							{this.state.localApprove} */}
 							<div className='right'>
 								<div className='output'>
 									<span className='title'>

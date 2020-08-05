@@ -17,12 +17,13 @@ class Thankyou extends Component {
 						<h5>
 							We will get back to the shortlisted candidates soon
 						</h5>
-<div className="buttonOuter">
-<a href='https://free.aicte-india.org/video/index.php'>
-
-						<div className='button buttonThanks'>Log Out</div>
-                        </a>
-</div>
+						<div className='buttonOuter'>
+							<a href='https://free.aicte-india.org/video/index.php'>
+								<div className='button buttonThanks'>
+									Log Out
+								</div>
+							</a>
+						</div>
 					</div>
 				</div>
 			</React.Fragment>
