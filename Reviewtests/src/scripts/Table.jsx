@@ -26,6 +26,7 @@ export default class Table extends Component {
 		],
 		lang: undefined,
 		course: undefined,
+		statusDoc: "Under Review"
 	}
 	async componentDidMount() {
 		let parsed = qs.parse(this.props.location.search)
@@ -135,6 +136,7 @@ export default class Table extends Component {
 								<th>Discipline</th>
 								<th>Course</th>
 								<th>Open Document</th>
+								<th>Status</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -163,6 +165,9 @@ export default class Table extends Component {
 												>
 													Open
 												</a>
+											</td>
+											<td>
+												{this.state.statusDoc}
 											</td>
 										</tr>
 									</React.Fragment>
