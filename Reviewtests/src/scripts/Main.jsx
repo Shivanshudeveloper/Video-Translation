@@ -9,6 +9,10 @@ import 'suneditor/dist/css/suneditor.min.css'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
 export default class Main extends Component {
+	constructor(props) {
+		super(props);
+		this.sunhandleChange = this.sunhandleChange.bind(this);
+	  }
 	state = {
 		lang: 'hi-IN',
 		email: '',
@@ -16,8 +20,8 @@ export default class Main extends Component {
 		doc: '',
 		course: '',
 		result: { _id: '' },
-		approval:"Progress",
-		localApprove: "hello"
+		approval: 'Progress',
+		localApprove: 'hello',
 	}
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
@@ -79,11 +83,16 @@ export default class Main extends Component {
 		if (result.status === 200) alert('saved')
 	}
 	approval() {
-		this.setState({ approval: "approved" })
+		this.setState({ approval: 'approved' })
 		console.log(this.state.approval)
-		alert("Sent for approval")
-		localStorage.setItem('approval', "approved")
-		this.setState({localApprove: localStorage.getItem('approval')})
+		alert('Sent for approval')
+		localStorage.setItem('approval', 'approved')
+		this.setState({ localApprove: localStorage.getItem('approval') })
+	}
+	sunhandleChange(content){
+		console.log(content);
+		this.setState({ doc: content })
+
 	}
 	render() {
 		return (
@@ -298,34 +307,37 @@ export default class Main extends Component {
 										}
 									></textarea> */}
 									<SunEditor
-									setContents={this.state.doc}
-											disable={this.state.review}
-											enable={!this.state.review}
-											setOptions={{
-												katex: katex,
-												buttonList: [['undo', 'redo'], ['math']],
-											}}
-											onChange={(e) => {
-												let arr = this.state.arr
-												this.setState({ arr: arr })
-											}}
-											// TODO
-											// 	value={elem.convert}
-											// 	onChange={(e) => {
-											// 	  let arr = this.state.arr;
-											// 	  arr[elem.index].convert = e.target.value;
-											// 	  this.setState({ arr: arr });
-											//   }}
-											height='40vh'
-											className='converted-editable'
-											style={{
-												width: 'calc(100% - 40px)',
-												minHeight: '150px',
-												padding: '20px',
-												fontSize: '1.4rem',
-											}}
-											value={this.state.doc}
-										/>
+										setContents={this.state.doc}
+										enable={!this.state.review}
+										setOptions={{
+											katex: katex,
+											buttonList: [
+												['undo', 'redo'],
+												['math'],
+											],
+										}}
+										// onChange={(e) => {
+										// 	let arr = this.state.arr
+										// 	this.setState({ arr: arr })
+										// }}
+										// TODO
+										// 	value={elem.convert}
+										// 	onChange={(e) => {
+										// 	  let arr = this.state.arr;
+										// 	  arr[elem.index].convert = e.target.value;
+										// 	  this.setState({ arr: arr });
+										//   }}
+										height='40vh'
+										className='converted-editable'
+										style={{
+											width: 'calc(100% - 40px)',
+											minHeight: '150px',
+											padding: '20px',
+											fontSize: '1.4rem',
+										}}
+										onChange={this.sunhandleChange}
+										value={this.state.doc}
+									/>
 									<div
 										style={{
 											position: 'fixed',

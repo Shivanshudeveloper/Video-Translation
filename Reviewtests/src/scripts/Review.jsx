@@ -4,6 +4,10 @@ import options from './config'
 import qs from 'query-string'
 import axios from 'axios'
 import MicrophoneReview from './MicrophoneReview'
+import SunEditor from 'suneditor-react'
+import 'suneditor/dist/css/suneditor.min.css'
+import katex from 'katex'
+import 'katex/dist/katex.min.css'
 export default class Main extends Component {
 	state = {
 		lang: 'hi-IN',
@@ -231,9 +235,6 @@ export default class Main extends Component {
 							</div>
 							<div className='right'>
 								<div className='output'>
-									<span className='title'>
-										Preview: {this.state.email}{' '}
-									</span>
 									{/* <div className='speechtotext'>
 										<div className='PreviewData'>
 											<div className='result-container'>
@@ -267,9 +268,9 @@ export default class Main extends Component {
 											</div>
 										</div>
 									</div>*/}
-									<span className='title'>Output:</span>
+									<span className='title'>Output: {this.state.email}</span>
 									<br />
-									<textarea
+									{/* <textarea
 										className=' outputtext outputtextReview'
 										name='outputtext'
 										id=''
@@ -282,7 +283,38 @@ export default class Main extends Component {
 												doc: e.target.value,
 											})
 										}
-									></textarea>
+									></textarea> */}
+									<SunEditor
+									showToolbar={false}
+									 disable={true}
+									setContents={this.state.doc}
+											// disable={this.state.review}
+											enable={!this.state.review}
+											setOptions={{
+												katex: katex,
+												buttonList: [['undo', 'redo'], ['math']],
+											}}
+											onChange={(e) => {
+												let arr = this.state.arr
+												this.setState({ arr: arr })
+											}}
+											// TODO
+											// 	value={elem.convert}
+											// 	onChange={(e) => {
+											// 	  let arr = this.state.arr;
+											// 	  arr[elem.index].convert = e.target.value;
+											// 	  this.setState({ arr: arr });
+											//   }}
+											height='60vh'
+											className='converted-editable'
+											style={{
+												width: 'calc(100% - 40px)',
+												minHeight: '150px',
+												padding: '20px',
+												fontSize: '1.4rem',
+											}}
+											value={this.state.doc}
+										/>
 										<a
 											href='./table'
 											// onClick={() => {
