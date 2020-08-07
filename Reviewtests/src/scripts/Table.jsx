@@ -124,15 +124,12 @@ export default class Table extends Component {
 					<br />
 					<table className='table'>
 						<thead>
-							<tr>
+							<tr className='dataintable'>
 								<th>Email</th>
 								<th>First</th>
-
 								<th>Last</th>
 								<th>Language</th>
-
-								<th>Data</th>
-
+								{/* <th className=''>Data</th> */}
 								<th>Discipline</th>
 								<th>Course</th>
 								<th>Status</th>
@@ -143,16 +140,29 @@ export default class Table extends Component {
 							{this.state.data.map((elem) => {
 								return (
 									<React.Fragment key={elem._id}>
-										<tr>
+										<tr className='dataintable'>
 											<td>{elem.email}</td>
 											<td>{elem.first}</td>
 											<td>{elem.last}</td>
 											<td>{elem.language}</td>
-											<td>{elem.test_data}</td>
+											{/* <td className='dataintable datatable'>
+												{elem.test_data}
+											</td> */}
 											<td>{elem.course_id.discipline}</td>
-											<td>{elem.course_id.course_name}</td>
+											<td>
+												{elem.course_id.course_name}
+											</td>
 											<td>{this.state.statusDoc}</td>
-											<td><a href={'./review?usere=' + elem.email}>Open</a></td>
+											<td>
+												<a
+													href={
+														'./review?usere=' +
+														elem.email
+													}
+												>
+													Open
+												</a>
+											</td>
 										</tr>
 									</React.Fragment>
 								)

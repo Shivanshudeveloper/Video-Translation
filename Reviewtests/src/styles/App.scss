@@ -135,3 +135,12 @@
 a {
 	text-decoration: none;
 }
+.dataintable{
+	max-width:30vw !important;
+	max-height: 20vh;
+	overflow: scroll;
+}
+.datatable{
+	height:20vh !important;
+	overflow-y: scroll;
+}

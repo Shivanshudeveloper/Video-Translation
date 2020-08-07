@@ -9,13 +9,15 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
     "gh-pages": "^3.0.0",
+    "katex": "^0.12.0",
     "node-sass": "^4.14.1",
     "query-string": "^6.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-voice-recorder": "^2.0.1"
+    "react-voice-recorder": "^2.0.1",
+    "suneditor-react": "^2.13.1"
   },
   "scripts": {
     "start": "react-scripts start",

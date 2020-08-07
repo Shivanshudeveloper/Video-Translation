@@ -313,7 +313,7 @@ export default class Main extends Component {
 											katex: katex,
 											buttonList: [
 												['undo', 'redo'],
-												['math'],
+												['math'],['image'],
 											],
 										}}
 										// onChange={(e) => {
