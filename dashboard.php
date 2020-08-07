@@ -26,7 +26,7 @@
         </thead>
         <tbody>
             <tr>
-                <th width="20%" scope="row">Is Hindi Your Mother Tongue</th>
+                <th width="20%" scope="row">Is <?php echo $_SESSION['language']; ?> Your Mother Tongue</th>
                 <td>
                 <form action="./src/dashboard_update.php" name="yourForm" id="theForm" method="post">    
                     <select id="motherTounge" name="motherTounge" class="form-select" aria-label="Default select example">
@@ -58,7 +58,7 @@
                 <td>
                     <?php
                         echo '
-                            <input type="text" value="'.$_SESSION['fullname'].'" disabled class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input name="fullName" type="text" value="'.$_SESSION['fullname'].'" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         ';
                     ?>
                 </td>
@@ -73,7 +73,7 @@
             <tr>
                 <th width="20%" scope="row">Is your Institute AICTE Approved</th>
                 <td>
-                    <select name="isAicteApproved" class="form-select" aria-label="Default select example">
+                    <select name="isAicteApproved" id="isAicteApproved" class="form-select" aria-label="Default select example">
                         <option selected>-- SELECT YOUR OPTION --</option>
                         <option value="YES">YES</option>
                         <option value="NO">NO</option>
@@ -82,8 +82,11 @@
             </tr>
             <tr>
                 <th width="20%" scope="row">Name of your Institute</th>
-                <td>
+                <td id="forInstituteField">
                     <?php include './includes/search_institutes.php' ?>
+                </td>
+                <td id="forInstituteField2" style="display:none;">
+                    <input id="institute2" class="form-control" type="search" name="institute2" placeholder="Institution Name">
                 </td>
             </tr>
             <tr>
@@ -97,9 +100,10 @@
                 </td>
             </tr>
             <tr>
-                <th width="35%" scope="row">Help! What is Cleansing ?</th>
+                <th width="35%" scope="row"></th>
                 <td>
                     <div class="alert alert-primary" role="alert">
+                        <strong>Help! What is Cleansing ?</strong><br />
                         This is a process of correction of English transcripts to make it more accurate according to video lecture. Translators would be provided English transcripts and he has to correct it according to video lecture using his/her subject knowledge.
                     </div>
                 </td>

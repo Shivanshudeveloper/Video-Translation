@@ -4,11 +4,21 @@ $(document).ready(function(){
     $("#motherTounge" ).change(function() {
         var value = $("#motherTounge").val();
         if (value == "YES") {
-            $("#chooseMotherTounge").show(); 
+            $("#chooseMotherTounge").hide(); 
 		} else if (value == "NO") {
-            $("#chooseMotherTounge").hide();
+            $("#chooseMotherTounge").show();
         }
-    
+    });
+
+    $("#isAicteApproved" ).change(function() {
+        var value = $("#isAicteApproved").val();
+        if (value == "YES") {
+            $("#forInstituteField").show();
+            $("#forInstituteField2").hide();
+		} else if (value == "NO") {
+            $("#forInstituteField").hide();
+            $("#forInstituteField2").show();
+        }
     });
 
     $("#subBtnNonFaculty").click(() => {

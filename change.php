@@ -13,11 +13,11 @@
         <form action="./src/main.php" method="POST">
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">New Password</label>
-                <input name="pwd2" type="password" class="form-control" id="exampleInputPassword1">
+                <input name="pwd2" type="password" class="form-control" id="exampleInputPassword1" required>
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-                <input name="pwd" type="password" class="form-control" id="exampleInputPassword1">
+                <input name="pwd" type="password" class="form-control" id="exampleInputPassword1" required>
             </div>
             <button type="submit" name="changePasswordBtn" class="btn-lg btn-block btn-primary">Submit</button>
         </form>

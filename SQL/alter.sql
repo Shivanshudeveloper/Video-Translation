@@ -1,2 +1,1 @@
-ALTER TABLE `users` ADD `mother_tounge` TEXT NOT NULL AFTER `whatsapp`, ADD `institute_state` TEXT NOT NULL AFTER `mother_tounge`, ADD `aicte_approved` TEXT NOT NULL AFTER `institute_state`, ADD `institute_name` TEXT NOT NULL AFTER `aicte_approved`, ADD `cleansing` TEXT NOT NULL AFTER `institute_name`, ADD `validator` TEXT NOT NULL AFTER `cleansing`, ADD `year_experience` TEXT NOT NULL AFTER `validator`, ADD `domain` TEXT NOT NULL AFTER `year_experience`;
-ALTER TABLE `users` ADD `mother_tounge_lang` TEXT NOT NULL AFTER `mother_tounge`;
+ALTER TABLE `users` ADD `fullName` TEXT NOT NULL AFTER `domain`;
