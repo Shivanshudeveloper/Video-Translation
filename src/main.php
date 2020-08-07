@@ -30,19 +30,22 @@ if (isset($_POST['loginBtn'])) {
                 }
             } else {
                 if ($row['i_am'] == 'Teacher') {
-                    header("Location: ../dashboard_faculty.php");
                     $_SESSION['email'] = $email;
                     $_SESSION['fullname'] = $row['fist_name']. ' ' .$row['last_name'];
                     $_SESSION['language'] = $row['translated_to'];
                     $_SESSION['iam'] = 'Teacher';
+                    header("Location: https://translation.aicte-india.org/app/?usere=".$email);
                 } else {
                     header("Location: ../dashboard.php");
                     $_SESSION['email'] = $email;
                     $_SESSION['fullname'] = $row['fist_name']. ' ' .$row['last_name'];
                     $_SESSION['language'] = $row['translated_to'];
                     $_SESSION['iam'] = 'NoTeacher';
+                    header("Location: https://translation.aicte-india.org/app/?usere=".$email);
                 }
             }
+        } else {
+            header("Location: ../index.php?nouser=nouser");
         }
     }
 }

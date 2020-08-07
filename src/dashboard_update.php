@@ -12,4 +12,4 @@ session_start();
 $email = $_SESSION['email'];
 $sql = "UPDATE users SET mother_tounge = '$motherTounge', mother_tounge_lang = '$motherToungueLanguage', institute_state = '$stt', aicte_approved = '$isAicteApproved', institute_name = '$institute', cleansing = '$cleansing', validator = 'NIL', year_experience = 'NIL', domain = 'NIL' WHERE email = '$email';";
 mysqli_query($conn, $sql);
-header("Location: http://localhost:3000/app?usere=".$email);
+header("Location: https://translation.aicte-india.org/app/?usere=".$email);

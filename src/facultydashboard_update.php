@@ -20,4 +20,4 @@ echo $sql;
 mysqli_query($conn, $sql);
 
 
-header("Location: http://localhost:3000/app?usere=".$email);
+header("Location: https://translation.aicte-india.org/app/?usere=".$email);

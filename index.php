@@ -10,6 +10,18 @@
             <h4 class="display-4 font-weight-bold text-center">
                 Login
             </h4>
+        <?php
+            if (isset($_GET['nouser'])) {
+                echo '
+                    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                        <strong>Please check your Email & Password</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                ';  
+            }
+        ?>
         <form action="./src/main.php" method="POST">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
