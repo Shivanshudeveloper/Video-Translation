@@ -12,7 +12,7 @@
             Welcome '.$_SESSION['fullname'].'
         </h4>
         <h5 class="font-weight-bold">
-            You have selected '.$_SESSION['language'].' Language
+            You have selected '.$_SESSION['language'].' Language For Translation
         </h5>
     ';    
     ?>
@@ -68,6 +68,14 @@
                 </td>
             </tr>
             <tr>
+                <td width="100%" colspan="2">
+                    <div class="alert alert-primary" role="alert">
+                        <strong>Help!</strong>
+                         The display name will be printed on the pages translated by you.
+                    </div>
+                </td>
+            </tr>
+            <tr>
                 <th width="20%" scope="row">State of Institute</th>
                 <td>
                     <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-select"></select>
@@ -94,6 +102,11 @@
                 </td>
             </tr>
             <tr>
+                <td width="100%" colspan="2">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
                 <th width="35%" scope="row">Are You Willing to participate in cleansing along with translation ?</th>
                 <td>
                     <select name="cleansing" class="form-select" aria-label="Default select example">
@@ -104,12 +117,16 @@
                 </td>
             </tr>
             <tr>
-                <th width="35%" scope="row"></th>
-                <td>
+                <td width="100%" colspan="2">
                     <div class="alert alert-primary" role="alert">
-                        <strong>Help! What is Cleansing ?</strong><br />
+                        <strong>Help! What is Cleansing ?</strong>
                         This is a process of correction of English transcripts to make it more accurate according to video lecture. Translators would be provided English transcripts and he has to correct it according to video lecture using his/her subject knowledge.
                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="100%" colspan="2">
+                    <hr />
                 </td>
             </tr>
         </tbody>
@@ -131,7 +148,12 @@
         </thead>
         <tbody>
             <tr>
-                <th width="20%" scope="row">Are You A Validator Also</th>
+                <td width="100%" colspan="2">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <th width="20%" scope="row">Are you willing to be a validator also? </th>
                 <td>
                     <select name="validator" class="form-select" aria-label="Default select example">
                         <option selected>-- SELECT YOUR OPTION --</option>
@@ -141,12 +163,16 @@
                 </td>
             </tr>
             <tr>
-                <th width="35%" scope="row"></th>
-                <td>
+                <td width="100%" colspan="2">
                     <div class="alert alert-primary" role="alert">
-                        <strong>Help! What will cover in validation ?</strong> <br />
+                        <strong>Help! What will cover in validation ?</strong> 
                         Validator needs to evaluate the transcript as well as audio file submitted by translators in terms of the language chosen for translation and the clarity of the translated contents with the original English transcript.
                     </div>
+                </td>
+            </tr>
+            <tr>
+                <td width="100%" colspan="2">
+                    <hr />
                 </td>
             </tr>
             <tr>
@@ -161,7 +187,7 @@
                 </td>
             </tr>
             <tr>
-                <th width="35%" scope="row">Select Your Discipline</th>
+                <th width="35%" scope="row">Nearest Domain: (Department)</th>
                 <td>
                     <select class="form-select" name="domain" id="domain">
                         <option value="">- Select Your Domain -</option>
