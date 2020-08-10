@@ -178,7 +178,7 @@
             <tr>
                 <th width="35%" scope="row">Years of Experience</th>
                 <td>
-                    <select name="experience" class="form-select" aria-label="Default select example">
+                    <select id="experience" name="experience" class="form-select" aria-label="Default select example">
                         <option selected>-- SELECT YOUR OPTION --</option>
                         <option value="0-5">0-5</option>
                         <option value="6-10">6-10</option>

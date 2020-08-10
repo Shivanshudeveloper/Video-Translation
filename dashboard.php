@@ -105,7 +105,7 @@
             <tr>
                 <th width="35%" scope="row">Are You Willing to participate in cleansing along with translation ?</th>
                 <td>
-                    <select name="cleansing" class="form-select" aria-label="Default select example">
+                    <select id="cleansing" name="cleansing" class="form-select" aria-label="Default select example">
                         <option selected>-- SELECT YOUR OPTION --</option>
                         <option value="YES">YES</option>
                         <option value="NO">NO</option>

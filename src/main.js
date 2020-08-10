@@ -22,10 +22,30 @@ $(document).ready(function(){
     });
 
     $("#subBtnNonFaculty").click(() => {
-        $( "#theForm" ).submit();
+        var cleansing = $("#cleansing").val();
+        var isAicteApproved = $("#isAicteApproved").val();
+        if (cleansing == "" || isAicteApproved == "") {
+            swal({
+                title: "Missing Fields",
+                text: "Some Fields are missing",
+                icon: "error",
+            });
+        } else {
+            $( "#theForm" ).submit();
+        }
     });
 
     $("#subBtnFaculty").click(() => {
-        $( "#theForm2" ).submit();
+        var domain = $("#domain").val();
+        var experience = $("#experience").val();
+        if (domain == "" || experience == "") {
+            swal({
+                title: "Missing Fields",
+                text: "Some Fields are missing",
+                icon: "error",
+            });
+        } else {
+            $( "#theForm2" ).submit();
+        }
     });
 })
