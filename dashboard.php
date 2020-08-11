@@ -54,6 +54,11 @@
                 </td>
             </tr>
             <tr>
+                <td width="100%" colspan="2">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
                 <th width="20%" scope="row">Display Name</th>
                 <td>
                     <?php
@@ -72,6 +77,11 @@
                 </td>
             </tr>
             <tr>
+                <td width="100%" colspan="2">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
                 <th width="20%" scope="row">State of Institute</th>
                 <td>
                     <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-select"></select>
@@ -82,7 +92,7 @@
                 <th width="20%" scope="row">Is your Institute AICTE Approved</th>
                 <td>
                     <select name="isAicteApproved" id="isAicteApproved" class="form-select" aria-label="Default select example">
-                        <option selected>-- SELECT YOUR OPTION --</option>
+                        <option value="" selected>-- SELECT YOUR OPTION --</option>
                         <option value="YES">YES</option>
                         <option value="NO">NO</option>
                     </select>
@@ -106,7 +116,7 @@
                 <th width="35%" scope="row">Are You Willing to participate in cleansing along with translation ?</th>
                 <td>
                     <select id="cleansing" name="cleansing" class="form-select" aria-label="Default select example">
-                        <option selected>-- SELECT YOUR OPTION --</option>
+                        <option value="" selected>-- SELECT YOUR OPTION --</option>
                         <option value="YES">YES</option>
                         <option value="NO">NO</option>
                     </select>
