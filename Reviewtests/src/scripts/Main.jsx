@@ -10,9 +10,9 @@ import katex from 'katex'
 import 'katex/dist/katex.min.css'
 export default class Main extends Component {
 	constructor(props) {
-		super(props);
-		this.sunhandleChange = this.sunhandleChange.bind(this);
-	  }
+		super(props)
+		this.sunhandleChange = this.sunhandleChange.bind(this)
+	}
 	state = {
 		lang: 'hi-IN',
 		email: '',
@@ -89,10 +89,9 @@ export default class Main extends Component {
 		localStorage.setItem('approval', 'approved')
 		this.setState({ localApprove: localStorage.getItem('approval') })
 	}
-	sunhandleChange(content){
-		console.log(content);
+	sunhandleChange(content) {
+		console.log(content)
 		this.setState({ doc: content })
-
 	}
 	render() {
 		return (
@@ -112,10 +111,8 @@ export default class Main extends Component {
 						_id={this.state.result._id}
 					></Microphone> */}
 				</div>
-
 				<div className='App'>
 					{/* edit */}
-
 					<a href='https://free.aicte-india.org/video/index.php'>
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
@@ -313,7 +310,9 @@ export default class Main extends Component {
 											katex: katex,
 											buttonList: [
 												['undo', 'redo'],
-												['math'],['image'],['codeView']
+												['math'],
+												['image'],
+												['codeView'],
 											],
 										}}
 										// onChange={(e) => {
@@ -327,7 +326,7 @@ export default class Main extends Component {
 										// 	  arr[elem.index].convert = e.target.value;
 										// 	  this.setState({ arr: arr });
 										//   }}
-										height='40vh'
+										height='70vh'
 										className='converted-editable'
 										style={{
 											width: 'calc(100% - 40px)',
@@ -338,7 +337,31 @@ export default class Main extends Component {
 										onChange={this.sunhandleChange}
 										value={this.state.doc}
 									/>
-									<div
+									<div className='record'>
+										<div
+											style={{
+												// position: 'absolute',
+												// top: 0,
+												// right: "50%",
+												// transform:"translatey(50%)",
+												// zIndex: 3,
+												// width:"40vw",
+												backgroundColor: '#cddc30',
+											}}
+											className='recorder'
+										>
+											<Microphone
+											className="recorder"
+												elem={this.state.email}
+												_id={this.state.result._id}
+											></Microphone>
+										</div>
+									</div>
+								
+								</div>
+							</div>
+						</div>
+						<div
 										style={{
 											position: 'fixed',
 											padding: '10px ',
@@ -347,6 +370,7 @@ export default class Main extends Component {
 											color: 'white',
 											borderRadius: '3px',
 											fontWeight: '500',
+
 										}}
 										className='save'
 										onClick={() => {
@@ -382,29 +406,8 @@ export default class Main extends Component {
 											</div>
 										</a>
 									</div>
-								</div>
-								<div className='record'>
-									<div
-										style={{
-											// position: 'absolute',
-											// top: 0,
-											// right: "50%",
-											// transform:"translatey(50%)",
-											// zIndex: 3,
-											// width:"40vw",
-											backgroundColor: '#cddc30',
-										}}
-										className='recorder'
-									>
-										<Microphone
-											elem={this.state.email}
-											_id={this.state.result._id}
-										></Microphone>
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
+					
 				</div>
 			</>
 		)
