@@ -57,7 +57,15 @@ export default class Main extends Component {
 				doc: this.state.doc,
 			}
 		)
-		this.setState({ doc: result_doc.data.test_data })
+		// console.log(result_doc.data.test_data)
+		this.setState({ doc: result_doc.data.test_data!==undefined?result_doc.data.test_data:'' })
+		if(this.state.doc===''){
+			console.log(this.state.course)
+			axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/lec3%20BASIC%20ELECTRIC%20CIRCUITS%20corrected.htm').then(data=>{
+				this.setState({doc:data.data})
+				this.save()
+			})
+		}
 	}
 	onTextCallback(text) {
 		this.setState({ text: text })
@@ -351,63 +359,60 @@ export default class Main extends Component {
 											className='recorder'
 										>
 											<Microphone
-											className="recorder"
+												className='recorder'
 												elem={this.state.email}
 												_id={this.state.result._id}
 											></Microphone>
 										</div>
 									</div>
-								
 								</div>
 							</div>
 						</div>
 						<div
-										style={{
-											position: 'fixed',
-											padding: '10px ',
-											width: '43%',
-											backgroundColor: 'green',
-											color: 'white',
-											borderRadius: '3px',
-											fontWeight: '500',
-
-										}}
-										className='save saveMain'
-										onClick={() => {
-											this.save()
-										}}
-									>
-										Save
-									</div>
-									<div className='reviewexitbutton'>
-										<a
-											href='./Thankyou'
-											onClick={() => {
-												this.save()
-											}}
-										>
-											<div
-												style={{
-													position: 'fixed',
-													padding: '10px ',
-													width: '43%',
-													backgroundColor: 'red',
-													color: 'white',
-													borderRadius: '3px',
-													fontWeight: '500',
-												}}
-												onClick={() => {
-													this.save()
-													this.approval()
-												}}
-												className='save saveMain'
-											>
-												Save & Send for approval
-											</div>
-										</a>
-									</div>
+							style={{
+								position: 'fixed',
+								padding: '10px ',
+								width: '43%',
+								backgroundColor: 'green',
+								color: 'white',
+								borderRadius: '3px',
+								fontWeight: '500',
+							}}
+							className='save saveMain'
+							onClick={() => {
+								this.save()
+							}}
+						>
+							Save
+						</div>
+						<div className='reviewexitbutton'>
+							<a
+								href='./Thankyou'
+								onClick={() => {
+									this.save()
+								}}
+							>
+								<div
+									style={{
+										position: 'fixed',
+										padding: '10px ',
+										width: '43%',
+										backgroundColor: 'red',
+										color: 'white',
+										borderRadius: '3px',
+										fontWeight: '500',
+									}}
+									onClick={() => {
+										this.save()
+										this.approval()
+									}}
+									className='save saveMain'
+								>
+									Save & Send for approval
+								</div>
+							</a>
+						</div>
 					</div>
-					
 				</div>
 			</>
 		)
