@@ -393,7 +393,7 @@ export default class Main extends Component {
 											buttonList: [
 												['undo', 'redo'],
 												['math'],
-												['image'],
+												// ['image'],
 												// ['codeView'],
 											],
 										}}
