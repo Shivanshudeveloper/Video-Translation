@@ -372,7 +372,7 @@ export default class Main extends Component {
 											fontWeight: '500',
 
 										}}
-										className='save'
+										className='save saveMain'
 										onClick={() => {
 											this.save()
 										}}
@@ -400,7 +400,7 @@ export default class Main extends Component {
 													this.save()
 													this.approval()
 												}}
-												className='save'
+												className='save saveMain'
 											>
 												Save & Send for approval
 											</div>

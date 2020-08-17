@@ -305,7 +305,7 @@ export default class Main extends Component {
 											// 	  arr[elem.index].convert = e.target.value;
 											// 	  this.setState({ arr: arr });
 											//   }}
-											height='60vh'
+											height='75vh'
 											className='converted-editable'
 											style={{
 												width: 'calc(100% - 40px)',
@@ -315,12 +315,32 @@ export default class Main extends Component {
 											}}
 											value={this.state.doc}
 										/>
+											<div className='record'>
+									<div
+										style={{
+											// position: 'absolute',
+											// top: 0,
+											// right: "50%",
+											// transform:"translatey(50%)",
+											// zIndex: 3,
+											// width:"40vw",
+											backgroundColor: '#cddc30',
+										}}
+										className='recorder'
+									>
+										<MicrophoneReview
+											elem={this.state.email}
+											_id={this.state.result._id}
+										></MicrophoneReview>
+									</div>
+								</div>
 										<a
 											href='./table'
 											// onClick={() => {
 											// 	this.save()
 											// }}
 										>
+											
 									<div
 										style={{
 											position: 'fixed',
@@ -366,25 +386,7 @@ export default class Main extends Component {
 										</a>
 									</div>
 								</div>
-								<div className='record'>
-									<div
-										style={{
-											// position: 'absolute',
-											// top: 0,
-											// right: "50%",
-											// transform:"translatey(50%)",
-											// zIndex: 3,
-											// width:"40vw",
-											backgroundColor: '#cddc30',
-										}}
-										className='recorder'
-									>
-										<MicrophoneReview
-											elem={this.state.email}
-											_id={this.state.result._id}
-										></MicrophoneReview>
-									</div>
-								</div>
+							
 							</div>
 						</div>
 					</div>
