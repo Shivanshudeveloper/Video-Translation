@@ -145,9 +145,9 @@ export default class Table extends Component {
 											<td>{elem.first}</td>
 											<td>{elem.last}</td>
 											<td>{elem.language}</td>
-											{/* <td className='dataintable datatable'>
+											<td className='dataintable datatable'>
 												{elem.test_data}
-											</td> */}
+											</td>
 											<td>{elem.course_id.discipline}</td>
 											<td>
 												{elem.course_id.course_name}

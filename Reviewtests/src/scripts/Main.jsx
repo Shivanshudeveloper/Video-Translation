@@ -326,7 +326,7 @@ export default class Main extends Component {
 										// 	  arr[elem.index].convert = e.target.value;
 										// 	  this.setState({ arr: arr });
 										//   }}
-										height='70vh'
+										height='80vh'
 										className='converted-editable'
 										style={{
 											width: 'calc(100% - 40px)',
