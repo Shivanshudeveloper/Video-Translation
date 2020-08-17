@@ -61,11 +61,75 @@ export default class Main extends Component {
 		this.setState({ doc: result_doc.data.test_data!==undefined?result_doc.data.test_data:'' })
 		if(this.state.doc===''){
 			console.log(this.state.course)
-			axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/lec3%20BASIC%20ELECTRIC%20CIRCUITS%20corrected.htm').then(data=>{
-				this.setState({doc:data.data})
-				this.save()
-			})
+			if(this.state.course==="COMPUTER SCIENCE AND ENGINEERING"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/lec50%20Programming%20in%20Java%20corrected.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="Multidisciplinary"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/For%20Humanites%20lec49%20English%20Language_corrected.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="MEATLLURGICAL ENGINEERING AND MATERIAL SCIENCE"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/lec12%20FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-%20I%20corrected.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="BASIC SCIENCE"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/index.html').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="BIOTECHNOLOGY"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/lec3%20PLANT%20DEVELOPMENTAL%20BIOLOGY%20CORRECTED.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="HUMANITIES"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/For%20Humanites%20lec49%20English%20Language_corrected.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="MECHANICAL ENGINEERING"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/lec2%20APPLIED%20THERMODYNAMICS%20FOR%20ENGINEERS%20corrected.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="CHEMICAL ENGINEERING"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/2.For%20Engineering%20lec2%20Fluid%20Mechanics_corrected.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="ELECTRICAL ENGINEERING"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/lec3%20BASIC%20ELECTRIC%20CIRCUITS%20corrected.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="ELECTRONICS AND COMMUNICATION ENGINEERING"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/lec5%20POWER%20ELECTRONICS%20%20corrected.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			if(this.state.course==="CIVIL ENGINEERING"){
+				axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/lec48%20MECHANICS%20OF%20SOLIDS%20CORRECTED.htm').then(data=>{
+					this.setState({doc:data.data})
+					this.saveinit()
+				})
+			}
+			
 		}
+		
 	}
 	onTextCallback(text) {
 		this.setState({ text: text })
@@ -89,6 +153,16 @@ export default class Main extends Component {
 			doc: this.state.doc,
 		})
 		if (result.status === 200) alert('saved')
+	}
+	async saveinit() {
+		let result = await axios.post(options.link + 'update/test/document', {
+			auth: {
+				email: localStorage.getItem('email'),
+				token: localStorage.getItem('auth'),
+			},
+			doc: this.state.doc,
+		})
+		if (result.status === 200) console.log('saved')
 	}
 	approval() {
 		this.setState({ approval: 'approved' })
@@ -133,7 +207,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQA8pFSKdg2v3cXOK7HleyIz9BeQ0RaEliXipLuz282Mx3VgYMf7tkSGU_Z01yEQA/pub?embedded=true'
+											src='https://drive.google.com/file/d/1D2D9WLCvrZJb3FFATVa1faPUa-KF51Nh/preview'
 										></iframe>
 									</>
 								) : (
@@ -145,7 +219,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTriIxk3FFqNTs2hwe41jRzNGlDWOk3kD_y4vjCdcIrJsC3idj4A7WZf019Koocqg/pub?embedded=true'
+											src='https://drive.google.com/file/d/1uEc-Gvi7XR-vi0wzjL-RgIuUvzSgxMha/preview'
 										></iframe>
 									</>
 								) : (
@@ -157,7 +231,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vSovmMHjRPbI6xvU4ll98N66LDot_lcZ8MR9sJt56vmI3YUmWwtHoqi3RniOW85fw/pub?embedded=true'
+											src='https://drive.google.com/file/d/1Q74AGIWsWRJ-T9UqwvMnLnYDxFYLPKLX/preview'
 										></iframe>
 									</>
 								) : (
@@ -168,7 +242,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vSNPA3yjL0YQNbE8iLQLTwNiPYcuqM0PYhSypQ8u2dnYWpiEDq2uwALBW0DGYCDyw/pub?embedded=true'
+											src='https://drive.google.com/file/d/1qp6AP0AdiMDfTmzdGApcXukrqlcyoyks/preview'
 										></iframe>
 									</>
 								) : (
@@ -179,7 +253,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTAAG1x6XiagKd8JDLMEJ6cABcISFoIiMjIoNLPnWOGQsG_qmobzlAVOLeKm5CtYA/pub?embedded=true'
+											src='https://drive.google.com/file/d/1V2XGMTq5kGklm9Bzacyjv45AuThi6IEn/preview'
 										></iframe>
 									</>
 								) : (
@@ -190,7 +264,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vSBrv63dBjwX7ivz0wpcvfsyHh8Q5yIYFpzhnnlHjkXKPTRGKVfEBR4LNuftcMlFw/pub?embedded=true'
+											src='https://drive.google.com/file/d/1xqQRYex_Pz3PepkcluJRrCjRAj0OWcXv/preview'
 										></iframe>
 									</>
 								) : (
@@ -202,7 +276,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQDukikdYgBx-ILVCO-CJdeMwxGaAkJJ0usstHVueHqpE86Yf_ILhg3TFH6Urp27g/pub?embedded=true'
+											src='https://drive.google.com/file/d/1s3LVOPIeEZOiwOKSKMUGvYRrfCPHNBDP/preview'
 										></iframe>
 									</>
 								) : (
@@ -214,7 +288,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTu49Hec_9dXuG-jaesZjN6ALwrasCzZ9mQi4qIpGEVsX1atS4zOeACLMYNP_bmXQ/pub?embedded=true'
+											src='https://drive.google.com/file/d/1BNDondg7-Of8tmdeamMGCVdOv-WwXh9o/preview'
 										></iframe>
 									</>
 								) : (
@@ -226,7 +300,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vR6owBnPk3cbwQ7Bd7BeIe80bokUkK3vWTy2qLL1L65nNs91zGycdpsHKh-3ZFS9g/pub?embedded=true'
+											src='https://drive.google.com/file/d/1LhxEYBmcVk1nHSCmDntu66xaSK2Kigs2/preview'
 										></iframe>
 									</>
 								) : (
@@ -238,7 +312,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTJzT-8PnlNGEMqeoKWugzhENA1NJqHCJaBqTs7PCVphYTSZZMtcbAvE2QA3MrwTg/pub?embedded=true'
+											src='https://drive.google.com/file/d/1Ls_VbFeD8bG5Hhzuts_uCbIUUYcbO9ET/preview'
 										></iframe>
 									</>
 								) : (
@@ -249,7 +323,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQRpmi1ycnShaRiskPv_YCOJ7oB4G7iy3OKyoiNG-DC2d9vivlu1rop9iMqXDa2Bg/pub?embedded=true'
+											src='https://drive.google.com/file/d/160h2mxcjlKHwW1YMIjqLQwcoHB5Oh7Y2/preview'
 										></iframe>
 									</>
 								) : (
@@ -320,7 +394,7 @@ export default class Main extends Component {
 												['undo', 'redo'],
 												['math'],
 												['image'],
-												['codeView'],
+												// ['codeView'],
 											],
 										}}
 										// onChange={(e) => {
