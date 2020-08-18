@@ -12,6 +12,7 @@ export default class Main extends Component {
 	constructor(props) {
 		super(props)
 		this.sunhandleChange = this.sunhandleChange.bind(this)
+		this.clickrecord = this.clickrecord.bind(this)
 	}
 	state = {
 		lang: 'hi-IN',
@@ -23,7 +24,8 @@ export default class Main extends Component {
 		approval: 'Progress',
 		localApprove: 'hello',
 		language: '',
-		courseName:""
+		courseName: '',
+		recorder: false,
 	}
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
@@ -191,12 +193,13 @@ export default class Main extends Component {
 	onTextCallback(text) {
 		this.setState({ text: text })
 	}
+	clickrecord() {
+		this.setState({ recorder: !this.state.recorder })
+	}
 	addText() {
 		let doc = this.state.doc
 		let text = this.state.text
-
 		doc += '\n' + text
-
 		this.setState({ doc: doc })
 	}
 
@@ -256,18 +259,12 @@ export default class Main extends Component {
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
 					<div className='outer'>
-						<strong>
-							
-							{this.state.course}
-							</strong>
+						<strong>{this.state.course}</strong>
+						<br />
+						<strong>{this.state.courseName}</strong>
 						<br />
 						<strong>
-							
-						{this.state.courseName}
-						</strong>
-						<br />
-						<strong>
-						Translating from English to {this.state.language}
+							Translating from English to {this.state.language}
 						</strong>
 						<div className='row'>
 							<div className='left'>
@@ -419,7 +416,6 @@ export default class Main extends Component {
 														fontSize: '1.5rem',
 													}}
 												></p>
-
 												<button
 													onClick={() =>
 														this.addText()
@@ -478,7 +474,7 @@ export default class Main extends Component {
 										// 	  arr[elem.index].convert = e.target.value;
 										// 	  this.setState({ arr: arr });
 										//   }}
-										height='80vh'
+										height='70vh'
 										className='converted-editable'
 										style={{
 											width: 'calc(100% - 40px)',
@@ -489,7 +485,28 @@ export default class Main extends Component {
 										onChange={this.sunhandleChange}
 										value={this.state.doc}
 									/>
-									<div className='record'>
+
+									<div className='recordbutton'>
+										<button
+											style={{
+												// position: 'fixed',
+												padding: '10px ',
+												width: '43%',
+												height: '50px',
+												backgroundColor: 'black',
+												color: 'white',
+												borderRadius: '3px',
+												fontWeight: '500',
+											}}
+											className='recordbuttonbutton'
+											onClick={this.clickrecord}
+										>
+											Record Audio Transcript
+										</button>
+									</div>
+									{this.state.recorder === true ? (
+									<>
+										<div className='record'>
 										<div
 											style={{
 												// position: 'absolute',
@@ -509,52 +526,57 @@ export default class Main extends Component {
 											></Microphone>
 										</div>
 									</div>
+									</>
+								) : (
+									''
+								)}
+									<div className='buttonset'>
+										<button
+											style={{
+												// position: 'fixed',
+												padding: '10px ',
+												width: '43%',
+												backgroundColor: 'green',
+												color: 'white',
+												borderRadius: '3px',
+												fontWeight: '500',
+											}}
+											className='save saveMain'
+											onClick={() => {
+												this.save()
+											}}
+										>
+											Save As Draft
+										</button>
+										<a
+											href='./Thankyou'
+											onClick={() => {
+												this.save()
+											}}
+										>
+											<button
+												style={{
+													// position: 'fixed',
+													padding: '10px ',
+													width: '43%',
+													backgroundColor: 'red',
+													color: 'white',
+													borderRadius: '3px',
+													fontWeight: '500',
+												}}
+												onClick={() => {
+													this.save()
+													this.approval()
+												}}
+												className='save saveMain'
+											>
+												Save & Send for approval
+											</button>
+										</a>
+									</div>
+									
 								</div>
 							</div>
-						</div>
-						<div
-							style={{
-								position: 'fixed',
-								padding: '10px ',
-								width: '43%',
-								backgroundColor: 'green',
-								color: 'white',
-								borderRadius: '3px',
-								fontWeight: '500',
-							}}
-							className='save saveMain'
-							onClick={() => {
-								this.save()
-							}}
-						>
-							Save
-						</div>
-						<div className='reviewexitbutton'>
-							<a
-								href='./Thankyou'
-								onClick={() => {
-									this.save()
-								}}
-							>
-								<div
-									style={{
-										position: 'fixed',
-										padding: '10px ',
-										width: '43%',
-										backgroundColor: 'red',
-										color: 'white',
-										borderRadius: '3px',
-										fontWeight: '500',
-									}}
-									onClick={() => {
-										this.save()
-										this.approval()
-									}}
-									className='save saveMain'
-								>
-									Save & Send for approval
-								</div>
-							</a>
 						</div>
 					</div>
 				</div>

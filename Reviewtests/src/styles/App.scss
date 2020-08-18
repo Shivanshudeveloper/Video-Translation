@@ -78,7 +78,6 @@
 				text-align: center;
 				width: 90% !important;
 				height: 100vh;
-
 				.PreviewData {
 					width: 5.5vw;
 				}
@@ -111,7 +110,7 @@
 	}
 }
 .reviewexitbutton {
-	margin-top: 45px;
+	// margin-top: 45px;
 }
 .logoAicte {
 	width: 20%;
@@ -152,8 +151,19 @@ a {
 	// margin-left:5%;
 	// width: 100%;
 	// margin: 0;
-
 	.recorder {
 		width: 100% !important;
 	}
+}
+// .sun-editor{
+// 	height:100vh !important;
+// }
+.buttonset{
+	margin-top:20px;
+}
+// .button{
+// 	border:none;
+// }
+.recordbutton{
+	margin-top:20px;
 }
