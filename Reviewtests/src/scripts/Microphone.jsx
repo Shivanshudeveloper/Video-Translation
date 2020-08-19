@@ -37,16 +37,16 @@ export default class Microphone extends Component {
 	}
 	async handleAudioUpload(file) {
 		let elem = this.props.elem
-
 		let formdata = new FormData()
 		formdata.append('sound', file, `sound-${elem}.mp3`)
 		formdata.append('id', elem)
 		await axios.post(options.link + 'upload/test/audio/' + elem, formdata)
 		// this.props.upload(elem.index)
-		this.setState({updated:true})
+		this.setState({ updated: true })
 		// let arr = this.state.arr
 		// arr[elem.index].audio = true
 		// this.setState({ arr: arr })
+		alert('Audio Uploaded')
 	}
 	handleRest() {
 		const reset = {
@@ -60,10 +60,11 @@ export default class Microphone extends Component {
 			},
 		}
 		this.setState({ audioDetails: reset })
+		alert('Audio Reset')
 	}
 	render() {
 		return (
-			<React.Fragment>
+			<React.Fragment>    
 				<Recorder
 					record={true}
 					title={'New recording'}
@@ -73,13 +74,12 @@ export default class Microphone extends Component {
 					handleAudioUpload={(data) => this.handleAudioUpload(data)}
 					handleRest={() => this.handleRest()}
 				/>
-				{this.state.updated===true ? (
+				{this.state.updated === true ? (
 					<audio controls>
 						<source
 							src={options.link + 'get/stream/' + this.state._id}
 							type='audio/mp3'
 						/>
-						
 					</audio>
 				) : (
 					''

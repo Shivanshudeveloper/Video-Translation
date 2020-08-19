@@ -255,10 +255,12 @@ export default class Main extends Component {
 				<div className='App'>
 					{/* edit */}
 
-					<strong>
-						Translating from English to {this.state.language}
-					</strong>
-					<br /><a href='https://free.aicte-india.org/video/index.php'>
+					
+						Translating from{' '}
+						<span className='highlight'>English</span> to
+						<span className='highlight'> {this.state.language}</span>
+					<br />
+					<a href='https://free.aicte-india.org/video/index.php'>
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
 					<button
@@ -277,8 +279,6 @@ export default class Main extends Component {
 					</button>
 					<br />
 
-					
-				
 					<br />
 					<div className='outer'>
 						{/* <strong>{this.state.course}</strong>
