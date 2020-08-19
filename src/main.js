@@ -24,7 +24,9 @@ $(document).ready(function(){
     $("#subBtnNonFaculty").click(() => {
         var cleansing = $("#cleansing").val();
         var isAicteApproved = $("#isAicteApproved").val();
-        if (cleansing == "" || isAicteApproved == "") {
+        var institute2 = $("#institute2").val();
+        
+        if (cleansing == "" || isAicteApproved == "" ) {
             swal({
                 title: "Missing Fields",
                 text: "Some Fields are missing",
@@ -38,7 +40,9 @@ $(document).ready(function(){
     $("#subBtnFaculty").click(() => {
         var domain = $("#domain").val();
         var experience = $("#experience").val();
-        if (domain == "" || experience == "") {
+        var institute2 = $("#institute2").val();
+
+        if (domain == "" || experience == "" ) {
             swal({
                 title: "Missing Fields",
                 text: "Some Fields are missing",
