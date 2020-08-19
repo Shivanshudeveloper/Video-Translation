@@ -43,12 +43,13 @@
 	font-weight: 700;
 	background-color: #ccc;
 	border-radius: 10px;
+	z-index: 1000;
 	width: 10%;
 	margin: 10px 15vh 0 10px;
 }
 .outer {
 	position: absolute;
-	top: 50%;
+	top: 55%;
 	transform: translateY(-50%);
 	width: 99% !important;
 	margin: 0 0.5% !important;
@@ -179,4 +180,10 @@ a {
 ._3-aC9{
 	visibility: hidden;
 	display: none;
+}
+.topdetails{
+	width:100%;
+}
+.buttoninstructions{
+	float: left;
 }

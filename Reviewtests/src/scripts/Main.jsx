@@ -20,7 +20,7 @@ export default class Main extends Component {
 		text: '',
 		doc: '',
 		course: '',
-		first:" ",
+		first: ' ',
 		result: { _id: '' },
 		approval: 'Progress',
 		localApprove: 'hello',
@@ -43,17 +43,15 @@ export default class Main extends Component {
 		localStorage.setItem('email', this.state.email)
 		localStorage.setItem('auth', result.data.token)
 
-		this.setState(
-			{
-				result: result.data,
-				language: result.data.language,
-				course: result.data.course.discipline,
-				// first: result.data,
-				courseName: result.data.course.course_name,
-				lang: options.lang[result.data.language],
-			}
-			)
-			console.log(result.data)
+		this.setState({
+			result: result.data,
+			language: result.data.language,
+			course: result.data.course.discipline,
+			// first: result.data,
+			courseName: result.data.course.course_name,
+			lang: options.lang[result.data.language],
+		})
+		console.log(result.data)
 		let result_doc = await axios.post(
 			options.link + 'update/test/document',
 			{
@@ -256,34 +254,37 @@ export default class Main extends Component {
 				</div>
 				<div className='App'>
 					{/* edit */}
-					<a href='https://free.aicte-india.org/video/index.php'>
+
+					<strong>
+						Translating from English to {this.state.language}
+					</strong>
+					<br /><a href='https://free.aicte-india.org/video/index.php'>
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
+					<button
+						style={{
+							// position: 'fixed',
+							padding: '10px ',
+							width: '23%',
+							backgroundColor: '#f94144',
+							color: 'white',
+							borderRadius: '3px',
+							fontWeight: '700',
+						}}
+						className='save saveMain buttonnoborder buttoninstructions'
+					>
+						Instructions for translations portal{' '}
+					</button>
+					<br />
+
+					
+				
+					<br />
 					<div className='outer'>
 						{/* <strong>{this.state.course}</strong>
 						<br />
 						<strong>{this.state.courseName}</strong> */}
 
-						Hello {this.state.first},
-						<br />
-						<strong>
-							Translating from English to {this.state.language}
-						</strong>
-						<br />
-						<button
-												style={{
-													// position: 'fixed',
-													padding: '10px ',
-													width: '23%',
-													backgroundColor: '#f94144',
-													color: 'white',
-													borderRadius: '3px',
-													fontWeight: '700',
-												}}
-											
-												className='save saveMain buttonnoborder'
-											>
-Instructions for translations portal											</button>
 						<div className='row'>
 							<div className='left'>
 								{this.state.course ===
@@ -419,9 +420,7 @@ Instructions for translations portal											</button>
 							{this.state.localApprove} */}
 							<div className='right'>
 								<div className='output'>
-									<span className='title'>
-										Preview
-									</span>
+									<span className='title'>Preview</span>
 									<div className='speechtotext'>
 										<div className='PreviewData'>
 											<div className='result-container'>
@@ -523,33 +522,37 @@ Instructions for translations portal											</button>
 										</button>
 									</div>
 									{this.state.recorder === true ? (
-									<>
-										<div className='record'>
-										<div
-											style={{
-												// position: 'absolute',
-												// top: 0,
-												// right: "50%",
-												// transform:"translatey(50%)",
-												// zIndex: 3,
-												// width:"40vw",
-												backgroundColor: '#3772ff',
-												fontWeight: 700,
-												color: "white"
-											}}
-											className='recorder'
-										>
-											<Microphone
-												className='recorder'
-												elem={this.state.email}
-												_id={this.state.result._id}
-											></Microphone>
-										</div>
-									</div>
-									</>
-								) : (
-									''
-								)}
+										<>
+											<div className='record'>
+												<div
+													style={{
+														// position: 'absolute',
+														// top: 0,
+														// right: "50%",
+														// transform:"translatey(50%)",
+														// zIndex: 3,
+														// width:"40vw",
+														backgroundColor:
+															'#3772ff',
+														fontWeight: 700,
+														color: 'white',
+													}}
+													className='recorder'
+												>
+													<Microphone
+														className='recorder'
+														elem={this.state.email}
+														_id={
+															this.state.result
+																._id
+														}
+													></Microphone>
+												</div>
+											</div>
+										</>
+									) : (
+										''
+									)}
 									<div className='buttonset'>
 										<button
 											style={{
@@ -579,7 +582,7 @@ Instructions for translations portal											</button>
 													// position: 'fixed',
 													padding: '10px ',
 													width: '43%',
-													backgroundColor: '#f94144',
+													backgroundColor: '#00695c',
 													color: 'white',
 													borderRadius: '3px',
 													fontWeight: '700',
@@ -594,7 +597,6 @@ Instructions for translations portal											</button>
 											</button>
 										</a>
 									</div>
-									
 								</div>
 							</div>
 						</div>
