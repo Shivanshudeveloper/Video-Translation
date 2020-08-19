@@ -20,6 +20,7 @@ export default class Main extends Component {
 		text: '',
 		doc: '',
 		course: '',
+		first:" ",
 		result: { _id: '' },
 		approval: 'Progress',
 		localApprove: 'hello',
@@ -39,7 +40,6 @@ export default class Main extends Component {
 			email: this.state.email,
 			password: 'password',
 		})
-
 		localStorage.setItem('email', this.state.email)
 		localStorage.setItem('auth', result.data.token)
 
@@ -48,11 +48,12 @@ export default class Main extends Component {
 				result: result.data,
 				language: result.data.language,
 				course: result.data.course.discipline,
+				// first: result.data,
 				courseName: result.data.course.course_name,
 				lang: options.lang[result.data.language],
 			}
-			// () => console.log(this.state.result)
-		)
+			)
+			console.log(result.data)
 		let result_doc = await axios.post(
 			options.link + 'update/test/document',
 			{
@@ -108,7 +109,7 @@ export default class Main extends Component {
 			if (this.state.course === 'BASIC SCIENCE') {
 				axios
 					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/index.html'
+						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/1.%20For%20Engineering%20lec1%20Introduction%20to%20Electromagnetism_corrected.htm'
 					)
 					.then((data) => {
 						this.setState({ doc: data.data })
@@ -259,13 +260,30 @@ export default class Main extends Component {
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
 					<div className='outer'>
-						<strong>{this.state.course}</strong>
+						{/* <strong>{this.state.course}</strong>
 						<br />
-						<strong>{this.state.courseName}</strong>
+						<strong>{this.state.courseName}</strong> */}
+
+						Hello {this.state.first},
 						<br />
 						<strong>
 							Translating from English to {this.state.language}
 						</strong>
+						<br />
+						<button
+												style={{
+													// position: 'fixed',
+													padding: '10px ',
+													width: '23%',
+													backgroundColor: '#f94144',
+													color: 'white',
+													borderRadius: '3px',
+													fontWeight: '700',
+												}}
+											
+												className='save saveMain buttonnoborder'
+											>
+Instructions for translations portal											</button>
 						<div className='row'>
 							<div className='left'>
 								{this.state.course ===
@@ -402,7 +420,7 @@ export default class Main extends Component {
 							<div className='right'>
 								<div className='output'>
 									<span className='title'>
-										Preview: {this.state.email}{' '}
+										Preview
 									</span>
 									<div className='speechtotext'>
 										<div className='PreviewData'>
@@ -460,7 +478,7 @@ export default class Main extends Component {
 												['undo', 'redo'],
 												['math'],
 												// ['image'],
-												// ['codeView'],
+												['codeView'],
 											],
 										}}
 										// onChange={(e) => {
@@ -493,12 +511,12 @@ export default class Main extends Component {
 												padding: '10px ',
 												width: '43%',
 												height: '50px',
-												backgroundColor: 'black',
+												backgroundColor: '#3772ff',
 												color: 'white',
 												borderRadius: '3px',
-												fontWeight: '500',
+												fontWeight: '700',
 											}}
-											className='recordbuttonbutton'
+											className='recordbuttonbutton buttonnoborder'
 											onClick={this.clickrecord}
 										>
 											Record Audio Transcript
@@ -515,7 +533,9 @@ export default class Main extends Component {
 												// transform:"translatey(50%)",
 												// zIndex: 3,
 												// width:"40vw",
-												backgroundColor: '#cddc30',
+												backgroundColor: '#3772ff',
+												fontWeight: 700,
+												color: "white"
 											}}
 											className='recorder'
 										>
@@ -536,12 +556,12 @@ export default class Main extends Component {
 												// position: 'fixed',
 												padding: '10px ',
 												width: '43%',
-												backgroundColor: 'green',
+												backgroundColor: '#2ec4b6',
 												color: 'white',
 												borderRadius: '3px',
-												fontWeight: '500',
+												fontWeight: '700',
 											}}
-											className='save saveMain'
+											className='save saveMain buttonnoborder'
 											onClick={() => {
 												this.save()
 											}}
@@ -559,16 +579,16 @@ export default class Main extends Component {
 													// position: 'fixed',
 													padding: '10px ',
 													width: '43%',
-													backgroundColor: 'red',
+													backgroundColor: '#f94144',
 													color: 'white',
 													borderRadius: '3px',
-													fontWeight: '500',
+													fontWeight: '700',
 												}}
 												onClick={() => {
 													this.save()
 													this.approval()
 												}}
-												className='save saveMain'
+												className='save saveMain buttonnoborder'
 											>
 												Save & Send for approval
 											</button>

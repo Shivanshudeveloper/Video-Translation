@@ -47,6 +47,7 @@ class ReactSpeech extends Component {
 			this.props.onText(text)
 		})
 	}
+	
 	onClickStart() {
 		// this.state.isRecording ? this.stopRecording() : this.startRecording()
 		this.setState({recorderbool: true})
@@ -81,8 +82,8 @@ class ReactSpeech extends Component {
 					<>
 							<div
 					className={
-						'react-speech ' +
-						(this.state.isRecording ? 'recording' : '')
+						'react-speech ' 
+						// (this.state.isRecording ? 'recording' : '')
 					}
 					onClick={this.onClickStart}
 				>

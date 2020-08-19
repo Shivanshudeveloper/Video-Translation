@@ -79,6 +79,7 @@ export default class Microphone extends Component {
 							src={options.link + 'get/stream/' + this.state._id}
 							type='audio/mp3'
 						/>
+						
 					</audio>
 				) : (
 					''

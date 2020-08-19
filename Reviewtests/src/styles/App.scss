@@ -57,6 +57,7 @@
 			width: 50%;
 			float: left;
 			text-align: center;
+			margin-top: 20px;
 			.documentOriginal {
 				width: 90% !important;
 				height: 90vh !important;
@@ -161,9 +162,21 @@ a {
 .buttonset{
 	margin-top:20px;
 }
-// .button{
-// 	border:none;
-// }
+.buttonnoborder{
+	border:none;
+	cursor: pointer;
+}
 .recordbutton{
 	margin-top:20px;
+}
+._1Pz2d {
+	padding:5px;
+	border: none;
+	margin-left:1px;
+	margin-bottom: 10px;
+}
+
+._3-aC9{
+	visibility: hidden;
+	display: none;
 }
