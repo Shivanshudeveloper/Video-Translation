@@ -19,10 +19,12 @@ export default class Microphone extends Component {
 			},
 			elem: {},
 			updated: false,
+			recorded:true,
 		}
 		this.handleAudioStop = this.handleAudioStop.bind(this)
 		this.handleAudioUpload = this.handleAudioUpload.bind(this)
 		this.handleRest = this.handleRest.bind(this)
+		this.classgame = this.classgame.bind(this)
 	}
 	componentDidMount() {
 		setTimeout(() => {
@@ -31,9 +33,27 @@ export default class Microphone extends Component {
 			console.log(this.state)
 			console.log(this.props)
 		}, 1000)
-	}
+	
+		}
+		classgame(){
+			var element = document.getElementsByClassName('_1Yplu');
+
+			if (this.state.recorded) {
+				for(var i = 0; i < element.length; i++)
+{
+    element[i].classList.add('show');
+    // element[i].classList.remove('_1Yplu');
+    console.log(element[i].className);
+}
+				
+				
+				
+			// if (this.state.recorded) {document.getElementsByClassName('_1Yplu').classList.remove('_1Yplu');}
+		}}
 	handleAudioStop(data) {
-		this.setState({ audioDetails: data })
+		this.setState({ audioDetails: data})
+		this.setState({ recorded: true})
+		this.classgame()
 	}
 	async handleAudioUpload(file) {
 		let elem = this.props.elem
@@ -64,10 +84,10 @@ export default class Microphone extends Component {
 	}
 	render() {
 		return (
-			<React.Fragment>    
+			<React.Fragment>
 				<Recorder
 					record={true}
-					title={'New recording'}
+					title={'Please Record Transcript'}
 					audioURL={this.state.audioDetails.url}
 					showUIAudio
 					handleAudioStop={(data) => this.handleAudioStop(data)}

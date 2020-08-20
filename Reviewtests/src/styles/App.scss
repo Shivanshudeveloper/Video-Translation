@@ -160,43 +160,53 @@ a {
 // .sun-editor{
 // 	height:100vh !important;
 // }
-.buttonset{
-	margin-top:20px;
+.buttonset {
+	margin-top: 20px;
 }
-.buttonnoborder{
-	border:none;
+.buttonnoborder {
+	border: none;
 	cursor: pointer;
 }
-.recordbutton{
-	margin-top:20px;
+.recordbutton {
+	margin-top: 20px;
 }
 ._1Pz2d {
-	padding:5px;
+	padding: 5px;
 	border: none;
-	margin-left:1px;
+	margin-left: 1px;
 	cursor: pointer;
 	margin-bottom: 10px;
+	z-index: 300 !important;
 }
 
-._3-aC9{
+._3-aC9 {
 	visibility: hidden;
 	cursor: pointer;
 	display: none;
+	z-index: 300 !important;
 }
-.topdetails{
-	width:100%;
+.topdetails {
+	width: 100%;
 }
-.buttoninstructions{
+.buttoninstructions {
 	float: left;
 }
-.highlight{
+.highlight {
 	font-weight: 800;
 }
-._2uz65{
+._2uz65 {
 	// height: 100px;
-	img{
-	height: 40px;
-	width: 40px;
-	margin-right:10px ;
+	img {
+		height: 30px;
+		width: 30px;
+		margin-right: 10px;
 	}
+}
+._1Yplu {
+	visibility: hidden;
+	display: none;
+}
+.show {
+	visibility: visible !important;
+	display: inline;
 }

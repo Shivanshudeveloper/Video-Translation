@@ -13,9 +13,11 @@ options.lang = {
 	'Marathi': 'mr-IN',
 	'English': 'en-IN',
 	'Gujurati': 'gu-IN',
+	'Bengali': 'bn-IN',
 	'Telugu': 'te-IN',
 	'Tamil': 'ta-IN',
 	'Kannada': 'kn-IN',
+	'Malayalam': 'ml-IN',
 }
 
 export default options

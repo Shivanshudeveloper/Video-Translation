@@ -278,13 +278,11 @@ export default class Main extends Component {
 						Instructions for translations portal{' '}
 					</button>
 					<br />
-
 					<br />
 					<div className='outer'>
 						{/* <strong>{this.state.course}</strong>
 						<br />
 						<strong>{this.state.courseName}</strong> */}
-
 						<div className='row'>
 							<div className='left'>
 								{this.state.course ===
@@ -420,7 +418,7 @@ export default class Main extends Component {
 							{this.state.localApprove} */}
 							<div className='right'>
 								<div className='output'>
-									<span className='title'>Preview</span>
+									<span className='title'></span>
 									<div className='speechtotext'>
 										<div className='PreviewData'>
 											<div className='result-container'>
