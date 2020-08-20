@@ -19,7 +19,7 @@ export default class Microphone extends Component {
 			},
 			elem: {},
 			updated: false,
-			recorded:true,
+			recorded: true,
 		}
 		this.handleAudioStop = this.handleAudioStop.bind(this)
 		this.handleAudioUpload = this.handleAudioUpload.bind(this)
@@ -30,30 +30,40 @@ export default class Microphone extends Component {
 		setTimeout(() => {
 			this.setState({ elem: this.props.elem, _id: this.props._id })
 			this.setState({ updated: true })
-			console.log(this.state)
-			console.log(this.props)
+			// console.log(this.state)
+			// console.log(this.props)
 		}, 1000)
-	
-		}
-		classgame(){
-			var element = document.getElementsByClassName('_1Yplu');
-
-			if (this.state.recorded) {
-				for(var i = 0; i < element.length; i++)
-{
-    element[i].classList.add('show');
-    // element[i].classList.remove('_1Yplu');
-    console.log(element[i].className);
-}
-				
-				
-				
+	}
+	classgame() {
+		var element = document.getElementsByClassName('_1Yplu')
+		var element1 = document.getElementsByClassName('_1dpop')
+		if (this.state.recorded) {
+			for (var i = 0; i < element.length; i++) {
+				element[i].classList.add('show')
+			}
+			for (var i = 0; i < element1.length; i++) {
+				element1[i].classList.add('hide')
+			}
+			
 			// if (this.state.recorded) {document.getElementsByClassName('_1Yplu').classList.remove('_1Yplu');}
-		}}
+		}
+	}
 	handleAudioStop(data) {
-		this.setState({ audioDetails: data})
-		this.setState({ recorded: true})
+		this.setState({ audioDetails: data })
+		this.setState({ recorded: true })
 		this.classgame()
+		// var element1 = document.getElementsByClassName('_1dpop')
+	// 	if (this.state.recorded) {
+	// 	for (var j = 0; j < element1.length; j++) {
+	// 		element1[j].classList.add('hide')
+	// 		// element1[i].classList.add('hide')
+	// 		// element[i].classList.remove('_1Yplu');
+	// 		console.log(element1[j].className)
+	// 	}
+	// }
+			// if (this.state.recorded) {element1.classList.add('hide');}
+
+		
 	}
 	async handleAudioUpload(file) {
 		let elem = this.props.elem
@@ -95,12 +105,20 @@ export default class Microphone extends Component {
 					handleRest={() => this.handleRest()}
 				/>
 				{this.state.updated === true ? (
-					<audio controls>
-						<source
-							src={options.link + 'get/stream/' + this.state._id}
-							type='audio/mp3'
-						/>
-					</audio>
+					<>
+						<span>Previous Recording:</span>
+						<br />
+						<audio controls>
+							<source
+								src={
+									options.link +
+									'get/stream/' +
+									this.state._id
+								}
+								type='audio/mp3'
+							/>
+						</audio>
+					</>
 				) : (
 					''
 				)}

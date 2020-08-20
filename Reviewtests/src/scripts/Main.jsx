@@ -47,11 +47,11 @@ export default class Main extends Component {
 			result: result.data,
 			language: result.data.language,
 			course: result.data.course.discipline,
-			// first: result.data,
+			first: result.data.email,
 			courseName: result.data.course.course_name,
 			lang: options.lang[result.data.language],
 		})
-		console.log(result.data)
+		console.log(this.state.first)
 		let result_doc = await axios.post(
 			options.link + 'update/test/document',
 			{
@@ -225,13 +225,13 @@ export default class Main extends Component {
 	}
 	approval() {
 		this.setState({ approval: 'approved' })
-		console.log(this.state.approval)
+		// console.log(this.state.approval)
 		alert('Sent for approval')
 		localStorage.setItem('approval', 'approved')
 		this.setState({ localApprove: localStorage.getItem('approval') })
 	}
 	sunhandleChange(content) {
-		console.log(content)
+		// console.log(content)
 		this.setState({ doc: content })
 	}
 	render() {
