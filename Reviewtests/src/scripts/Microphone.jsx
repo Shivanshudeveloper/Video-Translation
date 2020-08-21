@@ -36,14 +36,14 @@ export default class Microphone extends Component {
 	}
 	classgame() {
 		var element = document.getElementsByClassName('_1Yplu')
-		var element1 = document.getElementsByClassName('_1dpop')
+		// var element1 = document.getElementsByClassName('_1dpop')
 		if (this.state.recorded) {
 			for (var i = 0; i < element.length; i++) {
 				element[i].classList.add('show')
 			}
-			for (var i = 0; i < element1.length; i++) {
-				element1[i].classList.add('hide')
-			}
+			// for (var i = 0; i < element1.length; i++) {
+			// 	element1[i].classList.add('hide')
+			// }
 			
 			// if (this.state.recorded) {document.getElementsByClassName('_1Yplu').classList.remove('_1Yplu');}
 		}
