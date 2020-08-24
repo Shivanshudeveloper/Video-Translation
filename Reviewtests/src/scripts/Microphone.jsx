@@ -20,6 +20,7 @@ export default class Microphone extends Component {
 			elem: {},
 			updated: false,
 			recorded: true,
+			hua:false
 		}
 		this.handleAudioStop = this.handleAudioStop.bind(this)
 		this.handleAudioUpload = this.handleAudioUpload.bind(this)
@@ -51,6 +52,7 @@ export default class Microphone extends Component {
 	handleAudioStop(data) {
 		this.setState({ audioDetails: data })
 		this.setState({ recorded: true })
+		this.setState({ hua: true })
 		this.classgame()
 		// var element1 = document.getElementsByClassName('_1dpop')
 	// 	if (this.state.recorded) {
@@ -104,7 +106,7 @@ export default class Microphone extends Component {
 					handleAudioUpload={(data) => this.handleAudioUpload(data)}
 					handleRest={() => this.handleRest()}
 				/>
-				{this.state.updated === true ? (
+				{this.state.updated === true & this.state.hua===false ? (
 					<>
 						<span>Previous Recording:</span>
 						<br />
