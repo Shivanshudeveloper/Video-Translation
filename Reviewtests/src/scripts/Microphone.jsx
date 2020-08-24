@@ -54,18 +54,6 @@ export default class Microphone extends Component {
 		this.setState({ recorded: true })
 		this.setState({ hua: true })
 		this.classgame()
-		// var element1 = document.getElementsByClassName('_1dpop')
-	// 	if (this.state.recorded) {
-	// 	for (var j = 0; j < element1.length; j++) {
-	// 		element1[j].classList.add('hide')
-	// 		// element1[i].classList.add('hide')
-	// 		// element[i].classList.remove('_1Yplu');
-	// 		console.log(element1[j].className)
-	// 	}
-	// }
-			// if (this.state.recorded) {element1.classList.add('hide');}
-
-		
 	}
 	async handleAudioUpload(file) {
 		let elem = this.props.elem
