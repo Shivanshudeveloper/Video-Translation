@@ -1108,6 +1108,9 @@ export default class Main extends Component {
 		doc += '\n' + text
 		this.setState({ doc: doc })
 	}
+	copy(){
+		navigator.clipboard.writeText(this.state.text)
+	}
 
 	getCourse(course) {}
 	async save() {
@@ -1346,6 +1349,12 @@ export default class Main extends Component {
 													}
 												>
 													Add
+												</button><button
+													onClick={() =>
+														this.copy()
+													}
+												>
+													Copy
 												</button>
 												<br />
 												<br />
