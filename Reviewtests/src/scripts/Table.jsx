@@ -138,6 +138,7 @@ export default class Table extends Component {
 						</thead>
 						<tbody>
 							{this.state.data.map((elem) => {
+								// console.log(elem)
 								return (
 									<React.Fragment key={elem._id}>
 										<tr className='dataintable'>
@@ -152,7 +153,7 @@ export default class Table extends Component {
 											<td>
 												{elem.course_id.course_name}
 											</td>
-											<td>{elem.cleaning_approval===true?"Approved":"Under Review"}</td>
+											<td>{elem.approval_cleaning}</td>
 											<td>
 												<a
 													href={

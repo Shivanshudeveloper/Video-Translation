@@ -9,6 +9,10 @@ import 'suneditor/dist/css/suneditor.min.css'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
 export default class Main extends Component {
+	constructor(props) {
+		super(props)
+		this.sunhandleChange = this.sunhandleChange.bind(this)
+	}
 	state = {
 		lang: 'hi-IN',
 		email: '',
@@ -16,6 +20,7 @@ export default class Main extends Component {
 		doc: '',
 		course: '',
 		result: { _id: '' },
+		status: 'Under Review',
 	}
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
@@ -52,7 +57,10 @@ export default class Main extends Component {
 			}
 		)
 		this.setState({ doc: result_doc.data.test_data })
+		
+		console.log('adfsd', this.state)
 	}
+
 	onTextCallback(text) {
 		this.setState({ text: text })
 	}
@@ -63,6 +71,10 @@ export default class Main extends Component {
 		doc += '\n' + text
 
 		this.setState({ doc: doc })
+	}
+	sunhandleChange(content) {
+		// console.log(content)
+		this.setState({ doc: content })
 	}
 
 	getCourse(course) {}
@@ -94,10 +106,8 @@ export default class Main extends Component {
 						_id={this.state.result._id}
 					></MicrophoneReview> */}
 				</div>
-
 				<div className='App'>
 					{/* edit */}
-
 					<a href='./table'>
 						<div className='button buttonLogOut'>Dashboard</div>
 					</a>
@@ -339,12 +349,14 @@ export default class Main extends Component {
 											></MicrophoneReview>
 										</div>
 									</div>
+									{/* {this.state.} */}
 									<div
 										style={{
 											// position: 'fixed',
 											padding: '10px ',
-											width: '43%',
-											backgroundColor: 'green',
+											float: 'left',
+											width: '47%',
+											backgroundColor: 'red',
 											color: 'white',
 											borderRadius: '3px',
 											fontWeight: '500',
@@ -352,6 +364,8 @@ export default class Main extends Component {
 										}}
 										className='save'
 										onClick={async () => {
+											console.log(this.state)
+											console.log('click')
 											const result = await axios.post(
 												options.link +
 													'approve/' +
