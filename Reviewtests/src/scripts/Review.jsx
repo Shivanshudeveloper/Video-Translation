@@ -333,9 +333,7 @@ export default class Main extends Component {
 											_id={this.state.result._id}
 										></MicrophoneReview>
 									</div>
-								</div>
-									
-											
+								</div>											
 									<div
 										style={{
 											// position: 'fixed',
@@ -357,6 +355,7 @@ export default class Main extends Component {
 									</div>
 								
 									<div className='reviewexitbutton'>
+									
 										<a
 											href='./table'
 											// onClick={() => {
