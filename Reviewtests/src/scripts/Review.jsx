@@ -9,6 +9,10 @@ import 'suneditor/dist/css/suneditor.min.css'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
 export default class Main extends Component {
+	constructor(props) {
+		super(props)
+		this.sunhandleChange = this.sunhandleChange.bind(this)
+	}
 	state = {
 		lang: 'hi-IN',
 		email: '',
@@ -64,6 +68,10 @@ export default class Main extends Component {
 		doc += '\n' + text
 
 		this.setState({ doc: doc })
+	}
+	sunhandleChange(content) {
+		// console.log(content)
+		this.setState({ doc: content })
 	}
 
 	getCourse(course) {}
@@ -288,11 +296,11 @@ export default class Main extends Component {
 										}
 									></textarea> */}
 									<SunEditor
-										showToolbar={false}
+										// showToolbar={false}
 										// disable={true}
 										setContents={this.state.doc}
 										// disable={this.state.review}
-										enable={!this.state.review}
+										// enable={!this.state.review}
 										setOptions={{
 											katex: katex,
 											buttonList: [
@@ -300,10 +308,10 @@ export default class Main extends Component {
 												['math'],
 											],
 										}}
-										onChange={(e) => {
-											let arr = this.state.arr
-											this.setState({ arr: arr })
-										}}
+										// onChange={(e) => {
+										// 	let arr = this.state.arr
+										// 	this.setState({ arr: arr })
+										// }}
 										// TODO
 										// 	value={elem.convert}
 										// 	onChange={(e) => {
@@ -331,7 +339,8 @@ export default class Main extends Component {
 												// transform:"translatey(50%)",
 												// zIndex: 3,
 												// width:"40vw",
-												backgroundColor: '#cddc30',
+												color: 'white',
+												backgroundColor: '#3772ff',
 											}}
 											className='recorder'
 										>

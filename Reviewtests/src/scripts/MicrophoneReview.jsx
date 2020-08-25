@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import options from './config'
 import axios from 'axios'
-// import { Recorder } from 'react-voice-recorder'
+import { Recorder } from 'react-voice-recorder' 
 
 export default class Microphone extends Component {
 	constructor() {
@@ -64,7 +64,7 @@ export default class Microphone extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				{/* <Recorder
+				<Recorder
 					record={true}
 					title={'New recording'}
 					audioURL={this.state.audioDetails.url}
@@ -72,7 +72,7 @@ export default class Microphone extends Component {
 					handleAudioStop={(data) => this.handleAudioStop(data)}
 					handleAudioUpload={(data) => this.handleAudioUpload(data)}
 					handleRest={() => this.handleRest()}
-				/> */}
+				/>
 				{this.state.updated===true ? (
 					<audio controls>
 						<source
