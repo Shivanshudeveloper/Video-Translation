@@ -50,10 +50,13 @@
 .outer {
 	position: absolute;
 	top: 55%;
+
 	transform: translateY(-50%);
 	width: 99% !important;
 	margin: 0 0.5% !important;
 	.row {
+	margin-top: 6%;
+
 		.left {
 			width: 50%;
 			float: left;
@@ -232,4 +235,9 @@ img{
 }
 .email{
 	// text-transform: capitalize;
+}
+.img-fluid{
+	img{
+		background-color: white;
+	}
 }

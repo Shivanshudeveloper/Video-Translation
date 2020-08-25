@@ -16,6 +16,7 @@ export default class Main extends Component {
 		doc: '',
 		course: '',
 		result: { _id: '' },
+		approved: false,
 	}
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
@@ -288,7 +289,7 @@ export default class Main extends Component {
 									></textarea> */}
 									<SunEditor
 										showToolbar={false}
-										disable={true}
+										// disable={true}
 										setContents={this.state.doc}
 										// disable={this.state.review}
 										enable={!this.state.review}
@@ -339,32 +340,44 @@ export default class Main extends Component {
 											></MicrophoneReview>
 										</div>
 									</div>
-									<div
-										style={{
-											// position: 'fixed',
-											padding: '10px ',
-											width: '48%',
-											backgroundColor: 'green',
-											float:"left",
-											color: 'white',
-											borderRadius: '3px',
-											fontWeight: '500',
-											cursor: 'pointer',
-										}}
-										className='save'
-										onClick={async () => {
-											const result = await axios.post(
-												options.link +
-													'approve/' +
-													this.state.email
-											)
-											console.log(result)
-										}}
-									>
-										Approve
-									</div>
+									<br />
+									{this.state.approved === true ? (
+										<></>
+									) : (
+										<div
+											style={{
+												// position: 'fixed',
+												padding: '10px 0px ',
+												width: '100%',
+												backgroundColor: 'green',
+												float: 'left',
+												color: 'white',
+												borderRadius: '3px',
+												fontWeight: '500',
+												cursor: 'pointer',
+											}}
+											className='save'
+											onClick={async () => {
+												const result = await axios.post(
+													options.link +
+														'approve/' +
+														this.state.email
+												)
+												this.setState({
+													approved: true,
+												})
+												this.save(result)
+												alert(
+													'This translation is approved'
+												)
+												console.log(result)
+											}}
+										>
+											Approve
+										</div>
+									)}
 
-									<div
+									{/* <div
 										style={{
 											// position: 'fixed',
 											padding: '10px ',
@@ -379,7 +392,7 @@ export default class Main extends Component {
 										className='save'
 									>
 										Reject
-									</div>
+									</div> */}
 								</div>
 							</div>
 						</div>
