@@ -21,6 +21,7 @@ export default class Main extends Component {
 		course: '',
 		result: { _id: '' },
 		approved: false,
+		approve :"sss"
 	}
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
@@ -43,6 +44,8 @@ export default class Main extends Component {
 				result: result.data,
 				course: result.data.course.discipline,
 				lang: options.lang[result.data.language],
+				approve:result.cleaning_approval
+
 			}
 			// () => console.log(this.state.result)
 		)
@@ -103,10 +106,8 @@ export default class Main extends Component {
 						_id={this.state.result._id}
 					></MicrophoneReview> */}
 				</div>
-
 				<div className='App'>
 					{/* edit */}
-
 					<a href='./table'>
 						<div className='button buttonLogOut'>Dashboard</div>
 					</a>
