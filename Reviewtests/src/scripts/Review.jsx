@@ -268,7 +268,9 @@ export default class Main extends Component {
 											</div>
 										</div>
 									</div>*/}
-									<span className='title'>Output: {this.state.email}</span>
+									<span className='title'>
+										Output: {this.state.email}
+									</span>
 									<br />
 									{/* <textarea
 										className=' outputtext outputtextReview'
@@ -285,104 +287,102 @@ export default class Main extends Component {
 										}
 									></textarea> */}
 									<SunEditor
-									showToolbar={false}
-									 disable={true}
-									setContents={this.state.doc}
-											// disable={this.state.review}
-											enable={!this.state.review}
-											setOptions={{
-												katex: katex,
-												buttonList: [['undo', 'redo'], ['math']],
-											}}
-											onChange={(e) => {
-												let arr = this.state.arr
-												this.setState({ arr: arr })
-											}}
-											// TODO
-											// 	value={elem.convert}
-											// 	onChange={(e) => {
-											// 	  let arr = this.state.arr;
-											// 	  arr[elem.index].convert = e.target.value;
-											// 	  this.setState({ arr: arr });
-											//   }}
-											height='75vh'
-											className='converted-editable'
-											style={{
-												width: 'calc(100% - 40px)',
-												minHeight: '150px',
-												padding: '20px',
-												fontSize: '1.4rem',
-											}}
-											value={this.state.doc}
-										/>
-											<div className='record'>
-									<div
-										style={{
-											// position: 'absolute',
-											// top: 0,
-											// right: "50%",
-											// transform:"translatey(50%)",
-											// zIndex: 3,
-											// width:"40vw",
-											backgroundColor: '#cddc30',
+										showToolbar={false}
+										disable={true}
+										setContents={this.state.doc}
+										// disable={this.state.review}
+										enable={!this.state.review}
+										setOptions={{
+											katex: katex,
+											buttonList: [
+												['undo', 'redo'],
+												['math'],
+											],
 										}}
-										className='recorder'
-									>
-										<MicrophoneReview
-											elem={this.state.email}
-											_id={this.state.result._id}
-										></MicrophoneReview>
+										onChange={(e) => {
+											let arr = this.state.arr
+											this.setState({ arr: arr })
+										}}
+										// TODO
+										// 	value={elem.convert}
+										// 	onChange={(e) => {
+										// 	  let arr = this.state.arr;
+										// 	  arr[elem.index].convert = e.target.value;
+										// 	  this.setState({ arr: arr });
+										//   }}
+										height='75vh'
+										className='converted-editable'
+										style={{
+											width: 'calc(100% - 40px)',
+											minHeight: '150px',
+											padding: '20px',
+											fontSize: '1.4rem',
+										}}
+										value={this.state.doc}
+									/>
+									<div className='record'>
+										<div
+											style={{
+												// position: 'absolute',
+												// top: 0,
+												// right: "50%",
+												// transform:"translatey(50%)",
+												// zIndex: 3,
+												// width:"40vw",
+												backgroundColor: '#cddc30',
+											}}
+											className='recorder'
+										>
+											<MicrophoneReview
+												elem={this.state.email}
+												_id={this.state.result._id}
+											></MicrophoneReview>
+										</div>
 									</div>
-								</div>											
 									<div
 										style={{
 											// position: 'fixed',
 											padding: '10px ',
-											width: '43%',
+											width: '48%',
 											backgroundColor: 'green',
+											float:"left",
 											color: 'white',
 											borderRadius: '3px',
 											fontWeight: '500',
-											cursor:'pointer'
+											cursor: 'pointer',
 										}}
 										className='save'
 										onClick={async () => {
-											const result = await axios.post(options.link+'approve/'+this.state.email)
+											const result = await axios.post(
+												options.link +
+													'approve/' +
+													this.state.email
+											)
 											console.log(result)
 										}}
 									>
 										Approve
 									</div>
-								
-									<div className='reviewexitbutton'>
-									
-										<a
-											href='./table'
-											// onClick={() => {
-											// 	this.save()
-											// }}
-										>
-											<div
-												style={{
-													position: 'fixed',
-													padding: '10px ',
-													width: '43%',
-													backgroundColor: 'red',
-													color: 'white',
-													borderRadius: '3px',
-													fontWeight: '500',
-												}}
-												onClick={() => {
-													this.save()
-												}}
-												className='save'
-											>
-												Reject
-											</div>
-										</a>
+
+									<div
+										style={{
+											// position: 'fixed',
+											padding: '10px ',
+											float:"left",
+											width: '47%',
+											backgroundColor: 'red',
+											color: 'white',
+											borderRadius: '3px',
+											fontWeight: '500',
+										}}
+										onClick={() => {
+											this.save()
+										}}
+										className='save'
+									>
+										Reject
 									</div>
 								</div>
-							
 							</div>
 						</div>
 					</div>
