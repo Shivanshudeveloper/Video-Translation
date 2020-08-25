@@ -334,31 +334,28 @@ export default class Main extends Component {
 										></MicrophoneReview>
 									</div>
 								</div>
-										<a
-											href='./table'
-											// onClick={() => {
-											// 	this.save()
-											// }}
-										>
+									
 											
 									<div
 										style={{
-											position: 'fixed',
+											// position: 'fixed',
 											padding: '10px ',
 											width: '43%',
 											backgroundColor: 'green',
 											color: 'white',
 											borderRadius: '3px',
 											fontWeight: '500',
+											cursor:'pointer'
 										}}
 										className='save'
-										// onClick={() => {
-										// 	this.save()
-										// }}
+										onClick={async () => {
+											const result = await axios.post(options.link+'approve/'+this.state.email)
+											console.log(result)
+										}}
 									>
 										Approve
 									</div>
-									</a>
+								
 									<div className='reviewexitbutton'>
 										<a
 											href='./table'

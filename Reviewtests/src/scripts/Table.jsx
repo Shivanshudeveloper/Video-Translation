@@ -64,7 +64,7 @@ export default class Table extends Component {
 			for (let index = 0; index < result.data.pages; index++) {
 				arr.push(index)
 			}
-
+			console.log(result,arr)
 			this.setState({ arr: arr })
 		})
 	}
