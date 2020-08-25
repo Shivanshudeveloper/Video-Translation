@@ -375,9 +375,7 @@ export default class Main extends Component {
 											borderRadius: '3px',
 											fontWeight: '500',
 										}}
-										onClick={() => {
-											this.save()
-										}}
+									
 										className='save'
 									>
 										Reject
