@@ -319,6 +319,7 @@ export default class Main extends Component {
 											padding: '20px',
 											fontSize: '1.4rem',
 										}}
+										onChange={this.sunhandleChange}
 										value={this.state.doc}
 									/>
 									<div className='record'>
@@ -366,7 +367,7 @@ export default class Main extends Component {
 												this.setState({
 													approved: true,
 												})
-												this.save(result)
+												this.save()
 												alert(
 													'This translation is approved'
 												)
