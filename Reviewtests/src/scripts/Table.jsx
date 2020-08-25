@@ -152,7 +152,7 @@ export default class Table extends Component {
 											<td>
 												{elem.course_id.course_name}
 											</td>
-											<td>{this.state.statusDoc}</td>
+											<td>{elem.cleaning_approval===true?"Approved":"Under Review"}</td>
 											<td>
 												<a
 													href={
