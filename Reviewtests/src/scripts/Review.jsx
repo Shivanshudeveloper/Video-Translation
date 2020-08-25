@@ -334,6 +334,7 @@ export default class Main extends Component {
 										></MicrophoneReview>
 									</div>
 								</div>
+									<div className='reviewexitbutton'>
 										<a
 											href='./table'
 											// onClick={() => {
@@ -359,7 +360,6 @@ export default class Main extends Component {
 										Approve
 									</div>
 									</a>
-									<div className='reviewexitbutton'>
 										<a
 											href='./table'
 											// onClick={() => {

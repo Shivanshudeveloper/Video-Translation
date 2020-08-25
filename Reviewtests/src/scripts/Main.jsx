@@ -34,12 +34,9 @@ export default class Main extends Component {
 			this.get_data()
 			this.forceUpdate()
 		})
-		
 	}
-	
+
 	async get_data() {
-		
-		
 		const result = await axios.post(options.link + 'auth/login', {
 			email: this.state.email,
 			password: 'password',
@@ -1108,7 +1105,7 @@ export default class Main extends Component {
 		doc += '\n' + text
 		this.setState({ doc: doc })
 	}
-	copy(){
+	copy() {
 		navigator.clipboard.writeText(this.state.text)
 	}
 
@@ -1164,7 +1161,8 @@ export default class Main extends Component {
 				</div>
 				<div className='App'>
 					<br />
-				Hello,<span className='highlight email'> {this.state.first}</span>
+					Hello,
+					<span className='highlight email'> {this.state.first}</span>
 					<br />
 					Translating from <span className='highlight'>
 						English
@@ -1349,10 +1347,9 @@ export default class Main extends Component {
 													}
 												>
 													Add
-												</button><button
-													onClick={() =>
-														this.copy()
-													}
+												</button>
+												<button
+													onClick={() => this.copy()}
 												>
 													Copy
 												</button>
