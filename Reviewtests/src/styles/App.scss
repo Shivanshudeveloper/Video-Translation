@@ -218,7 +218,11 @@ a {
 	background-color: red;
 
 }
-
+figure{
+img{
+	background-color: transparent !important;
+}
+}
 img{
 	background-color: red;
 	padding: 7px;

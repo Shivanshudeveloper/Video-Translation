@@ -56,7 +56,7 @@ export default class Main extends Component {
 			courseName: result.data.course.course_name,
 			lang: options.lang[result.data.language],
 		})
-		console.log(this.state.first)
+		// console.log(this.state.first)
 		let result_doc = await axios.post(
 			options.link + 'update/test/document',
 			{
@@ -1160,6 +1160,7 @@ export default class Main extends Component {
 					></Microphone> */}
 				</div>
 				<div className='App'>
+					<br />
 				Hello,<span className='highlight email'> {this.state.first}</span>
 					<br />
 					Translating from <span className='highlight'>
