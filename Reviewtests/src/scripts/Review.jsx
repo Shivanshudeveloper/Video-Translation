@@ -396,12 +396,7 @@ export default class Main extends Component {
 									</div>
 
 									<div className='reviewexitbutton'>
-										<a
-											href='./table'
-											// onClick={() => {
-											// 	this.save()
-											// }}
-										>
+										
 											<div
 												style={{
 													// position: 'fixed',
@@ -427,7 +422,6 @@ export default class Main extends Component {
 											>
 												Reject
 											</div>
-										</a>
 									</div>
 								</div>
 							</div>
