@@ -1201,7 +1201,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1D2D9WLCvrZJb3FFATVa1faPUa-KF51Nh/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vSU7iglymqCVC3YV5eHg6lp1ZnMCDORn0D4QLAvi-IG9CAiY6IZlb_G1SLRIk2s6g/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -1213,7 +1213,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1uEc-Gvi7XR-vi0wzjL-RgIuUvzSgxMha/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vRbQdvg1yapkMmXCbGjD_YiEVoG9bhV2GJQl7QORNWPd7i5Q8bLS-CEZyA2Qv78iw/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -1225,7 +1225,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1Q74AGIWsWRJ-T9UqwvMnLnYDxFYLPKLX/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vTF40-xAD7GiPzycZXedgPaSRtM3B6GJd5nc-fbjcsg_yO5DFhQfDENYqWXwRnasg/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -1236,7 +1236,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1qp6AP0AdiMDfTmzdGApcXukrqlcyoyks/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vTmZljvV9A1L20DqaNZLXSjVs5PGDJkUru7mdHJqj_ukPYm5nbemdV4CisshCyKSg/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -1247,7 +1247,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1V2XGMTq5kGklm9Bzacyjv45AuThi6IEn/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vSTVQsJW6F2HYWJoR77LQVAwA0L2KjHcKrOw-eELWUkGtF4Wv8X-RmPQWnMDJDeTA/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -1258,7 +1258,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1xqQRYex_Pz3PepkcluJRrCjRAj0OWcXv/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vQCY5Zg9oXll_eAH6KRVeqPiLlHGpEhavZ2SOvczeR34Vfzv5skxnuPQKbaz5-5Yw/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -1267,15 +1267,9 @@ export default class Main extends Component {
 								{this.state.course ===
 								'MECHANICAL ENGINEERING' ? (
 									<>
-										{/* <iframe
-											title='originalDoc'
-											className='documentOriginal'
-											src='https://drive.google.com/file/d/1s3LVOPIeEZOiwOKSKMUGvYRrfCPHNBDP/preview'
-										></iframe> */}
-
-										<iframe title='originalDoc'
-											className='documentOriginal' src='https://docs.google.com/document/d/e/2PACX-1vTc59OBTt0JV4mPSkS7JbNl4Sr4LMohA6Ncv8U27ULff0hC9NTzQdJ80V_THwcxBewz52-QoYZCd4Zs/pub?embedded=true'></iframe>
-									</>
+										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
+										<iframe 	title='originalDoc'
+											className='documentOriginal' src="https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true"></iframe>	</>
 								) : (
 									''
 								)}
@@ -1285,7 +1279,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1BNDondg7-Of8tmdeamMGCVdOv-WwXh9o/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vRstto7PJtuDwFMiARoXFlrHdkd68hsCi-dn9LYsPKGvGFeUQVH1HeyOGGlKhaOkA/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -1297,7 +1291,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1LhxEYBmcVk1nHSCmDntu66xaSK2Kigs2/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vRdPNK093zHOKJHrSsQ9xHTcvY9duFrjXqAZi5WUdRDeCl4z5t7ReT3UvwOB37--A/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -1309,7 +1303,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1Ls_VbFeD8bG5Hhzuts_uCbIUUYcbO9ET/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vQ6asrQudxLmPwUeZ720dwGfAEhS7raMlpOZOR3TuvVnGn8b8XJy0YdFAcqwujXww/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -1320,7 +1314,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/160h2mxcjlKHwW1YMIjqLQwcoHB5Oh7Y2/preview'
+											src='https://docs.google.com/document/d/e/2PACX-1vQuF-OQsSK4UVih5lO15NKcXTkAzajFWuAX6OoYs10hk5wT0usEFTTCu_L2WDWxkQ/pub?embedded=true'
 										></iframe>
 									</>
 								) : (

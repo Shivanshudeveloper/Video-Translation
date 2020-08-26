@@ -116,14 +116,14 @@ export default class Main extends Component {
 					</a>
 					<div className='outer'>
 						<div className='row'>
-							<div className='left'>
+						<div className='left'>
 								{this.state.course ===
 								'COMPUTER SCIENCE AND ENGINEERING' ? (
 									<>
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQA8pFSKdg2v3cXOK7HleyIz9BeQ0RaEliXipLuz282Mx3VgYMf7tkSGU_Z01yEQA/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vSU7iglymqCVC3YV5eHg6lp1ZnMCDORn0D4QLAvi-IG9CAiY6IZlb_G1SLRIk2s6g/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -135,7 +135,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTriIxk3FFqNTs2hwe41jRzNGlDWOk3kD_y4vjCdcIrJsC3idj4A7WZf019Koocqg/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vRbQdvg1yapkMmXCbGjD_YiEVoG9bhV2GJQl7QORNWPd7i5Q8bLS-CEZyA2Qv78iw/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -147,7 +147,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vSovmMHjRPbI6xvU4ll98N66LDot_lcZ8MR9sJt56vmI3YUmWwtHoqi3RniOW85fw/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vTF40-xAD7GiPzycZXedgPaSRtM3B6GJd5nc-fbjcsg_yO5DFhQfDENYqWXwRnasg/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -158,7 +158,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vSNPA3yjL0YQNbE8iLQLTwNiPYcuqM0PYhSypQ8u2dnYWpiEDq2uwALBW0DGYCDyw/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vTmZljvV9A1L20DqaNZLXSjVs5PGDJkUru7mdHJqj_ukPYm5nbemdV4CisshCyKSg/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -169,7 +169,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTAAG1x6XiagKd8JDLMEJ6cABcISFoIiMjIoNLPnWOGQsG_qmobzlAVOLeKm5CtYA/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vSTVQsJW6F2HYWJoR77LQVAwA0L2KjHcKrOw-eELWUkGtF4Wv8X-RmPQWnMDJDeTA/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -180,7 +180,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vSBrv63dBjwX7ivz0wpcvfsyHh8Q5yIYFpzhnnlHjkXKPTRGKVfEBR4LNuftcMlFw/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vQCY5Zg9oXll_eAH6KRVeqPiLlHGpEhavZ2SOvczeR34Vfzv5skxnuPQKbaz5-5Yw/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -189,12 +189,9 @@ export default class Main extends Component {
 								{this.state.course ===
 								'MECHANICAL ENGINEERING' ? (
 									<>
-										<iframe
-											title='originalDoc'
-											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQDukikdYgBx-ILVCO-CJdeMwxGaAkJJ0usstHVueHqpE86Yf_ILhg3TFH6Urp27g/pub?embedded=true'
-										></iframe>
-									</>
+										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
+										<iframe 	title='originalDoc'
+											className='documentOriginal' src="https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true"></iframe>	</>
 								) : (
 									''
 								)}
@@ -204,7 +201,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTu49Hec_9dXuG-jaesZjN6ALwrasCzZ9mQi4qIpGEVsX1atS4zOeACLMYNP_bmXQ/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vRstto7PJtuDwFMiARoXFlrHdkd68hsCi-dn9LYsPKGvGFeUQVH1HeyOGGlKhaOkA/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -216,7 +213,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vR6owBnPk3cbwQ7Bd7BeIe80bokUkK3vWTy2qLL1L65nNs91zGycdpsHKh-3ZFS9g/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vRdPNK093zHOKJHrSsQ9xHTcvY9duFrjXqAZi5WUdRDeCl4z5t7ReT3UvwOB37--A/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -228,7 +225,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTJzT-8PnlNGEMqeoKWugzhENA1NJqHCJaBqTs7PCVphYTSZZMtcbAvE2QA3MrwTg/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vQ6asrQudxLmPwUeZ720dwGfAEhS7raMlpOZOR3TuvVnGn8b8XJy0YdFAcqwujXww/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
@@ -239,7 +236,7 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQRpmi1ycnShaRiskPv_YCOJ7oB4G7iy3OKyoiNG-DC2d9vivlu1rop9iMqXDa2Bg/pub?embedded=true'
+											src='https://docs.google.com/document/d/e/2PACX-1vQuF-OQsSK4UVih5lO15NKcXTkAzajFWuAX6OoYs10hk5wT0usEFTTCu_L2WDWxkQ/pub?embedded=true'
 										></iframe>
 									</>
 								) : (
