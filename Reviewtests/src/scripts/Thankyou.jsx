@@ -5,7 +5,7 @@ class Thankyou extends Component {
 		return (
 			<React.Fragment>
 				<div className='App'>
-					<div className='outer'>
+					<div className='outer thanks'>
 						<img
 							class='img img-fluid w-25 logoAicte'
 							src='https://upload.wikimedia.org/wikipedia/en/e/eb/All_India_Council_for_Technical_Education_logo.png'

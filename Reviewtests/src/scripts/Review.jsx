@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import ReactSpeech from './lib'
+import ReactSpeech from './lib'
 import options from './config'
 import qs from 'query-string'
 import axios from 'axios'
@@ -57,7 +57,7 @@ export default class Main extends Component {
 			}
 		)
 		this.setState({ doc: result_doc.data.test_data })
-		
+
 		console.log('adfsd', this.state)
 	}
 
@@ -71,6 +71,9 @@ export default class Main extends Component {
 		doc += '\n' + text
 
 		this.setState({ doc: doc })
+	}
+	copy() {
+		navigator.clipboard.writeText(this.state.text)
 	}
 	sunhandleChange(content) {
 		// console.log(content)
@@ -86,7 +89,7 @@ export default class Main extends Component {
 			},
 			doc: this.state.doc,
 		})
-		if (result.status === 200) alert('saved')
+		if (result.status === 200) alert('saved and Approved')
 	}
 	render() {
 		return (
@@ -245,7 +248,7 @@ export default class Main extends Component {
 							</div>
 							<div className='right'>
 								<div className='output'>
-									{/* <div className='speechtotext'>
+									<div className='speechtotext'>
 										<div className='PreviewData'>
 											<div className='result-container'>
 												<span className='titlePreview'>
@@ -265,6 +268,12 @@ export default class Main extends Component {
 												>
 													Add
 												</button>
+								
+												<button
+													onClick={() => this.copy()}
+												>
+													Copy
+												</button>
 												<br />
 												<br />
 												<ReactSpeech
@@ -277,7 +286,7 @@ export default class Main extends Component {
 												/>
 											</div>
 										</div>
-									</div>*/}
+									</div>
 									<span className='title'>
 										Output: {this.state.email}
 									</span>
@@ -297,8 +306,8 @@ export default class Main extends Component {
 										}
 									></textarea> */}
 									<SunEditor
-										showToolbar={false}
-										disable={true}
+										// showToolbar={false}
+										// disable={true}
 										setContents={this.state.doc}
 										// disable={this.state.review}
 										enable={!this.state.review}
@@ -309,10 +318,10 @@ export default class Main extends Component {
 												['math'],
 											],
 										}}
-										onChange={(e) => {
-											let arr = this.state.arr
-											this.setState({ arr: arr })
-										}}
+										// onChange={(e) => {
+										// 	let arr = this.state.arr
+										// 	this.setState({ arr: arr })
+										// }}
 										// TODO
 										// 	value={elem.convert}
 										// 	onChange={(e) => {
@@ -320,6 +329,8 @@ export default class Main extends Component {
 										// 	  arr[elem.index].convert = e.target.value;
 										// 	  this.setState({ arr: arr });
 										//   }}
+										onChange={this.sunhandleChange}
+
 										height='75vh'
 										className='converted-editable'
 										style={{
@@ -339,7 +350,8 @@ export default class Main extends Component {
 												// transform:"translatey(50%)",
 												// zIndex: 3,
 												// width:"40vw",
-												backgroundColor: '#cddc30',
+												color:"white",
+												backgroundColor: '#3772ff',
 											}}
 											className='recorder'
 										>
@@ -350,13 +362,17 @@ export default class Main extends Component {
 										</div>
 									</div>
 									{/* {this.state.} */}
+									<br />
+									<br />
+									<br />
+									<br />
 									<div
 										style={{
 											// position: 'fixed',
-											padding: '10px ',
+											padding: '10px 0',
 											float: 'left',
-											width: '47%',
-											backgroundColor: 'red',
+											width: '50%',
+											backgroundColor: 'green',
 											color: 'white',
 											borderRadius: '3px',
 											fontWeight: '500',
@@ -371,7 +387,9 @@ export default class Main extends Component {
 													'approve/' +
 													this.state.email
 											)
-											console.log(result)
+											// console.log(result)
+											this.save()
+
 										}}
 									>
 										Approve
@@ -386,9 +404,11 @@ export default class Main extends Component {
 										>
 											<div
 												style={{
-													position: 'fixed',
-													padding: '10px ',
-													width: '43%',
+													// position: 'fixed',
+													padding: '10px 0 ',
+													float: 'left',
+
+													width: '50%',
 													backgroundColor: 'red',
 													color: 'white',
 													borderRadius: '3px',
@@ -400,7 +420,8 @@ export default class Main extends Component {
 															'reject/' +
 															this.state.email
 													)
-													console.log(result)
+													// console.log(result)
+													alert("translator has been rejected")
 												}}
 												className='save'
 											>
