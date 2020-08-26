@@ -1267,11 +1267,14 @@ export default class Main extends Component {
 								{this.state.course ===
 								'MECHANICAL ENGINEERING' ? (
 									<>
-										<iframe
+										{/* <iframe
 											title='originalDoc'
 											className='documentOriginal'
 											src='https://drive.google.com/file/d/1s3LVOPIeEZOiwOKSKMUGvYRrfCPHNBDP/preview'
-										></iframe>
+										></iframe> */}
+
+										<iframe title='originalDoc'
+											className='documentOriginal' src='https://docs.google.com/document/d/e/2PACX-1vTc59OBTt0JV4mPSkS7JbNl4Sr4LMohA6Ncv8U27ULff0hC9NTzQdJ80V_THwcxBewz52-QoYZCd4Zs/pub?embedded=true'></iframe>
 									</>
 								) : (
 									''
@@ -1341,13 +1344,13 @@ export default class Main extends Component {
 														fontSize: '1.5rem',
 													}}
 												></p>
-												<button
+												{/* <button
 													onClick={() =>
 														this.addText()
 													}
 												>
 													Add
-												</button>
+												</button> */}
 												<button
 													onClick={() => this.copy()}
 												>
