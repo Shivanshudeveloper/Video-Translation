@@ -1196,9 +1196,10 @@ export default class Main extends Component {
 								'COMPUTER SCIENCE AND ENGINEERING' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21582&amp;authkey=AH4aKTBC5u8J0_U&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vSU7iglymqCVC3YV5eHg6lp1ZnMCDORn0D4QLAvi-IG9CAiY6IZlb_G1SLRIk2s6g/pub?embedded=true'
+											frameborder='0'
 										></iframe>
 									</>
 								) : (
@@ -1208,10 +1209,12 @@ export default class Main extends Component {
 								{this.state.course === 'Multidisciplinary' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21639&amp;authkey=AC-lG1asuXrYJbg&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vRbQdvg1yapkMmXCbGjD_YiEVoG9bhV2GJQl7QORNWPd7i5Q8bLS-CEZyA2Qv78iw/pub?embedded=true'
-										></iframe>
+											frameborder='0'
+										>
+										</iframe>
 									</>
 								) : (
 									''
@@ -1220,9 +1223,10 @@ export default class Main extends Component {
 								'MEATLLURGICAL ENGINEERING AND MATERIAL SCIENCE' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21621&amp;authkey=AB2F6vcDkC9YXt0&amp;em=2&amp;wdStartOn=1&amp;wdPrint=0&amp;wdEmbedCode=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTF40-xAD7GiPzycZXedgPaSRtM3B6GJd5nc-fbjcsg_yO5DFhQfDENYqWXwRnasg/pub?embedded=true'
+											frameborder='0'
 										></iframe>
 									</>
 								) : (
@@ -1231,9 +1235,10 @@ export default class Main extends Component {
 								{this.state.course === 'BASIC SCIENCE' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21540&amp;authkey=ABfntY9dOY--d6o&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vTmZljvV9A1L20DqaNZLXSjVs5PGDJkUru7mdHJqj_ukPYm5nbemdV4CisshCyKSg/pub?embedded=true'
+											frameborder='0'
 										></iframe>
 									</>
 								) : (
@@ -1242,9 +1247,10 @@ export default class Main extends Component {
 								{this.state.course === 'BIOTECHNOLOGY' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21527&amp;authkey=ADcIuWw4zpvf2j8&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vSTVQsJW6F2HYWJoR77LQVAwA0L2KjHcKrOw-eELWUkGtF4Wv8X-RmPQWnMDJDeTA/pub?embedded=true'
+											frameborder='0'
 										></iframe>
 									</>
 								) : (
@@ -1253,9 +1259,10 @@ export default class Main extends Component {
 								{this.state.course === 'HUMANITIES' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21612&amp;authkey=AK12qdsJWALTnAU&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQCY5Zg9oXll_eAH6KRVeqPiLlHGpEhavZ2SOvczeR34Vfzv5skxnuPQKbaz5-5Yw/pub?embedded=true'
+											frameborder='0'
 										></iframe>
 									</>
 								) : (
@@ -1265,11 +1272,13 @@ export default class Main extends Component {
 								'MECHANICAL ENGINEERING' ? (
 									<>
 										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
+
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21630&amp;authkey=AL-mAgyUsFu4m4Y&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'
-										></iframe>{' '}
+											frameborder='0'
+										></iframe>
 									</>
 								) : (
 									''
@@ -1278,9 +1287,10 @@ export default class Main extends Component {
 								'CHEMICAL ENGINEERING' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21569&amp;authkey=AButHi-PfEwkvuM&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vRstto7PJtuDwFMiARoXFlrHdkd68hsCi-dn9LYsPKGvGFeUQVH1HeyOGGlKhaOkA/pub?embedded=true'
+											frameborder='0'
 										></iframe>
 									</>
 								) : (
@@ -1290,9 +1300,10 @@ export default class Main extends Component {
 								'ELECTRICAL ENGINEERING' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21603&amp;authkey=ACovhg5A3VnMfbg&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vRdPNK093zHOKJHrSsQ9xHTcvY9duFrjXqAZi5WUdRDeCl4z5t7ReT3UvwOB37--A/pub?embedded=true'
+											frameborder='0'
 										></iframe>
 									</>
 								) : (
@@ -1304,7 +1315,8 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQ6asrQudxLmPwUeZ720dwGfAEhS7raMlpOZOR3TuvVnGn8b8XJy0YdFAcqwujXww/pub?embedded=true'
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21595&amp;authkey=AJdzhMLa8-2j2AI&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
+											frameborder='0'
 										></iframe>
 									</>
 								) : (
@@ -1313,9 +1325,10 @@ export default class Main extends Component {
 								{this.state.course === 'CIVIL ENGINEERING' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21565&amp;authkey=AAVZe5r2tftFe1A&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://docs.google.com/document/d/e/2PACX-1vQuF-OQsSK4UVih5lO15NKcXTkAzajFWuAX6OoYs10hk5wT0usEFTTCu_L2WDWxkQ/pub?embedded=true'
+											frameborder='0'
 										></iframe>
 									</>
 								) : (
@@ -1353,10 +1366,11 @@ export default class Main extends Component {
 												<br />
 												<br />
 												<br />
-											
-												
-												<span className="textmain">{this.state.text}</span>
-												
+
+												<span className='textmain'>
+													{this.state.text}
+												</span>
+
 												<p
 													className='lead'
 													style={{
