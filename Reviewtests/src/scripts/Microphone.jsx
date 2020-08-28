@@ -66,7 +66,7 @@ export default class Microphone extends Component {
 		// let arr = this.state.arr
 		// arr[elem.index].audio = true
 		// this.setState({ arr: arr })
-		alert('Audio Uploaded')
+		alert('Audio Uploaded')		
 	}
 	handleRest() {
 		const reset = {
