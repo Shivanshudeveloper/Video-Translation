@@ -253,7 +253,11 @@ export default class Main extends Component {
 										<div className='PreviewData'>
 											<div className='result-container'>
 												<span className='titlePreview'>
-													Preview:{this.state.text}
+													Preview:{this.state.text}<button
+													onClick={() => this.copy()}
+												>
+													Copy
+												</button>
 												</span>
 												<p
 													className='lead'
@@ -262,19 +266,9 @@ export default class Main extends Component {
 													}}
 												></p>
 
-												<button
-													onClick={() =>
-														this.addText()
-													}
-												>
-													Add
-												</button>
+												
 
-												<button
-													onClick={() => this.copy()}
-												>
-													Copy
-												</button>
+												
 												<br />
 												<br />
 												<ReactSpeech
