@@ -396,7 +396,7 @@ export default class Main extends Component {
 													'approve/' +
 													this.state.email
 											)
-											// console.log(result)
+											console.log(result)
 											this.save()
 										}}
 									>
@@ -422,7 +422,7 @@ export default class Main extends Component {
 														'reject/' +
 														this.state.email
 												)
-												// console.log(result)
+												console.log(result)
 												alert(
 													'translator has been rejected'
 												)
