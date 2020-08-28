@@ -252,33 +252,48 @@ export default class Main extends Component {
 									<div className='speechtotext'>
 										<div className='PreviewData'>
 											<div className='result-container'>
-												<span className='titlePreview'>
-													Preview:{this.state.text}<button
-													onClick={() => this.copy()}
-												>
-													Copy
-												</button>
+												<div className='stt'>
+													<ReactSpeech
+														className='miconmain'
+														lang={this.state.lang}
+														onText={(text) =>
+															this.onTextCallback(
+																text
+															)
+														}
+													/>
+													<button
+														className='clickonMain'
+														onClick={() =>
+															this.copy()
+														}
+													>
+														Copy
+													</button>
+												</div>
+												<br />
+												<br />
+												<br />
+												<span className='textmain'>
+													{this.state.text}
 												</span>
+
 												<p
 													className='lead'
 													style={{
 														fontSize: '1.5rem',
 													}}
 												></p>
-
-												
-
-												
-												<br />
-												<br />
-												<ReactSpeech
-													lang={this.state.lang}
-													onText={(text) =>
-														this.onTextCallback(
-															text
-														)
+												{/* <button
+													onClick={() =>
+														this.addText()
 													}
-												/>
+												>
+													Add
+												</button> */}
+
+												<br />
+												<br />
 											</div>
 										</div>
 									</div>
