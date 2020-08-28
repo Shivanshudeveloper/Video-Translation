@@ -1199,7 +1199,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21582&amp;authkey=AH4aKTBC5u8J0_U&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -1212,7 +1212,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21639&amp;authkey=AC-lG1asuXrYJbg&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										>
 										</iframe>
 									</>
@@ -1226,7 +1226,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21621&amp;authkey=AB2F6vcDkC9YXt0&amp;em=2&amp;wdStartOn=1&amp;wdPrint=0&amp;wdEmbedCode=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -1238,7 +1238,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21540&amp;authkey=ABfntY9dOY--d6o&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -1250,7 +1250,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21527&amp;authkey=ADcIuWw4zpvf2j8&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -1262,7 +1262,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21612&amp;authkey=AK12qdsJWALTnAU&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -1277,7 +1277,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21630&amp;authkey=AL-mAgyUsFu4m4Y&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -1290,7 +1290,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21569&amp;authkey=AButHi-PfEwkvuM&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -1303,7 +1303,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21603&amp;authkey=ACovhg5A3VnMfbg&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -1316,7 +1316,7 @@ export default class Main extends Component {
 											title='originalDoc'
 											className='documentOriginal'
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21595&amp;authkey=AJdzhMLa8-2j2AI&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -1328,7 +1328,7 @@ export default class Main extends Component {
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21565&amp;authkey=AAVZe5r2tftFe1A&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											frameborder='0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
