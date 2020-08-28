@@ -116,7 +116,7 @@ export default class Main extends Component {
 					</a>
 					<div className='outer'>
 						<div className='row'>
-						<div className='left'>
+							<div className='left'>
 								{this.state.course ===
 								'COMPUTER SCIENCE AND ENGINEERING' ? (
 									<>
@@ -190,8 +190,12 @@ export default class Main extends Component {
 								'MECHANICAL ENGINEERING' ? (
 									<>
 										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
-										<iframe 	title='originalDoc'
-											className='documentOriginal' src="https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true"></iframe>	</>
+										<iframe
+											title='originalDoc'
+											className='documentOriginal'
+											src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'
+										></iframe>{' '}
+									</>
 								) : (
 									''
 								)}
@@ -265,7 +269,7 @@ export default class Main extends Component {
 												>
 													Add
 												</button>
-								
+
 												<button
 													onClick={() => this.copy()}
 												>
@@ -327,7 +331,6 @@ export default class Main extends Component {
 										// 	  this.setState({ arr: arr });
 										//   }}
 										onChange={this.sunhandleChange}
-
 										height='75vh'
 										className='converted-editable'
 										style={{
@@ -347,7 +350,7 @@ export default class Main extends Component {
 												// transform:"translatey(50%)",
 												// zIndex: 3,
 												// width:"40vw",
-												color:"white",
+												color: 'white',
 												backgroundColor: '#3772ff',
 											}}
 											className='recorder'
@@ -386,39 +389,39 @@ export default class Main extends Component {
 											)
 											// console.log(result)
 											this.save()
-
 										}}
 									>
 										Approve
 									</div>
 
 									<div className='reviewexitbutton'>
-										
-											<div
-												style={{
-													// position: 'fixed',
-													padding: '10px 0 ',
-													float: 'left',
+										<div
+											style={{
+												// position: 'fixed',
+												padding: '10px 0 ',
+												float: 'left',
 
-													width: '50%',
-													backgroundColor: 'red',
-													color: 'white',
-													borderRadius: '3px',
-													fontWeight: '500',
-												}}
-												onClick={async () => {
-													const result = await axios.post(
-														options.link +
-															'reject/' +
-															this.state.email
-													)
-													// console.log(result)
-													alert("translator has been rejected")
-												}}
-												className='save'
-											>
-												Reject
-											</div>
+												width: '50%',
+												backgroundColor: 'red',
+												color: 'white',
+												borderRadius: '3px',
+												fontWeight: '500',
+											}}
+											onClick={async () => {
+												const result = await axios.post(
+													options.link +
+														'reject/' +
+														this.state.email
+												)
+												// console.log(result)
+												alert(
+													'translator has been rejected'
+												)
+											}}
+											className='save'
+										>
+											Reject
+										</div>
 									</div>
 								</div>
 							</div>

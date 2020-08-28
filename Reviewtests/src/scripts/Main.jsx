@@ -35,16 +35,13 @@ export default class Main extends Component {
 			this.forceUpdate()
 		})
 	}
-
 	async get_data() {
 		const result = await axios.post(options.link + 'auth/login', {
 			email: this.state.email,
 			password: 'password',
 		})
-
 		localStorage.setItem('email', this.state.email)
 		localStorage.setItem('auth', result.data.token)
-
 		this.setState({
 			result: result.data,
 			language: result.data.language,

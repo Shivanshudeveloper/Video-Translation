@@ -55,7 +55,7 @@
 	width: 99% !important;
 	margin: 0 0.5% !important;
 	.row {
-	margin-top: 6%;
+		margin-top: 6%;
 
 		.left {
 			width: 50%;
@@ -90,8 +90,10 @@
 					width: 95% !important;
 					margin: 0 2.5%;
 					height: 23vh;
+					overflow-y: auto;
 					.result-container {
 						background-color: #eeeeee;
+
 						padding: 20px;
 						width: 700% !important;
 						border: thin solid #cdcdcd;
@@ -217,42 +219,41 @@ a {
 	visibility: hidden !important;
 	display: none;
 }
-._eV_dK{
+._eV_dK {
 	background-color: red;
-
 }
-figure{
-img{
-	background-color: transparent !important;
+figure {
+	img {
+		background-color: transparent !important;
+	}
 }
-}
-img{
+img {
 	background-color: red;
 	padding: 7px;
 	border-radius: 10px;
 	// font-weight: 800;
 	// height: 200vh !important;
 }
-.email{
+.email {
 	// text-transform: capitalize;
 }
-.img-fluid{
-	img{
+.img-fluid {
+	img {
 		background-color: white;
 	}
 }
-.thanks{
-	img{
-		background-color: white;
-	}
-}
-
-.sun-editor{
-	img{
+.thanks {
+	img {
 		background-color: white;
 	}
 }
 
-.outer{
+.sun-editor {
+	img {
+		background-color: white;
+	}
+}
+
+.outer {
 	margin-top: 10vh !important;
 }
