@@ -1365,8 +1365,6 @@ export default class Main extends Component {
 												<br />
 												<br />
 												<br />
-												<br />
-
 												<span className='textmain'>
 													{this.state.text}
 												</span>
@@ -1414,7 +1412,7 @@ export default class Main extends Component {
 												['undo', 'redo'],
 												['math'],
 												// ['image'],
-												['codeView'],
+												// ['codeView'],
 											],
 										}}
 										// onChange={(e) => {
