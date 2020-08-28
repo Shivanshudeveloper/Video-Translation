@@ -1265,8 +1265,12 @@ export default class Main extends Component {
 								'MECHANICAL ENGINEERING' ? (
 									<>
 										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
-										<iframe 	title='originalDoc'
-											className='documentOriginal' src="https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true"></iframe>	</>
+										<iframe
+											title='originalDoc'
+											className='documentOriginal'
+											src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'
+										></iframe>{' '}
+									</>
 								) : (
 									''
 								)}
@@ -1328,6 +1332,13 @@ export default class Main extends Component {
 											<div className='result-container'>
 												<span className='titlePreview'>
 													Preview:{this.state.text}
+													<button
+														onClick={() =>
+															this.copy()
+														}
+													>
+														Copy
+													</button>
 												</span>
 												<p
 													className='lead'
@@ -1342,11 +1353,7 @@ export default class Main extends Component {
 												>
 													Add
 												</button> */}
-												<button
-													onClick={() => this.copy()}
-												>
-													Copy
-												</button>
+
 												<br />
 												<br />
 												<ReactSpeech
