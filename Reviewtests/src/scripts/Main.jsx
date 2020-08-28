@@ -1351,6 +1351,9 @@ export default class Main extends Component {
 												</div>
 												<br />
 												<br />
+												<br />
+												<br />
+											
 												
 												<span className="textmain">{this.state.text}</span>
 												
