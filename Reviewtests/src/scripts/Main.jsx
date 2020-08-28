@@ -1330,27 +1330,30 @@ export default class Main extends Component {
 									<div className='speechtotext'>
 										<div className='PreviewData'>
 											<div className='result-container'>
-											<ReactSpeech
-													lang={this.state.lang}
-													onText={(text) =>
-														this.onTextCallback(
-															text
-														)
-													}
-												/>
+												<div className='stt'>
+													<ReactSpeech
+														className='miconmain'
+														lang={this.state.lang}
+														onText={(text) =>
+															this.onTextCallback(
+																text
+															)
+														}
+													/>
 													<button
+														className='clickonMain'
 														onClick={() =>
 															this.copy()
 														}
 													>
 														Copy
-													</button><br />
-													
-												<span className='titlePreview'>
-													Preview:
-												</span>
+													</button>
+												</div>
 												<br />
-													{this.state.text}
+												<br />
+												
+												<span>Preview</span>
+												{this.state.text}
 												<p
 													className='lead'
 													style={{
@@ -1367,7 +1370,6 @@ export default class Main extends Component {
 
 												<br />
 												<br />
-												
 											</div>
 										</div>
 									</div>

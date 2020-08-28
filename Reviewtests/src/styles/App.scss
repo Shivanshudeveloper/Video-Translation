@@ -89,11 +89,11 @@
 				.speechtotext {
 					width: 95% !important;
 					margin: 0 2.5%;
-					height: 23vh;
+					// height: 23vh;
 					overflow-y: auto;
 					.result-container {
 						background-color: #eeeeee;
-
+						height: 23vh;
 						padding: 20px;
 						width: 700% !important;
 						border: thin solid #cdcdcd;
@@ -256,4 +256,20 @@ img {
 
 .outer {
 	margin-top: 10vh !important;
+}
+.miconmain {
+	width: 10% !important;
+	float: left !important;
+	margin: 0 !important;
+}
+.clickonMain {
+	width: 20%;
+	float: right;
+}
+.react-speech {
+	margin: 0 !important;
+	float: left !important;
+}
+.stt{
+	// float: right;
 }
