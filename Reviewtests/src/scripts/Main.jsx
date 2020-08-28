@@ -1352,8 +1352,8 @@ export default class Main extends Component {
 												<br />
 												<br />
 												
-												<span>Preview</span>
-												{this.state.text}
+												<span className="textmain">{this.state.text}</span>
+												
 												<p
 													className='lead'
 													style={{
