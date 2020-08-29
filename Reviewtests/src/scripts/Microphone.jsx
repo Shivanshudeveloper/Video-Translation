@@ -34,6 +34,12 @@ export default class Microphone extends Component {
 			// console.log(this.state)
 			// console.log(this.props)
 		}, 1000)
+
+		setInterval(()=>{
+			if(this.state.updated===true){
+				this.props.set_audio_to_true()
+			}
+		},1000)
 	}
 	classgame() {
 		var element = document.getElementsByClassName('_1Yplu')

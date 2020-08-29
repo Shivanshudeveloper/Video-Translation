@@ -27,7 +27,12 @@ export default class Main extends Component {
 		language: '',
 		courseName: '',
 		recorder: false,
+		audio: false,
 	}
+	set_audio_to_true() {
+		this.setState({ audio: true })
+	}
+
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
 		this.setState({ email: usere }, () => {
@@ -1128,6 +1133,10 @@ export default class Main extends Component {
 		if (result.status === 200) console.log('saved')
 	}
 	approval() {
+		if(this.state.audio===false){
+			alert('Please submit audio.')
+			return	
+		}
 		this.setState({ approval: 'approved' })
 		// console.log(this.state.approval)
 		alert('Sent for approval')
@@ -1213,8 +1222,7 @@ export default class Main extends Component {
 											title='originalDoc'
 											className='documentOriginal'
 											frameBorder='0'
-										>
-										</iframe>
+										></iframe>
 									</>
 								) : (
 									''
@@ -1475,6 +1483,7 @@ export default class Main extends Component {
 													className='recorder'
 												>
 													<Microphone
+														set_audio_to_true={this.set_audio_to_true}
 														className='recorder'
 														elem={this.state.email}
 														_id={
