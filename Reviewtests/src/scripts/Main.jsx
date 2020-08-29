@@ -1529,7 +1529,6 @@ export default class Main extends Component {
 										>
 											Save As Draft
 										</button>
-
 										{this.state.audio === true ? (
 											<>
 												<a
