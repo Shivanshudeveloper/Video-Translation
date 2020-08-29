@@ -85,18 +85,9 @@ export default class Microphone extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Recorder
-					record={true}
-					title={'Please Record Transcript'}
-					audioURL={this.state.audioDetails.url}
-					showUIAudio
-					handleAudioStop={(data) => this.handleAudioStop(data)}
-					handleAudioUpload={(data) => this.handleAudioUpload(data)}
-					handleRest={() => this.handleRest()}
-				/>
 				{this.state.updated === true & this.state.hua===false ? (
 					<>
-						<span>Previous Recording:</span>
+						<span>Current Recording:</span>
 						<br />
 						<audio controls>
 							<source
@@ -112,6 +103,16 @@ export default class Microphone extends Component {
 				) : (
 					''
 				)}
+				<Recorder
+					record={true}
+					title={'Please Check/ Re-Record Transcript'}
+					audioURL={this.state.audioDetails.url}
+					showUIAudio
+					handleAudioStop={(data) => this.handleAudioStop(data)}
+					handleAudioUpload={(data) => this.handleAudioUpload(data)}
+					handleRest={() => this.handleRest()}
+				/>
+				
 			</React.Fragment>
 		)
 	}

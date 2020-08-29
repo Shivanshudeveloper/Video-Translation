@@ -14,7 +14,6 @@ export default class Main extends Component {
 		this.sunhandleChange = this.sunhandleChange.bind(this)
 		this.clickrecord = this.clickrecord.bind(this)
 		this.set_audio_to_true = this.set_audio_to_true.bind(this)
-		
 	}
 	state = {
 		lang: 'hi-IN',
@@ -31,7 +30,7 @@ export default class Main extends Component {
 		recorder: false,
 		audio: false,
 	}
-	
+
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
 		this.setState({ email: usere }, () => {
@@ -39,9 +38,9 @@ export default class Main extends Component {
 			this.forceUpdate()
 		})
 	}
-			set_audio_to_true() {
-				this.setState({ audio: true })
-			}
+	set_audio_to_true() {
+		this.setState({ audio: true })
+	}
 	async get_data() {
 		const result = await axios.post(options.link + 'auth/login', {
 			email: this.state.email,
@@ -67,26 +66,26 @@ export default class Main extends Component {
 				},
 				doc: this.state.doc,
 			}
-			)
-			// console.log(result_doc.data.test_data)
-			this.setState({
-				doc:
+		)
+		// console.log(result_doc.data.test_data)
+		this.setState({
+			doc:
 				result_doc.data.test_data !== undefined
-				? result_doc.data.test_data
-				: '',
-			})
-			if (this.state.doc === '') {
-				console.log(this.state.course)
-				if (this.state.course === 'COMPUTER SCIENCE AND ENGINEERING') {
-					if (this.state.language === 'Hindi') {
-						axios
+					? result_doc.data.test_data
+					: '',
+		})
+		if (this.state.doc === '') {
+			console.log(this.state.course)
+			if (this.state.course === 'COMPUTER SCIENCE AND ENGINEERING') {
+				if (this.state.language === 'Hindi') {
+					axios
 						.get(
 							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering%20hindi.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 				}
 				if (this.state.language === 'Marathi') {
 					axios
@@ -1124,6 +1123,16 @@ export default class Main extends Component {
 		})
 		if (result.status === 200) alert('saved')
 	}
+	async saveA() {
+		let result = await axios.post(options.link + 'update/test/document', {
+			auth: {
+				email: localStorage.getItem('email'),
+				token: localStorage.getItem('auth'),
+			},
+			doc: this.state.doc,
+		})
+		// if (result.status === 200) alert('saved')
+	}
 	async saveinit() {
 		let result = await axios.post(options.link + 'update/test/document', {
 			auth: {
@@ -1135,7 +1144,7 @@ export default class Main extends Component {
 		if (result.status === 200) console.log('saved')
 	}
 	approval() {
-		if(this.state.audio===false){
+		if (this.state.audio === false) {
 			alert('Please submit audio.')
 			return
 		}
@@ -1485,7 +1494,10 @@ export default class Main extends Component {
 													className='recorder'
 												>
 													<Microphone
-														set_audio_to_true={this.set_audio_to_true}
+														set_audio_to_true={
+															this
+																.set_audio_to_true
+														}
 														className='recorder'
 														elem={this.state.email}
 														_id={
@@ -1519,54 +1531,61 @@ export default class Main extends Component {
 										</button>
 
 										{this.state.audio === true ? (
-										<>
+											<>
 												<a
-											href='./Thankyou'
-											onClick={() => {
-												this.save()
-											}}
-										>
-											<button
-												style={{
-													// position: 'fixed',
-													padding: '10px ',
-													width: '43%',
-													backgroundColor: '#00695c',
-													color: 'white',
-													borderRadius: '3px',
-													fontWeight: '700',
-												}}
-												onClick={() => {
-													this.save()
-													this.approval()
-												}}
-												className='save saveMain buttonnoborder'
-											>
-												Save & Send for approval
-											</button>
-										</a>
-										</>
-									) : (
-										<button
-												style={{
-													// position: 'fixed',
-													padding: '10px ',
-													width: '43%',
-													backgroundColor: '#00695c',
-													color: 'white',
-													borderRadius: '3px',
-													fontWeight: '700',
-												}}
+													onClick={() => {
+														this.saveA()
+														this.approval()
+													}}
+													href='./Thankyou'
+													// onClick={() => {
+													// 	this.save()
+													// 	this.approval()
+													// }}
+													className='save saveMain buttonnoborder'
+												>
+													<button
+														style={{
+															// position: 'fixed',
+															padding: '10px ',
+															width: '43%',
+															backgroundColor:
+																'#00695c',
+															color: 'white',
+															borderRadius: '3px',
+															fontWeight: '700',
+														}}
+														className='button save saveMain buttonnoborder'
+													>
+														Save & Send for approval
+													</button>
+												</a>
+											</>
+										) : (
+											<a
 												onClick={() => {
 													// this.save()
 													this.approval()
 												}}
-												className='save saveMain buttonnoborder'
+												className=''
 											>
-												Save & Send for approval
-											</button>
-									)}
-									
+												<button
+													style={{
+														// position: 'fixed',
+														padding: '10px ',
+														width: '43%',
+														backgroundColor:
+															'#00695c',
+														color: 'white',
+														borderRadius: '3px',
+														fontWeight: '700',
+													}}
+													className='button save saveMain buttonnoborder'
+												>
+													Save & Send for approval
+												</button>{' '}
+											</a>
+										)}
 									</div>
 								</div>
 							</div>
