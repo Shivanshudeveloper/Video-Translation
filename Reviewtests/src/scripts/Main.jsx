@@ -1131,6 +1131,7 @@ export default class Main extends Component {
 			},
 			doc: this.state.doc,
 		})
+		console.log(result)
 
 		// if (result.status === 200) alert('saved')
 	}
@@ -1563,6 +1564,7 @@ export default class Main extends Component {
 											</>
 										) : (
 											<a
+											href=""
 												onClick={() => {
 													// this.save()
 													this.approval()
