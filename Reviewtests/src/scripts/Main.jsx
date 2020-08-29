@@ -1131,6 +1131,7 @@ export default class Main extends Component {
 			},
 			doc: this.state.doc,
 		})
+
 		// if (result.status === 200) alert('saved')
 	}
 	async saveinit() {
@@ -1150,7 +1151,7 @@ export default class Main extends Component {
 		}
 		this.setState({ approval: 'approved' })
 		// console.log(this.state.approval)
-		alert('Sent for approval')
+		alert('Saved, and sent for approval')
 		localStorage.setItem('approval', 'approved')
 		this.setState({ localApprove: localStorage.getItem('approval') })
 	}
