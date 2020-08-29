@@ -1147,7 +1147,7 @@ export default class Main extends Component {
 	}
 	approval() {
 		if (this.state.audio === false) {
-			alert('Please submit audio.')
+			alert('Please Check Audio Submissionn')
 			return
 		}
 		this.setState({ approval: 'approved' })
