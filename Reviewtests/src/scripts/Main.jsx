@@ -13,6 +13,8 @@ export default class Main extends Component {
 		super(props)
 		this.sunhandleChange = this.sunhandleChange.bind(this)
 		this.clickrecord = this.clickrecord.bind(this)
+		this.set_audio_to_true = this.set_audio_to_true.bind(this)
+		
 	}
 	state = {
 		lang: 'hi-IN',
@@ -29,10 +31,7 @@ export default class Main extends Component {
 		recorder: false,
 		audio: false,
 	}
-	set_audio_to_true() {
-		this.setState({ audio: true })
-	}
-
+	
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
 		this.setState({ email: usere }, () => {
@@ -40,6 +39,9 @@ export default class Main extends Component {
 			this.forceUpdate()
 		})
 	}
+			set_audio_to_true() {
+				this.setState({ audio: true })
+			}
 	async get_data() {
 		const result = await axios.post(options.link + 'auth/login', {
 			email: this.state.email,
@@ -65,26 +67,26 @@ export default class Main extends Component {
 				},
 				doc: this.state.doc,
 			}
-		)
-		// console.log(result_doc.data.test_data)
-		this.setState({
-			doc:
+			)
+			// console.log(result_doc.data.test_data)
+			this.setState({
+				doc:
 				result_doc.data.test_data !== undefined
-					? result_doc.data.test_data
-					: '',
-		})
-		if (this.state.doc === '') {
-			console.log(this.state.course)
-			if (this.state.course === 'COMPUTER SCIENCE AND ENGINEERING') {
-				if (this.state.language === 'Hindi') {
-					axios
+				? result_doc.data.test_data
+				: '',
+			})
+			if (this.state.doc === '') {
+				console.log(this.state.course)
+				if (this.state.course === 'COMPUTER SCIENCE AND ENGINEERING') {
+					if (this.state.language === 'Hindi') {
+						axios
 						.get(
 							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering%20hindi.htm'
-						)
-						.then((data) => {
-							this.setState({ doc: data.data })
-							this.saveinit()
-						})
+							)
+							.then((data) => {
+								this.setState({ doc: data.data })
+								this.saveinit()
+							})
 				}
 				if (this.state.language === 'Marathi') {
 					axios
@@ -1135,7 +1137,7 @@ export default class Main extends Component {
 	approval() {
 		if(this.state.audio===false){
 			alert('Please submit audio.')
-			return	
+			return
 		}
 		this.setState({ approval: 'approved' })
 		// console.log(this.state.approval)
@@ -1515,7 +1517,10 @@ export default class Main extends Component {
 										>
 											Save As Draft
 										</button>
-										<a
+
+										{this.state.audio === true ? (
+										<>
+												<a
 											href='./Thankyou'
 											onClick={() => {
 												this.save()
@@ -1540,6 +1545,28 @@ export default class Main extends Component {
 												Save & Send for approval
 											</button>
 										</a>
+										</>
+									) : (
+										<button
+												style={{
+													// position: 'fixed',
+													padding: '10px ',
+													width: '43%',
+													backgroundColor: '#00695c',
+													color: 'white',
+													borderRadius: '3px',
+													fontWeight: '700',
+												}}
+												onClick={() => {
+													// this.save()
+													this.approval()
+												}}
+												className='save saveMain buttonnoborder'
+											>
+												Save & Send for approval
+											</button>
+									)}
+									
 									</div>
 								</div>
 							</div>
