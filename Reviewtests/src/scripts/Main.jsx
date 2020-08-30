@@ -8,6 +8,7 @@ import SunEditor from 'suneditor-react'
 import 'suneditor/dist/css/suneditor.min.css'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
+// import { TRUE } from 'node-sass'
 export default class Main extends Component {
 	constructor(props) {
 		super(props)
@@ -29,6 +30,7 @@ export default class Main extends Component {
 		courseName: '',
 		recorder: false,
 		audio: false,
+		sentReview:false
 	}
 
 	componentDidMount() {
@@ -36,7 +38,6 @@ export default class Main extends Component {
 		this.setState({ email: usere },async () => {
 			await this.get_data()
 			this.forceUpdate()
-
 			console.log(this.state)
 		})
 	}
@@ -76,6 +77,10 @@ export default class Main extends Component {
 					? result_doc.data.test_data
 					: '',
 		})
+		if(result_doc.data.review !== 'none'){
+			this.setState({sentReview: true})
+			console.log("hello dear")
+		}
 		if (this.state.doc === '') {
 			console.log(this.state.course)
 			if (this.state.course === 'COMPUTER SCIENCE AND ENGINEERING') {
@@ -1432,7 +1437,7 @@ export default class Main extends Component {
 									></textarea> */}
 									<SunEditor
 										setContents={this.state.doc}
-										enable={!this.state.review}
+										disable={this.state.sentReview}
 										setOptions={{
 											katex: katex,
 											buttonList: [
