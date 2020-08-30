@@ -77,7 +77,7 @@ export default class Main extends Component {
 					? result_doc.data.test_data
 					: '',
 		})
-		if (result_doc.data.review === 'none') {
+		if (result_doc.data.review !== 'none') {
 			this.setState({ sentReview: true })
 			console.log('hello dear')
 		}
