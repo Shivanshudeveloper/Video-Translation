@@ -71,7 +71,6 @@ export default class Table extends Component {
 		return (
 			<React.Fragment>
 				{this.state.course ? this.state.course : ''}
-				 Translating to 
 				{this.state.lang ? this.state.lang : ''}
 				<section id='admin'>
 					<div className='dropdowns'>
