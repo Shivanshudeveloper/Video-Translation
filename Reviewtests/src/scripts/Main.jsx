@@ -33,9 +33,11 @@ export default class Main extends Component {
 
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
-		this.setState({ email: usere }, () => {
-			this.get_data()
+		this.setState({ email: usere },async () => {
+			await this.get_data()
 			this.forceUpdate()
+
+			console.log(this.state)
 		})
 	}
 	set_audio_to_true() {
@@ -67,7 +69,7 @@ export default class Main extends Component {
 				doc: this.state.doc,
 			}
 		)
-		// console.log(result_doc.data.test_data)
+		console.log(result_doc.data.review)
 		this.setState({
 			doc:
 				result_doc.data.test_data !== undefined
