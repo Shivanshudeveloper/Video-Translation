@@ -30,7 +30,7 @@ export default class Microphone extends Component {
 	componentDidMount() {
 		setTimeout(() => {
 			this.setState({ elem: this.props.elem, _id: this.props._id })
-			this.setState({ updated: true })
+			this.setState({ hua: true })
 			// console.log(this.state)
 			// console.log(this.props)
 		}, 1000)
@@ -58,7 +58,7 @@ export default class Microphone extends Component {
 	handleAudioStop(data) {
 		this.setState({ audioDetails: data })
 		this.setState({ recorded: true })
-		this.setState({ hua: true })
+		this.setState({ hua: false })
 		this.classgame()
 	}
 	async handleAudioUpload(file) {
@@ -100,7 +100,7 @@ export default class Microphone extends Component {
 					handleAudioUpload={(data) => this.handleAudioUpload(data)}
 					handleRest={() => this.handleRest()}
 				/>
-				{this.state.updated === true & this.state.hua===false ? (
+				{ this.state.hua===true ? (
 					<>
 						<span>Previous Recording:</span>
 						<br />

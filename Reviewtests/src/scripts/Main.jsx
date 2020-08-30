@@ -1125,7 +1125,7 @@ export default class Main extends Component {
 	}
 	async saveA() {
 		console.log('called')
-		let result = await axios.post(options.link + 'update/test/document', {
+		let result = await axios.post(options.link + 'update/test/approve', {
 			auth: {
 				email: localStorage.getItem('email'),
 				token: localStorage.getItem('auth'),
