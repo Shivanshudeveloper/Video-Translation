@@ -42,10 +42,8 @@ export default class Table extends Component {
 		if (parsed.course && parsed.course !== 'undefined') {
 			this.setState({ course: parsed.course.toUpperCase() })
 		}
-
 		this.setState({ parsed: parsed }, async () => {
 			console.log(parsed)
-
 			let result = await axios.post(options.link + 'list/all', {
 				page: parsed.page,
 				qty: parsed.qty,
@@ -73,7 +71,7 @@ export default class Table extends Component {
 		return (
 			<React.Fragment>
 				{this.state.course ? this.state.course : ''}
-				<br />
+				 Translating to 
 				{this.state.lang ? this.state.lang : ''}
 				<section id='admin'>
 					<div className='dropdowns'>
