@@ -100,7 +100,7 @@ export default class Microphone extends Component {
 					handleAudioUpload={(data) => this.handleAudioUpload(data)}
 					handleRest={() => this.handleRest()}
 				/>
-				{ this.state.hua===true ? (
+				{this.state.hua===true ? (
 					<>
 						<span>Previous Recording:</span>
 						<br />
