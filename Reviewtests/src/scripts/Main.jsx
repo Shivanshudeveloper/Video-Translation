@@ -30,12 +30,12 @@ export default class Main extends Component {
 		courseName: '',
 		recorder: false,
 		audio: false,
-		sentReview:false
+		sentReview: false,
 	}
 
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
-		this.setState({ email: usere },async () => {
+		this.setState({ email: usere }, async () => {
 			await this.get_data()
 			this.forceUpdate()
 			console.log(this.state)
@@ -77,9 +77,9 @@ export default class Main extends Component {
 					? result_doc.data.test_data
 					: '',
 		})
-		if(result_doc.data.review !== 'none'){
-			this.setState({sentReview: true})
-			console.log("hello dear")
+		if (result_doc.data.review === 'none') {
+			this.setState({ sentReview: true })
+			console.log('hello dear')
 		}
 		if (this.state.doc === '') {
 			console.log(this.state.course)
@@ -1153,7 +1153,7 @@ export default class Main extends Component {
 		})
 		if (result.status === 200) console.log('saved')
 	}
-	Noaudio(){
+	Noaudio() {
 		alert('Please Check Audio Submissionn')
 	}
 	approval() {
@@ -1485,7 +1485,11 @@ export default class Main extends Component {
 											className='recordbuttonbutton buttonnoborder'
 											onClick={this.clickrecord}
 										>
-											Record Audio Transcript
+											{this.state.sentReview === false ? (
+												<>Record Audio Transcript</>
+											) : (
+												<> Audio Transcript </>
+											)}
 										</button>
 									</div>
 									{this.state.recorder === true ? (
@@ -1512,6 +1516,10 @@ export default class Main extends Component {
 																.set_audio_to_true
 														}
 														className='recorder'
+														sent={
+															this.state
+																.sentReview
+														}
 														elem={this.state.email}
 														_id={
 															this.state.result
@@ -1524,82 +1532,100 @@ export default class Main extends Component {
 									) : (
 										''
 									)}
-									<div className='buttonset'>
-										<button
-											style={{
-												// position: 'fixed',
-												padding: '10px ',
-												width: '43%',
-												backgroundColor: '#2ec4b6',
-												color: 'white',
-												borderRadius: '3px',
-												fontWeight: '700',
-											}}
-											className='save saveMain buttonnoborder'
-											onClick={() => {
-												this.save()
-											}}
-										>
-											Save As Draft
-										</button>
-										{this.state.audio === true ? (
-											<>
-												<a
-													onClick={() => {
-														this.saveA()
-														this.approval()
-													}}
-													// href='./Thankyou'
-													// onClick={() => {
-													// 	this.save()
-													// 	this.approval()
-													// }}
-													className='save saveMain buttonnoborder'
-												>
-													<button
-														style={{
-															// position: 'fixed',
-															padding: '10px ',
-															width: '43%',
-															backgroundColor:
-																'#00695c',
-															color: 'white',
-															borderRadius: '3px',
-															fontWeight: '700',
-														}}
-														className='button save saveMain buttonnoborder'
-													>
-														Save & Send for approval
-													</button>
-												</a>
-											</>
-										) : (
-											<a
-												href='#0'
-												onClick={() => {
-													// this.save()
-													this.Noaudio()
-												}}
-												className=''
-											>
+
+									{this.state.sentReview === true ? (
+										<></>
+									) : (
+										<>
+											<div className='buttonset'>
 												<button
 													style={{
 														// position: 'fixed',
 														padding: '10px ',
 														width: '43%',
 														backgroundColor:
-															'#00695c',
+															'#2ec4b6',
 														color: 'white',
 														borderRadius: '3px',
 														fontWeight: '700',
 													}}
-													className='button save saveMain buttonnoborder'
+													className='save saveMain buttonnoborder'
+													onClick={() => {
+														this.save()
+													}}
 												>
-													Save & Send for approval
-												</button>{' '}
-											</a>
-										)}
-									</div>
+													Save As Draft
+												</button>
+												{this.state.audio === true ? (
+													<>
+														<a
+															onClick={() => {
+																this.saveA()
+																this.approval()
+															}}
+															// href='./Thankyou'
+															// onClick={() => {
+															// 	this.save()
+															// 	this.approval()
+															// }}
+															className='save saveMain buttonnoborder'
+														>
+															<button
+																style={{
+																	// position: 'fixed',
+																	padding:
+																		'10px ',
+																	width:
+																		'43%',
+																	backgroundColor:
+																		'#00695c',
+																	color:
+																		'white',
+																	borderRadius:
+																		'3px',
+																	fontWeight:
+																		'700',
+																}}
+																className='button save saveMain buttonnoborder'
+															>
+																Save & Send for
+																approval
+															</button>
+														</a>
+													</>
+												) : (
+													<a
+														href='#0'
+														onClick={() => {
+															// this.save()
+															this.Noaudio()
+														}}
+														className=''
+													>
+														<button
+															style={{
+																// position: 'fixed',
+																padding:
+																	'10px ',
+																width: '43%',
+																backgroundColor:
+																	'#00695c',
+																color: 'white',
+																borderRadius:
+																	'3px',
+																fontWeight:
+																	'700',
+															}}
+															className='button save saveMain buttonnoborder'
+														>
+															Save & Send for
+															approval
+														</button>{' '}
+													</a>
+												)}
+											</div>
+										</>
+									)}
 								</div>
 							</div>
 						</div>
