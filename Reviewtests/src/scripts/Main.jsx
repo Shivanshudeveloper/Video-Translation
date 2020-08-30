@@ -1124,6 +1124,7 @@ export default class Main extends Component {
 		if (result.status === 200) alert('saved')
 	}
 	async saveA() {
+		console.log('called')
 		let result = await axios.post(options.link + 'update/test/document', {
 			auth: {
 				email: localStorage.getItem('email'),
@@ -1541,7 +1542,7 @@ export default class Main extends Component {
 														this.saveA()
 														this.approval()
 													}}
-													href='./Thankyou'
+													// href='./Thankyou'
 													// onClick={() => {
 													// 	this.save()
 													// 	this.approval()
@@ -1567,7 +1568,7 @@ export default class Main extends Component {
 											</>
 										) : (
 											<a
-												href=''
+												href='#0'
 												onClick={() => {
 													// this.save()
 													this.Noaudio()
