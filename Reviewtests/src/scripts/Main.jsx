@@ -1145,11 +1145,14 @@ export default class Main extends Component {
 		})
 		if (result.status === 200) console.log('saved')
 	}
+	Noaudio(){
+		alert('Please Check Audio Submissionn')
+	}
 	approval() {
-		if (this.state.audio === false) {
-			alert('Please Check Audio Submissionn')
-			return
-		}
+		// if (this.state.audio === false) {
+		// 	alert('Please Check Audio Submissionn')
+		// 	return
+		// }
 		this.setState({ approval: 'approved' })
 		// console.log(this.state.approval)
 		alert('Saved, and sent for approval')
@@ -1564,10 +1567,10 @@ export default class Main extends Component {
 											</>
 										) : (
 											<a
-											href=""
+												href=''
 												onClick={() => {
 													// this.save()
-													this.approval()
+													this.Noaudio()
 												}}
 												className=''
 											>
