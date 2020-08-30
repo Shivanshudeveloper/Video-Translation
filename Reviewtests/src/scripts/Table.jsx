@@ -42,10 +42,8 @@ export default class Table extends Component {
 		if (parsed.course && parsed.course !== 'undefined') {
 			this.setState({ course: parsed.course.toUpperCase() })
 		}
-
 		this.setState({ parsed: parsed }, async () => {
 			console.log(parsed)
-
 			let result = await axios.post(options.link + 'list/all', {
 				page: parsed.page,
 				qty: parsed.qty,
@@ -64,7 +62,7 @@ export default class Table extends Component {
 			for (let index = 0; index < result.data.pages; index++) {
 				arr.push(index)
 			}
-
+			console.log(result, arr)
 			this.setState({ arr: arr })
 		})
 	}
@@ -73,7 +71,6 @@ export default class Table extends Component {
 		return (
 			<React.Fragment>
 				{this.state.course ? this.state.course : ''}
-				<br />
 				{this.state.lang ? this.state.lang : ''}
 				<section id='admin'>
 					<div className='dropdowns'>
@@ -138,6 +135,7 @@ export default class Table extends Component {
 						</thead>
 						<tbody>
 							{this.state.data.map((elem) => {
+								// console.log(elem)
 								return (
 									<React.Fragment key={elem._id}>
 										<tr className='dataintable'>
@@ -152,7 +150,7 @@ export default class Table extends Component {
 											<td>
 												{elem.course_id.course_name}
 											</td>
-											<td>{this.state.statusDoc}</td>
+											<td>{elem.approval_cleaning}</td>
 											<td>
 												<a
 													href={

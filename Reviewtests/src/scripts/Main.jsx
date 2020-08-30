@@ -8,10 +8,13 @@ import SunEditor from 'suneditor-react'
 import 'suneditor/dist/css/suneditor.min.css'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
+// import { TRUE } from 'node-sass'
 export default class Main extends Component {
 	constructor(props) {
 		super(props)
 		this.sunhandleChange = this.sunhandleChange.bind(this)
+		this.clickrecord = this.clickrecord.bind(this)
+		this.set_audio_to_true = this.set_audio_to_true.bind(this)
 	}
 	state = {
 		lang: 'hi-IN',
@@ -19,38 +22,44 @@ export default class Main extends Component {
 		text: '',
 		doc: '',
 		course: '',
+		first: ' ',
 		result: { _id: '' },
 		approval: 'Progress',
 		localApprove: 'hello',
 		language: '',
-		courseName:""
+		courseName: '',
+		recorder: false,
+		audio: false,
+		sentReview: false,
 	}
+
 	componentDidMount() {
 		const { usere } = qs.parse(this.props.location.search)
-		this.setState({ email: usere }, () => {
-			this.get_data()
+		this.setState({ email: usere }, async () => {
+			await this.get_data()
 			this.forceUpdate()
+			console.log(this.state)
 		})
+	}
+	set_audio_to_true() {
+		this.setState({ audio: true })
 	}
 	async get_data() {
 		const result = await axios.post(options.link + 'auth/login', {
 			email: this.state.email,
 			password: 'password',
 		})
-
 		localStorage.setItem('email', this.state.email)
 		localStorage.setItem('auth', result.data.token)
-
-		this.setState(
-			{
-				result: result.data,
-				language: result.data.language,
-				course: result.data.course.discipline,
-				courseName: result.data.course.course_name,
-				lang: options.lang[result.data.language],
-			}
-			// () => console.log(this.state.result)
-		)
+		this.setState({
+			result: result.data,
+			language: result.data.language,
+			course: result.data.course.discipline,
+			first: result.data.email,
+			courseName: result.data.course.course_name,
+			lang: options.lang[result.data.language],
+		})
+		// console.log(this.state.first)
 		let result_doc = await axios.post(
 			options.link + 'update/test/document',
 			{
@@ -61,143 +70,1053 @@ export default class Main extends Component {
 				doc: this.state.doc,
 			}
 		)
-		// console.log(result_doc.data.test_data)
+		console.log(result_doc.data.review)
 		this.setState({
 			doc:
 				result_doc.data.test_data !== undefined
 					? result_doc.data.test_data
 					: '',
 		})
+		if (result_doc.data.review !== 'none') {
+			this.setState({ sentReview: true })
+			console.log('hello dear')
+		}
 		if (this.state.doc === '') {
 			console.log(this.state.course)
 			if (this.state.course === 'COMPUTER SCIENCE AND ENGINEERING') {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/lec50%20Programming%20in%20Java%20corrected.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering%20hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/lec50%20Programming%20in%20Java%20corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering%20gujarati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering%20bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering-%20telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering-%20tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering-kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/COMPUTER%20SCIENCE%20AND%20ENGINEERING/language/computer%20science%20and%20engineering-malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (this.state.course === 'Multidisciplinary') {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/For%20Humanites%20lec49%20English%20Language_corrected.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/For%20Humanites%20lec49%20English%20Language_corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-Gujarati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (
 				this.state.course ===
 				'MEATLLURGICAL ENGINEERING AND MATERIAL SCIENCE'
 			) {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/lec12%20FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-%20I%20corrected.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/language/FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/language/FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/lec12%20FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-%20I%20corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/language/FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-gujarati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/language/FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/language/FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/language/FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/language/FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MEATLLURGICAL%20ENGINEERING%20AND%20MATERIAL%20SCIENCE/language/FUNDAMENTALS%20OF%20MATERIAL%20PROCESSING%20-malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (this.state.course === 'BASIC SCIENCE') {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/index.html'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Basic%20science-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/1.%20For%20Engineering%20lec1%20Introduction%20to%20Electromagnetism_corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-gujrati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (this.state.course === 'BIOTECHNOLOGY') {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/lec3%20PLANT%20DEVELOPMENTAL%20BIOLOGY%20CORRECTED.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/Biotechnology-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/lec3%20PLANT%20DEVELOPMENTAL%20BIOLOGY%20CORRECTED.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/Biotechnology-gujrati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/Biotechnology-bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology_malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (this.state.course === 'HUMANITIES') {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/For%20Humanites%20lec49%20English%20Language_corrected.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://github.com/Aaryan-kapur/DOCHTML/blob/master/HUMANITIES/language/humanities-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/For%20Humanites%20lec49%20English%20Language_corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-gujarati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (this.state.course === 'MECHANICAL ENGINEERING') {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/lec2%20APPLIED%20THERMODYNAMICS%20FOR%20ENGINEERS%20corrected.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/lec2%20APPLIED%20THERMODYNAMICS%20FOR%20ENGINEERS%20corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-gujarati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (this.state.course === 'CHEMICAL ENGINEERING') {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/2.For%20Engineering%20lec2%20Fluid%20Mechanics_corrected.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/language/chemical%20engineering-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/language/chemical%20engineering-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/2.For%20Engineering%20lec2%20Fluid%20Mechanics_corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/language/chemical%20engineering%20-%20gujarati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/language/chemical%20engineering%20-%20bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/language/chemical%20engineering%20-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/language/chemical%20engineering%20tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/language/chemical%20engineering%20kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CHEMICAL%20ENGINEERING/language/chemical%20engineering%20-%20malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (this.state.course === 'ELECTRICAL ENGINEERING') {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/lec3%20BASIC%20ELECTRIC%20CIRCUITS%20corrected.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/language/electrical%20engineering-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/language/electrical%20engineering-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/lec3%20BASIC%20ELECTRIC%20CIRCUITS%20corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/language/electrical%20engineering-%20gujarati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/language/electrical%20engineering-%20bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/language/electrical%20engineering-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/language/electrical%20engineering-tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/language/electrical%20engineering%20kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRICAL%20ENGINEERING/language/electrical%20engineering%20malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (
 				this.state.course ===
 				'ELECTRONICS AND COMMUNICATION ENGINEERING'
 			) {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/lec5%20POWER%20ELECTRONICS%20%20corrected.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/language/electronics%20and%20communication%20engineering-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/language/electronics%20and%20communication%20engineering-marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/lec5%20POWER%20ELECTRONICS%20%20corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/language/electronics%20and%20communication%20engineering-gujarati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/language/electronics%20and%20communication%20engineering-bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/language/electronics%20and%20communication%20engineering-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/language/electronics%20and%20communication%20engineering-tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/language/electronics%20and%20communication%20engineering-kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/ELECTRONICS%20AND%20COMMUNICATION%20ENGINEERING/language/electronics%20and%20communication%20engineering-malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 			if (this.state.course === 'CIVIL ENGINEERING') {
-				axios
-					.get(
-						'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/lec48%20MECHANICS%20OF%20SOLIDS%20CORRECTED.htm'
-					)
-					.then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
+				if (this.state.language === 'Hindi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/language/civil%20engineering-hindi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Marathi') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/language/civil%20engineering-%20marathi.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/lec48%20MECHANICS%20OF%20SOLIDS%20CORRECTED.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/language/civil%20engineering-guarati.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/language/civil%20engineering-bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/language/civil%20engineering-telugu.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Tamil') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/language/civil%20engineering-tamil.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Kannada') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/language/civil%20engineering-kannada.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/CIVIL%20ENGINEERING/language/civil%20engineering-malayalam.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
 			}
 		}
 	}
 	onTextCallback(text) {
 		this.setState({ text: text })
 	}
+	clickrecord() {
+		this.setState({ recorder: !this.state.recorder })
+	}
 	addText() {
 		let doc = this.state.doc
 		let text = this.state.text
-
 		doc += '\n' + text
-
 		this.setState({ doc: doc })
+	}
+	copy() {
+		navigator.clipboard.writeText(this.state.text)
 	}
 
 	getCourse(course) {}
@@ -211,6 +1130,19 @@ export default class Main extends Component {
 		})
 		if (result.status === 200) alert('saved')
 	}
+	async saveA() {
+		console.log('called')
+		let result = await axios.post(options.link + 'update/test/approve', {
+			auth: {
+				email: localStorage.getItem('email'),
+				token: localStorage.getItem('auth'),
+			},
+			doc: this.state.doc,
+		})
+		console.log(result)
+
+		// if (result.status === 200) alert('saved')
+	}
 	async saveinit() {
 		let result = await axios.post(options.link + 'update/test/document', {
 			auth: {
@@ -221,15 +1153,22 @@ export default class Main extends Component {
 		})
 		if (result.status === 200) console.log('saved')
 	}
+	Noaudio() {
+		alert('Please Check Audio Submissionn')
+	}
 	approval() {
+		// if (this.state.audio === false) {
+		// 	alert('Please Check Audio Submissionn')
+		// 	return
+		// }
 		this.setState({ approval: 'approved' })
-		console.log(this.state.approval)
-		alert('Sent for approval')
+		// console.log(this.state.approval)
+		alert('Saved, and sent for approval')
 		localStorage.setItem('approval', 'approved')
 		this.setState({ localApprove: localStorage.getItem('approval') })
 	}
 	sunhandleChange(content) {
-		console.log(content)
+		// console.log(content)
 		this.setState({ doc: content })
 	}
 	render() {
@@ -251,33 +1190,49 @@ export default class Main extends Component {
 					></Microphone> */}
 				</div>
 				<div className='App'>
-					{/* edit */}
+					<br />
+					Hello,
+					<span className='highlight email'> {this.state.first}</span>
+					<br />
+					Translating from <span className='highlight'>
+						English
+					</span>{' '}
+					to
+					<span className='highlight'> {this.state.language}</span>
+					<br />
 					<a href='https://free.aicte-india.org/video/index.php'>
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
+					<button
+						style={{
+							// position: 'fixed',
+							padding: '10px ',
+							width: '23%',
+							backgroundColor: '#f94144',
+							color: 'white',
+							borderRadius: '3px',
+							fontWeight: '700',
+						}}
+						className='save saveMain buttonnoborder buttoninstructions'
+					>
+						Instructions for translations portal{' '}
+					</button>
+					<br />
+					<br />
 					<div className='outer'>
-						<strong>
-							
-							{this.state.course}
-							</strong>
+						{/* <strong>{this.state.course}</strong>
 						<br />
-						<strong>
-							
-						{this.state.courseName}
-						</strong>
-						<br />
-						<strong>
-						Translating from English to {this.state.language}
-						</strong>
+						<strong>{this.state.courseName}</strong> */}
 						<div className='row'>
 							<div className='left'>
 								{this.state.course ===
 								'COMPUTER SCIENCE AND ENGINEERING' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21582&amp;authkey=AH4aKTBC5u8J0_U&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1D2D9WLCvrZJb3FFATVa1faPUa-KF51Nh/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -287,9 +1242,10 @@ export default class Main extends Component {
 								{this.state.course === 'Multidisciplinary' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21639&amp;authkey=AC-lG1asuXrYJbg&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1uEc-Gvi7XR-vi0wzjL-RgIuUvzSgxMha/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -299,9 +1255,10 @@ export default class Main extends Component {
 								'MEATLLURGICAL ENGINEERING AND MATERIAL SCIENCE' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21621&amp;authkey=AB2F6vcDkC9YXt0&amp;em=2&amp;wdStartOn=1&amp;wdPrint=0&amp;wdEmbedCode=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1Q74AGIWsWRJ-T9UqwvMnLnYDxFYLPKLX/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -310,9 +1267,10 @@ export default class Main extends Component {
 								{this.state.course === 'BASIC SCIENCE' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21540&amp;authkey=ABfntY9dOY--d6o&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1qp6AP0AdiMDfTmzdGApcXukrqlcyoyks/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -321,9 +1279,10 @@ export default class Main extends Component {
 								{this.state.course === 'BIOTECHNOLOGY' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21527&amp;authkey=ADcIuWw4zpvf2j8&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1V2XGMTq5kGklm9Bzacyjv45AuThi6IEn/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -332,9 +1291,10 @@ export default class Main extends Component {
 								{this.state.course === 'HUMANITIES' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21612&amp;authkey=AK12qdsJWALTnAU&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1xqQRYex_Pz3PepkcluJRrCjRAj0OWcXv/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -343,10 +1303,13 @@ export default class Main extends Component {
 								{this.state.course ===
 								'MECHANICAL ENGINEERING' ? (
 									<>
+										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
+
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21630&amp;authkey=AL-mAgyUsFu4m4Y&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1s3LVOPIeEZOiwOKSKMUGvYRrfCPHNBDP/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -356,9 +1319,10 @@ export default class Main extends Component {
 								'CHEMICAL ENGINEERING' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21569&amp;authkey=AButHi-PfEwkvuM&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1BNDondg7-Of8tmdeamMGCVdOv-WwXh9o/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -368,9 +1332,10 @@ export default class Main extends Component {
 								'ELECTRICAL ENGINEERING' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21603&amp;authkey=ACovhg5A3VnMfbg&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1LhxEYBmcVk1nHSCmDntu66xaSK2Kigs2/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -382,7 +1347,8 @@ export default class Main extends Component {
 										<iframe
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/1Ls_VbFeD8bG5Hhzuts_uCbIUUYcbO9ET/preview'
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21595&amp;authkey=AJdzhMLa8-2j2AI&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -391,9 +1357,10 @@ export default class Main extends Component {
 								{this.state.course === 'CIVIL ENGINEERING' ? (
 									<>
 										<iframe
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21565&amp;authkey=AAVZe5r2tftFe1A&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
 											title='originalDoc'
 											className='documentOriginal'
-											src='https://drive.google.com/file/d/160h2mxcjlKHwW1YMIjqLQwcoHB5Oh7Y2/preview'
+											frameBorder='0'
 										></iframe>
 									</>
 								) : (
@@ -404,39 +1371,52 @@ export default class Main extends Component {
 							{this.state.localApprove} */}
 							<div className='right'>
 								<div className='output'>
-									<span className='title'>
-										Preview: {this.state.email}{' '}
-									</span>
+									<span className='title'></span>
 									<div className='speechtotext'>
 										<div className='PreviewData'>
 											<div className='result-container'>
-												<span className='titlePreview'>
-													Preview:{this.state.text}
+												<div className='stt'>
+													<ReactSpeech
+														className='miconmain'
+														lang={this.state.lang}
+														onText={(text) =>
+															this.onTextCallback(
+																text
+															)
+														}
+													/>
+													<button
+														className='clickonMain'
+														onClick={() =>
+															this.copy()
+														}
+													>
+														Copy
+													</button>
+												</div>
+												<br />
+												<br />
+												<br />
+												<span className='textmain'>
+													{this.state.text}
 												</span>
+
 												<p
 													className='lead'
 													style={{
 														fontSize: '1.5rem',
 													}}
 												></p>
-
-												<button
+												{/* <button
 													onClick={() =>
 														this.addText()
 													}
 												>
 													Add
-												</button>
+												</button> */}
+
 												<br />
 												<br />
-												<ReactSpeech
-													lang={this.state.lang}
-													onText={(text) =>
-														this.onTextCallback(
-															text
-														)
-													}
-												/>
 											</div>
 										</div>
 									</div>
@@ -457,7 +1437,7 @@ export default class Main extends Component {
 									></textarea> */}
 									<SunEditor
 										setContents={this.state.doc}
-										enable={!this.state.review}
+										disable={this.state.sentReview}
 										setOptions={{
 											katex: katex,
 											buttonList: [
@@ -478,7 +1458,7 @@ export default class Main extends Component {
 										// 	  arr[elem.index].convert = e.target.value;
 										// 	  this.setState({ arr: arr });
 										//   }}
-										height='80vh'
+										height='70vh'
 										className='converted-editable'
 										style={{
 											width: 'calc(100% - 40px)',
@@ -489,72 +1469,165 @@ export default class Main extends Component {
 										onChange={this.sunhandleChange}
 										value={this.state.doc}
 									/>
-									<div className='record'>
-										<div
+
+									<div className='recordbutton'>
+										<button
 											style={{
-												// position: 'absolute',
-												// top: 0,
-												// right: "50%",
-												// transform:"translatey(50%)",
-												// zIndex: 3,
-												// width:"40vw",
-												backgroundColor: '#cddc30',
+												// position: 'fixed',
+												padding: '10px ',
+												width: '43%',
+												height: '50px',
+												backgroundColor: '#3772ff',
+												color: 'white',
+												borderRadius: '3px',
+												fontWeight: '700',
 											}}
-											className='recorder'
+											className='recordbuttonbutton buttonnoborder'
+											onClick={this.clickrecord}
 										>
-											<Microphone
-												className='recorder'
-												elem={this.state.email}
-												_id={this.state.result._id}
-											></Microphone>
-										</div>
+											{this.state.sentReview === false ? (
+												<>Record Audio Transcript</>
+											) : (
+												<> Audio Transcript </>
+											)}
+										</button>
 									</div>
+									{this.state.recorder === true ? (
+										<>
+											<div className='record'>
+												<div
+													style={{
+														// position: 'absolute',
+														// top: 0,
+														// right: "50%",
+														// transform:"translatey(50%)",
+														// zIndex: 3,
+														// width:"40vw",
+														backgroundColor:
+															'#3772ff',
+														fontWeight: 700,
+														color: 'white',
+													}}
+													className='recorder'
+												>
+													<Microphone
+														set_audio_to_true={
+															this
+																.set_audio_to_true
+														}
+														className='recorder'
+														sent={
+															this.state
+																.sentReview
+														}
+														elem={this.state.email}
+														_id={
+															this.state.result
+																._id
+														}
+													></Microphone>
+												</div>
+											</div>
+										</>
+									) : (
+										''
+									)}
+
+									{this.state.sentReview === true ? (
+										<></>
+									) : (
+										<>
+											<div className='buttonset'>
+												<button
+													style={{
+														// position: 'fixed',
+														padding: '10px ',
+														width: '43%',
+														backgroundColor:
+															'#2ec4b6',
+														color: 'white',
+														borderRadius: '3px',
+														fontWeight: '700',
+													}}
+													className='save saveMain buttonnoborder'
+													onClick={() => {
+														this.save()
+													}}
+												>
+													Save As Draft
+												</button>
+												{this.state.audio === true ? (
+													<>
+														<a
+															onClick={() => {
+																this.saveA()
+																this.approval()
+															}}
+															// href='./Thankyou'
+															// onClick={() => {
+															// 	this.save()
+															// 	this.approval()
+															// }}
+															className='save saveMain buttonnoborder'
+														>
+															<button
+																style={{
+																	// position: 'fixed',
+																	padding:
+																		'10px ',
+																	width:
+																		'43%',
+																	backgroundColor:
+																		'#00695c',
+																	color:
+																		'white',
+																	borderRadius:
+																		'3px',
+																	fontWeight:
+																		'700',
+																}}
+																className='button save saveMain buttonnoborder'
+															>
+																Save & Send for
+																approval
+															</button>
+														</a>
+													</>
+												) : (
+													<a
+														href='#0'
+														onClick={() => {
+															// this.save()
+															this.Noaudio()
+														}}
+														className=''
+													>
+														<button
+															style={{
+																// position: 'fixed',
+																padding:
+																	'10px ',
+																width: '43%',
+																backgroundColor:
+																	'#00695c',
+																color: 'white',
+																borderRadius:
+																	'3px',
+																fontWeight:
+																	'700',
+															}}
+															className='button save saveMain buttonnoborder'
+														>
+															Save & Send for
+															approval
+														</button>{' '}
+													</a>
+												)}
+											</div>
+										</>
+									)}
 								</div>
 							</div>
-						</div>
-						<div
-							style={{
-								position: 'fixed',
-								padding: '10px ',
-								width: '43%',
-								backgroundColor: 'green',
-								color: 'white',
-								borderRadius: '3px',
-								fontWeight: '500',
-							}}
-							className='save saveMain'
-							onClick={() => {
-								this.save()
-							}}
-						>
-							Save
-						</div>
-						<div className='reviewexitbutton'>
-							<a
-								href='./Thankyou'
-								onClick={() => {
-									this.save()
-								}}
-							>
-								<div
-									style={{
-										position: 'fixed',
-										padding: '10px ',
-										width: '43%',
-										backgroundColor: 'red',
-										color: 'white',
-										borderRadius: '3px',
-										fontWeight: '500',
-									}}
-									onClick={() => {
-										this.save()
-										this.approval()
-									}}
-									className='save saveMain'
-								>
-									Save & Send for approval
-								</div>
-							</a>
 						</div>
 					</div>
 				</div>

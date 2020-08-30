@@ -43,22 +43,28 @@
 	font-weight: 700;
 	background-color: #ccc;
 	border-radius: 10px;
+	z-index: 1000;
 	width: 10%;
 	margin: 10px 15vh 0 10px;
 }
 .outer {
 	position: absolute;
-	top: 50%;
+	top: 55%;
+
 	transform: translateY(-50%);
 	width: 99% !important;
 	margin: 0 0.5% !important;
 	.row {
+		// margin-top: 6%;
+
 		.left {
 			width: 50%;
 			float: left;
 			text-align: center;
+			margin-top: 20px;
 			.documentOriginal {
 				width: 90% !important;
+				border: 2px black solid;
 				height: 90vh !important;
 			}
 		}
@@ -78,16 +84,17 @@
 				text-align: center;
 				width: 90% !important;
 				height: 100vh;
-
 				.PreviewData {
 					width: 5.5vw;
 				}
 				.speechtotext {
 					width: 95% !important;
 					margin: 0 2.5%;
-					height: 23vh;
+					// height: 23vh;
+					overflow-y: auto;
 					.result-container {
 						background-color: #eeeeee;
+						height: 23vh;
 						padding: 20px;
 						width: 700% !important;
 						border: thin solid #cdcdcd;
@@ -111,7 +118,7 @@
 	}
 }
 .reviewexitbutton {
-	margin-top: 45px;
+	// margin-top: 45px;
 }
 .logoAicte {
 	width: 20%;
@@ -152,8 +159,127 @@ a {
 	// margin-left:5%;
 	// width: 100%;
 	// margin: 0;
-
 	.recorder {
 		width: 100% !important;
 	}
+}
+// .sun-editor{
+// 	height:100vh !important;
+// }
+.buttonset {
+	margin-top: 20px;
+}
+.buttonnoborder {
+	border: none;
+	cursor: pointer;
+}
+.recordbutton {
+	margin-top: 20px;
+}
+._1Pz2d {
+	padding: 5px;
+	border: none;
+	margin-left: 1px;
+	cursor: pointer;
+	margin-bottom: 10px;
+	z-index: 300 !important;
+}
+
+._3-aC9 {
+	visibility: hidden;
+	cursor: pointer;
+	display: none;
+	z-index: 300 !important;
+}
+.topdetails {
+	width: 100%;
+}
+.buttoninstructions {
+	float: left;
+}
+.highlight {
+	font-weight: 800;
+}
+._2uz65 {
+	// height: 100px;
+	img {
+		height: 30px;
+		width: 30px;
+		margin-right: 10px;
+	}
+}
+._1Yplu {
+	visibility: hidden;
+	display: none;
+}
+.show {
+	visibility: visible !important;
+	display: inline;
+}
+.hide {
+	visibility: hidden !important;
+	display: none;
+}
+._eV_dK {
+	background-color: red;
+}
+figure {
+	img {
+		background-color: transparent !important;
+	}
+}
+img {
+	background-color: red;
+	padding: 7px;
+	border-radius: 10px;
+	// font-weight: 800;
+	// height: 200vh !important;
+}
+.email {
+	// text-transform: capitalize;
+}
+.img-fluid {
+	img {
+		background-color: white;
+	}
+}
+.thanksOuter{
+	.outer{
+		margin-top: 0vh !important;
+	}
+}
+.thanks {
+	img {
+		background-color: white;
+	}
+}
+
+.sun-editor {
+	img {
+		background-color: white;
+	}
+}
+
+.outer {
+	margin-top: 10vh !important;
+}
+.miconmain {
+	width: 10% !important;
+	float: left !important;
+	margin: 0 !important;
+}
+.clickonMain {
+	width: 20%;
+	float: right;
+}
+.react-speech {
+	margin: 0 !important;
+	float: left !important;
+}
+.stt{
+	// float: right;
+}
+.textmain{
+	text-align: left;
+	width: 100% !important;
 }
