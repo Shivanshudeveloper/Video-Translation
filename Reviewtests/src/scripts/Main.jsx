@@ -8,7 +8,6 @@ import SunEditor from 'suneditor-react'
 import 'suneditor/dist/css/suneditor.min.css'
 import katex from 'katex'
 import 'katex/dist/katex.min.css'
-// import { TRUE } from 'node-sass'
 export default class Main extends Component {
 	constructor(props) {
 		super(props)
@@ -78,7 +77,7 @@ export default class Main extends Component {
 					: '',
 		})
 		if (result_doc.data.review !== 'none') {
-			this.setState({ sentReview: true })
+			// this.setState({ sentReview: true })
 			console.log('hello dear')
 		}
 		if (this.state.doc === '') {
@@ -642,7 +641,7 @@ export default class Main extends Component {
 				if (this.state.language === 'Hindi') {
 					axios
 						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-hindi.htm'
+							'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20hindi%20.htm'
 						)
 						.then((data) => {
 							this.setState({ doc: data.data })
@@ -652,7 +651,7 @@ export default class Main extends Component {
 				if (this.state.language === 'Marathi') {
 					axios
 						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-marathi.htm'
+							'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20marathi.htm'
 						)
 						.then((data) => {
 							this.setState({ doc: data.data })
@@ -672,7 +671,7 @@ export default class Main extends Component {
 				if (this.state.language === 'Gujurati') {
 					axios
 						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-gujarati.htm'
+							'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20gujarati.htm'
 						)
 						.then((data) => {
 							this.setState({ doc: data.data })
@@ -682,7 +681,8 @@ export default class Main extends Component {
 				if (this.state.language === 'Bengali') {
 					axios
 						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-bengali.htm'
+							// 'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-bengali.htm'
+							'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20bengali%20.htm'
 						)
 						.then((data) => {
 							this.setState({ doc: data.data })
@@ -692,7 +692,7 @@ export default class Main extends Component {
 				if (this.state.language === 'Telugu') {
 					axios
 						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-telugu.htm'
+							'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20telugu.htm'
 						)
 						.then((data) => {
 							this.setState({ doc: data.data })
@@ -702,7 +702,7 @@ export default class Main extends Component {
 				if (this.state.language === 'Tamil') {
 					axios
 						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-tamil.htm'
+							'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20tamil.htm'
 						)
 						.then((data) => {
 							this.setState({ doc: data.data })
@@ -712,7 +712,7 @@ export default class Main extends Component {
 				if (this.state.language === 'Kannada') {
 					axios
 						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-kannada.htm'
+							'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20kannada.htm'
 						)
 						.then((data) => {
 							this.setState({ doc: data.data })
@@ -722,7 +722,7 @@ export default class Main extends Component {
 				if (this.state.language === 'Malayalam') {
 					axios
 						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-malayalam.htm'
+							'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20malayalam.htm'
 						)
 						.then((data) => {
 							this.setState({ doc: data.data })
@@ -1304,9 +1304,8 @@ export default class Main extends Component {
 								'MECHANICAL ENGINEERING' ? (
 									<>
 										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
-
 										<iframe
-											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21630&amp;authkey=AL-mAgyUsFu4m4Y&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
+											src='https://docs.google.com/document/d/e/2PACX-1vT_X-P0PBpL3S14XJEYvSauXCdpGqj6ZU-RNuItKT-dYSAFxX87IZ0LPlU208t6ImrVM6mFXqpRTKEv/pub?embedded=true'
 											title='originalDoc'
 											className='documentOriginal'
 											frameBorder='0'
@@ -1444,7 +1443,7 @@ export default class Main extends Component {
 												['undo', 'redo'],
 												['math'],
 												// ['image'],
-												// ['codeView'],
+												['codeView'],
 											],
 										}}
 										// onChange={(e) => {
