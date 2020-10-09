@@ -6,6 +6,7 @@ import Thankyou from './Thankyou.jsx'
 import Table from './Table.jsx'
 import Review from './Review.jsx'
 import Test from './Test'
+import AssignT from './AssignT'
 const App = () => {
 	return (
 		<>
@@ -17,6 +18,7 @@ const App = () => {
 					<Route path='/thankyou' component={Thankyou} />
 					<Route path='/Review' component={Review} />
 					<Route path='/test' component={Test} />
+					<Route path='/assign_t' component={AssignT} />
 				</Switch>
 			</Router>
 		</>
