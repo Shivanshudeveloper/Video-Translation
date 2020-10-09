@@ -77,7 +77,7 @@ export default class Main extends Component {
 					: '',
 		})
 		if (result_doc.data.review !== 'none') {
-			// this.setState({ sentReview: true })
+			this.setState({ sentReview: true })
 			console.log('hello dear')
 		}
 		if (this.state.doc === '') {
@@ -1443,7 +1443,7 @@ export default class Main extends Component {
 												['undo', 'redo'],
 												['math'],
 												// ['image'],
-												['codeView'],
+												// ['codeView'],
 											],
 										}}
 										// onChange={(e) => {
