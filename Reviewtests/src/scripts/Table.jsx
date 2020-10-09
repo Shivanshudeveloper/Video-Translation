@@ -30,6 +30,7 @@ export default class Table extends Component {
 	}
 	async componentDidMount() {
 		let parsed = qs.parse(this.props.location.search)
+
 		if (!parsed.page) {
 			parsed.page = 1
 		}
@@ -64,6 +65,17 @@ export default class Table extends Component {
 			}
 			console.log(result, arr)
 			this.setState({ arr: arr })
+
+			if (parsed.usere) {
+				this.setState({ course: 'MECHANICAL ENGINEERING' })
+				let n_data = this.state.data.filter((data) => {
+					return (
+						data.course_id.course_name === 'STRENGTH OF MATERIALS'
+					)
+				})
+				console.log(n_data)
+				this.setState({data:n_data})
+			}
 		})
 	}
 
