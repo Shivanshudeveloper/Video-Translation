@@ -67,32 +67,37 @@ export default class Test extends Component {
 				<div className='' style={{}}>
 					<div className='flec' style={{ display: 'flex', fontSize: '1.23rem', fontWeight: '700' }}>
 						<div className='first' style={{ border: '1px solid black' }}>
-							{this.state.courses.map((course) => {
-								return (
-									<div
-										onClick={() => this.setState({ selected_course: course })}
-										style={{ padding: '10px 0', border: '1px solid black' }}
-										key={course}
-									>
-										{course}
-									</div>
-								)
-							})}
+							<select
+								onChange={(e) => {
+									this.setState({ selected_course: e.target.value })
+								}}
+							>
+								{this.state.courses.map((course) => {
+									return (
+										<option style={{ padding: '10px 0', border: '1px solid black' }} key={course} value={course}>
+											{course}
+										</option>
+									)
+								})}
+							</select>
 						</div>
 						<div className='second' style={{ border: '1px solid black' }}>
-							{this.state.lang.map((lannng) => {
-								return (
-									<div
-										onClick={() => {
-											this.setState({ selected_language: lannng })
-										}}
-										style={{ padding: '10px 0', border: '1px solid black' }}
-										key={lannng}
-									>
-										{lannng}
-									</div>
-								)
-							})}
+							<select>
+								{this.state.lang.map((lannng) => {
+									return (
+										<option
+											onClick={() => {
+												this.setState({ selected_language: lannng })
+											}}
+											style={{ padding: '10px 0', border: '1px solid black' }}
+											key={lannng}
+											value={lannng}
+										>
+											{lannng}
+										</option>
+									)
+								})}
+							</select>
 						</div>
 					</div>
 					<p>{this.state.selected_course}</p>
@@ -102,17 +107,14 @@ export default class Test extends Component {
 					<p>{this.state.lec}</p>
 
 					<h1>Allocations</h1>
-					<div
-						className='flec'
-						style={{ display: 'flex', flexDirection: 'column', fontSize: '1.23rem', fontWeight: '700' }}
-					>
+					<div className='flec' style={{ display: 'flex', flexDirection: 'column', fontSize: '1.23rem', fontWeight: '700' }}>
 						{Object.keys(this.state.allocated).map((allocation_key) => {
 							let result = this.state.links.map((link) => link._id)
 							if (result.includes(allocation_key)) {
 								// console.log(this.state.allocated[allocation_key].map(elem=>elem))
 								let link = this.state.links[result.indexOf(allocation_key)]
 								return (
-									<Fragment  key={allocation_key}>
+									<Fragment key={allocation_key}>
 										<div style={{ display: 'block' }}>
 											{link.lectureId}
 											<p>{this.state.allocated[allocation_key].join()}</p>
