@@ -60,22 +60,16 @@ export default class Main extends Component {
 			lang: options.lang[result.data.language],
 		})
 		// console.log(this.state.first)
-		let result_doc = await axios.post(
-			options.link + 'update/test/document',
-			{
-				auth: {
-					email: localStorage.getItem('email'),
-					token: localStorage.getItem('auth'),
-				},
-				doc: this.state.doc,
-			}
-		)
+		let result_doc = await axios.post(options.link + 'update/test/document', {
+			auth: {
+				email: localStorage.getItem('email'),
+				token: localStorage.getItem('auth'),
+			},
+			doc: this.state.doc,
+		})
 		console.log(result_doc.data.review)
 		this.setState({
-			doc:
-				result_doc.data.test_data !== undefined
-					? result_doc.data.test_data
-					: '',
+			doc: result_doc.data.test_data !== undefined ? result_doc.data.test_data : '',
 		})
 		if (result_doc.data.review !== 'none') {
 			this.setState({ sentReview: true })
@@ -178,9 +172,7 @@ export default class Main extends Component {
 			if (this.state.course === 'Multidisciplinary') {
 				if (this.state.language === 'Hindi') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-hindi.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-hindi.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -188,9 +180,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Marathi') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-marathi.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-marathi.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -218,9 +208,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Bengali') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-bengali.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-bengali.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -228,9 +216,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Telugu') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-telugu.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-telugu.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -238,9 +224,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Tamil') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-tamil.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-tamil.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -248,9 +232,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Kannada') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-kannada.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/Multidisciplinary/language/Multidisciplinary-kannada.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -267,10 +249,7 @@ export default class Main extends Component {
 						})
 				}
 			}
-			if (
-				this.state.course ===
-				'MEATLLURGICAL ENGINEERING AND MATERIAL SCIENCE'
-			) {
+			if (this.state.course === 'MEATLLURGICAL ENGINEERING AND MATERIAL SCIENCE') {
 				if (this.state.language === 'Hindi') {
 					axios
 						.get(
@@ -365,9 +344,7 @@ export default class Main extends Component {
 			if (this.state.course === 'BASIC SCIENCE') {
 				if (this.state.language === 'Hindi') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Basic%20science-hindi.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Basic%20science-hindi.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -375,9 +352,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Marathi') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-marathi.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-marathi.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -395,9 +370,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Gujurati') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-gujrati.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-gujrati.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -405,9 +378,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Bengali') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-bengali.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-bengali.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -415,9 +386,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Telugu') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-telugu.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-telugu.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -425,9 +394,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Tamil') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-tamil.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-tamil.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -435,9 +402,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Kannada') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-kannada.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-kannada.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -445,9 +410,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Malayalam') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-malayalam.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BASIC%20SCIENCE/language/Bacis%20science-malayalam.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -457,9 +420,7 @@ export default class Main extends Component {
 			if (this.state.course === 'BIOTECHNOLOGY') {
 				if (this.state.language === 'Hindi') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/Biotechnology-hindi.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/Biotechnology-hindi.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -467,9 +428,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Marathi') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-marathi.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-marathi.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -487,9 +446,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Gujurati') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/Biotechnology-gujrati.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/Biotechnology-gujrati.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -497,9 +454,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Bengali') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/Biotechnology-bengali.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/Biotechnology-bengali.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -507,9 +462,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Telugu') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-telugu.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-telugu.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -517,9 +470,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Tamil') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-tamil.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-tamil.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -527,9 +478,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Kannada') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-kannada.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology-kannada.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -537,9 +486,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Malayalam') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology_malayalam.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/BIOTECHNOLOGY/language/biotechnology_malayalam.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -549,23 +496,17 @@ export default class Main extends Component {
 			if (this.state.course === 'HUMANITIES') {
 				if (this.state.language === 'Hindi') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-hindi.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-hindi.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
 						})
 				}
 				if (this.state.language === 'Marathi') {
-					axios
-						.get(
-							'https://github.com/Aaryan-kapur/DOCHTML/blob/master/HUMANITIES/language/humanities-marathi.htm'
-						)
-						.then((data) => {
-							this.setState({ doc: data.data })
-							this.saveinit()
-						})
+					axios.get('https://github.com/Aaryan-kapur/DOCHTML/blob/master/HUMANITIES/language/humanities-marathi.htm').then((data) => {
+						this.setState({ doc: data.data })
+						this.saveinit()
+					})
 				}
 				if (this.state.language === 'English') {
 					axios
@@ -579,9 +520,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Gujurati') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-gujarati.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-gujarati.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -589,9 +528,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Bengali') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-bengali.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-bengali.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -599,9 +536,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Telugu') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-telugu.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-telugu.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -609,9 +544,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Tamil') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-tamil.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-tamil.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -619,9 +552,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Kannada') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-kannada.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-kannada.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -629,9 +560,7 @@ export default class Main extends Component {
 				}
 				if (this.state.language === 'Malayalam') {
 					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-malayalam.htm'
-						)
+						.get('https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/HUMANITIES/language/humanities-malayalam.htm')
 						.then((data) => {
 							this.setState({ doc: data.data })
 							this.saveinit()
@@ -641,24 +570,16 @@ export default class Main extends Component {
 			if (this.state.course === 'MECHANICAL ENGINEERING') {
 				if (this.state.lec === 6) {
 					if (this.state.language === 'Hindi') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20hindi%20.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20hindi%20.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Marathi') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20marathi.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20marathi.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'English') {
 						axios
@@ -671,14 +592,10 @@ export default class Main extends Component {
 							})
 					}
 					if (this.state.language === 'Gujurati') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20gujarati.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20gujarati.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Bengali') {
 						axios
@@ -692,66 +609,42 @@ export default class Main extends Component {
 							})
 					}
 					if (this.state.language === 'Telugu') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20telugu.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20telugu.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Tamil') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20tamil.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20tamil.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Kannada') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20kannada.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20kannada.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Malayalam') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20malayalam.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20malayalam.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 				}
 				if (this.state.lec === 7) {
 					if (this.state.language === 'Hindi') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20hindi.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20hindi.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Marathi') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20marathi.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20marathi.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'English') {
 						axios
@@ -764,14 +657,10 @@ export default class Main extends Component {
 							})
 					}
 					if (this.state.language === 'Gujurati') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20gujrati.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20gujrati.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Bengali') {
 						axios
@@ -785,44 +674,28 @@ export default class Main extends Component {
 							})
 					}
 					if (this.state.language === 'Telugu') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20telugu.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20telugu.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Tamil') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20tamil.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20tamil.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Kannada') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20kannada%20.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20kannada%20.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 					if (this.state.language === 'Malayalam') {
-						axios
-							.get(
-								'https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20malayalam.htm'
-							)
-							.then((data) => {
-								this.setState({ doc: data.data })
-								this.saveinit()
-							})
+						axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20malayalam.htm').then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
 					}
 				}
 			}
@@ -1010,10 +883,7 @@ export default class Main extends Component {
 						})
 				}
 			}
-			if (
-				this.state.course ===
-				'ELECTRONICS AND COMMUNICATION ENGINEERING'
-			) {
+			if (this.state.course === 'ELECTRONICS AND COMMUNICATION ENGINEERING') {
 				if (this.state.language === 'Hindi') {
 					axios
 						.get(
@@ -1216,11 +1086,9 @@ export default class Main extends Component {
 	}
 	lec6() {
 		this.setState({ lec: 6 })
-
 	}
 	lec7() {
 		this.setState({ lec: 7 })
-
 	}
 	getCourse(course) {}
 	async save() {
@@ -1297,23 +1165,24 @@ export default class Main extends Component {
 					Hello,
 					<span className='highlight email'> {this.state.first}</span>
 					<br />
-					Translating from <span className='highlight'>
-						English
-					</span>{' '}
-					to
+					Translating from <span className='highlight'>English</span> to
 					<span className='highlight'> {this.state.language}</span>
 					<br />
-					<div className='dropBUTTON'>
-						<br />
+					{this.state.course === 'MECHANICAL ENGINEERING' ? (
+						<div className='dropBUTTON'>
+							<br />
 
-						<div class='dropdown'>
-							<button class='dropbtn'>Dropdown</button>
-							<div class='dropdown-content'>
-								<a onClick={() => this.lec6()}>LEC 6</a>
-								<a onClick={() => this.lec7()}>LEC 7</a>
+							<div class='dropdown'>
+								<button class='dropbtn'>Dropdown</button>
+								<div class='dropdown-content'>
+									<a onClick={() => this.lec6()}>LEC 6</a>
+									<a onClick={() => this.lec7()}>LEC 7</a>
+								</div>
 							</div>
 						</div>
-					</div>
+					) : (
+						''
+					)}
 					<a href='https://free.aicte-india.org/video/index.php'>
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
@@ -1341,8 +1210,7 @@ export default class Main extends Component {
 						<strong>{this.state.courseName}</strong> */}
 						<div className='row'>
 							<div className='left'>
-								{this.state.course ===
-								'COMPUTER SCIENCE AND ENGINEERING' ? (
+								{this.state.course === 'COMPUTER SCIENCE AND ENGINEERING' ? (
 									<>
 										<iframe
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21582&amp;authkey=AH4aKTBC5u8J0_U&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
@@ -1367,8 +1235,7 @@ export default class Main extends Component {
 								) : (
 									''
 								)}
-								{this.state.course ===
-								'MEATLLURGICAL ENGINEERING AND MATERIAL SCIENCE' ? (
+								{this.state.course === 'MEATLLURGICAL ENGINEERING AND MATERIAL SCIENCE' ? (
 									<>
 										<iframe
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21621&amp;authkey=AB2F6vcDkC9YXt0&amp;em=2&amp;wdStartOn=1&amp;wdPrint=0&amp;wdEmbedCode=0'
@@ -1416,9 +1283,7 @@ export default class Main extends Component {
 								) : (
 									''
 								)}
-								{(this.state.course ===
-									'MECHANICAL ENGINEERING') &
-								(this.state.lec === 6) ? (
+								{(this.state.course === 'MECHANICAL ENGINEERING') & (this.state.lec === 6) ? (
 									<>
 										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
 										{/* <iframe
@@ -1437,9 +1302,7 @@ export default class Main extends Component {
 								) : (
 									''
 								)}
-								{(this.state.course ===
-									'MECHANICAL ENGINEERING') &
-								(this.state.lec === 7) ? (
+								{(this.state.course === 'MECHANICAL ENGINEERING') & (this.state.lec === 7) ? (
 									<>
 										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
 										{/* <iframe
@@ -1458,8 +1321,7 @@ export default class Main extends Component {
 								) : (
 									''
 								)}
-								{this.state.course ===
-								'CHEMICAL ENGINEERING' ? (
+								{this.state.course === 'CHEMICAL ENGINEERING' ? (
 									<>
 										<iframe
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21569&amp;authkey=AButHi-PfEwkvuM&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
@@ -1471,8 +1333,7 @@ export default class Main extends Component {
 								) : (
 									''
 								)}
-								{this.state.course ===
-								'ELECTRICAL ENGINEERING' ? (
+								{this.state.course === 'ELECTRICAL ENGINEERING' ? (
 									<>
 										<iframe
 											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%21603&amp;authkey=ACovhg5A3VnMfbg&amp;em=2&amp;wdStartOn=1&amp;wdEmbedCode=0&amp;wdPrint=0'
@@ -1484,8 +1345,7 @@ export default class Main extends Component {
 								) : (
 									''
 								)}
-								{this.state.course ===
-								'ELECTRONICS AND COMMUNICATION ENGINEERING' ? (
+								{this.state.course === 'ELECTRONICS AND COMMUNICATION ENGINEERING' ? (
 									<>
 										<iframe
 											title='originalDoc'
@@ -1522,27 +1382,16 @@ export default class Main extends Component {
 													<ReactSpeech
 														className='miconmain'
 														lang={this.state.lang}
-														onText={(text) =>
-															this.onTextCallback(
-																text
-															)
-														}
+														onText={(text) => this.onTextCallback(text)}
 													/>
-													<button
-														className='clickonMain'
-														onClick={() =>
-															this.copy()
-														}
-													>
+													<button className='clickonMain' onClick={() => this.copy()}>
 														Copy
 													</button>
 												</div>
 												<br />
 												<br />
 												<br />
-												<span className='textmain'>
-													{this.state.text}
-												</span>
+												<span className='textmain'>{this.state.text}</span>
 
 												<p
 													className='lead'
@@ -1628,11 +1477,7 @@ export default class Main extends Component {
 											className='recordbuttonbutton buttonnoborder'
 											onClick={this.clickrecord}
 										>
-											{this.state.sentReview === false ? (
-												<>Record Audio Transcript</>
-											) : (
-												<> Audio Transcript </>
-											)}
+											{this.state.sentReview === false ? <>Record Audio Transcript</> : <> Audio Transcript </>}
 										</button>
 									</div>
 									{this.state.recorder === true ? (
@@ -1646,28 +1491,18 @@ export default class Main extends Component {
 														// transform:"translatey(50%)",
 														// zIndex: 3,
 														// width:"40vw",
-														backgroundColor:
-															'#3772ff',
+														backgroundColor: '#3772ff',
 														fontWeight: 700,
 														color: 'white',
 													}}
 													className='recorder'
 												>
 													<Microphone
-														set_audio_to_true={
-															this
-																.set_audio_to_true
-														}
+														set_audio_to_true={this.set_audio_to_true}
 														className='recorder'
-														sent={
-															this.state
-																.sentReview
-														}
+														sent={this.state.sentReview}
 														elem={this.state.email}
-														_id={
-															this.state.result
-																._id
-														}
+														_id={this.state.result._id}
 													></Microphone>
 												</div>
 											</div>
@@ -1686,8 +1521,7 @@ export default class Main extends Component {
 														// position: 'fixed',
 														padding: '10px ',
 														width: '43%',
-														backgroundColor:
-															'#2ec4b6',
+														backgroundColor: '#2ec4b6',
 														color: 'white',
 														borderRadius: '3px',
 														fontWeight: '700',
@@ -1716,23 +1550,16 @@ export default class Main extends Component {
 															<button
 																style={{
 																	// position: 'fixed',
-																	padding:
-																		'10px ',
-																	width:
-																		'43%',
-																	backgroundColor:
-																		'#00695c',
-																	color:
-																		'white',
-																	borderRadius:
-																		'3px',
-																	fontWeight:
-																		'700',
+																	padding: '10px ',
+																	width: '43%',
+																	backgroundColor: '#00695c',
+																	color: 'white',
+																	borderRadius: '3px',
+																	fontWeight: '700',
 																}}
 																className='button save saveMain buttonnoborder'
 															>
-																Save & Send for
-																approval
+																Save & Send for approval
 															</button>
 														</a>
 													</>
@@ -1748,21 +1575,16 @@ export default class Main extends Component {
 														<button
 															style={{
 																// position: 'fixed',
-																padding:
-																	'10px ',
+																padding: '10px ',
 																width: '43%',
-																backgroundColor:
-																	'#00695c',
+																backgroundColor: '#00695c',
 																color: 'white',
-																borderRadius:
-																	'3px',
-																fontWeight:
-																	'700',
+																borderRadius: '3px',
+																fontWeight: '700',
 															}}
 															className='button save saveMain buttonnoborder'
 														>
-															Save & Send for
-															approval
+															Save & Send for approval
 														</button>{' '}
 													</a>
 												)}
