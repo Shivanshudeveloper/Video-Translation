@@ -1436,7 +1436,7 @@ export default class Main extends Component {
 												['undo', 'redo'],
 												['math'],
 												// ['image'],
-												['codeView'],
+												// ['codeView'],
 											],
 										}}
 										// onChange={(e) => {
