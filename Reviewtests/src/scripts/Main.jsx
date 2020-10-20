@@ -1203,6 +1203,7 @@ export default class Main extends Component {
 					<a href='https://free.aicte-india.org/video/index.php'>
 						<div className='button buttonLogOut'>LogOut</div>
 					</a>
+					<a href="https://youtu.be/2fwqZGxH0d8">
 					<button
 						style={{
 							// position: 'fixed',
@@ -1217,6 +1218,7 @@ export default class Main extends Component {
 					>
 						Instructions for translations portal{' '}
 					</button>
+					</a>
 					<br />
 					<br />
 					<div className='outer'>
