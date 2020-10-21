@@ -31,7 +31,6 @@ export default class Main extends Component {
 		audio: false,
 		sentReview: false,
 		lec: 6, // change here
-		url: '/lec7?usere={...this.state.first}',
 	}
 
 	componentDidMount() {
@@ -67,7 +66,7 @@ export default class Main extends Component {
 				token: localStorage.getItem('auth'),
 			},
 			doc: this.state.doc,
-			// doc1: this.state.doc,
+			doc1: this.state.doc,
 		})
 		console.log(result_doc.data.review)
 		this.setState({
@@ -77,72 +76,6 @@ export default class Main extends Component {
 			this.setState({ sentReview: true })
 			console.log('hello dear')
 		}
-		if (this.state.course === 'MECHANICAL ENGINEERING') {
-				if (this.state.language === 'Hindi') {
-					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20hindi%20.htm').then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
-				}
-				if (this.state.language === 'Marathi') {
-					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20marathi.htm').then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
-				}
-				if (this.state.language === 'English') {
-					axios
-						.get(
-							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/lec2%20APPLIED%20THERMODYNAMICS%20FOR%20ENGINEERS%20corrected.htm'
-						)
-						.then((data) => {
-							this.setState({ doc: data.data })
-							this.saveinit()
-						})
-				}
-				if (this.state.language === 'Gujurati') {
-					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20gujarati.htm').then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
-				}
-				if (this.state.language === 'Bengali') {
-					axios
-						.get(
-							// 'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-bengali.htm'
-							'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20bengali%20.htm'
-						)
-						.then((data) => {
-							this.setState({ doc: data.data })
-							this.saveinit()
-						})
-				}
-				if (this.state.language === 'Telugu') {
-					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20telugu.htm').then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
-				}
-				if (this.state.language === 'Tamil') {
-					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20tamil.htm').then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
-				}
-				if (this.state.language === 'Kannada') {
-					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20kannada.htm').then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
-				}
-				if (this.state.language === 'Malayalam') {
-					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20malayalam.htm').then((data) => {
-						this.setState({ doc: data.data })
-						this.saveinit()
-					})
-				}
-			}
-		if (this.state.doc === '') {
 			console.log(this.state.course)
 			if (this.state.course === 'COMPUTER SCIENCE AND ENGINEERING') {
 				if (this.state.language === 'Hindi') {
@@ -634,71 +567,71 @@ export default class Main extends Component {
 						})
 				}
 			}
-			// if (this.state.course === 'MECHANICAL ENGINEERING') {
-			// 	if (this.state.language === 'Hindi') {
-			// 		axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20hindi%20.htm').then((data) => {
-			// 			this.setState({ doc: data.data })
-			// 			this.saveinit()
-			// 		})
-			// 	}
-			// 	if (this.state.language === 'Marathi') {
-			// 		axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20marathi.htm').then((data) => {
-			// 			this.setState({ doc: data.data })
-			// 			this.saveinit()
-			// 		})
-			// 	}
-			// 	if (this.state.language === 'English') {
-			// 		axios
-			// 			.get(
-			// 				'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/lec2%20APPLIED%20THERMODYNAMICS%20FOR%20ENGINEERS%20corrected.htm'
-			// 			)
-			// 			.then((data) => {
-			// 				this.setState({ doc: data.data })
-			// 				this.saveinit()
-			// 			})
-			// 	}
-			// 	if (this.state.language === 'Gujurati') {
-			// 		axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20gujarati.htm').then((data) => {
-			// 			this.setState({ doc: data.data })
-			// 			this.saveinit()
-			// 		})
-			// 	}
-			// 	if (this.state.language === 'Bengali') {
-			// 		axios
-			// 			.get(
-			// 				// 'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-bengali.htm'
-			// 				'https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20bengali%20.htm'
-			// 			)
-			// 			.then((data) => {
-			// 				this.setState({ doc: data.data })
-			// 				this.saveinit()
-			// 			})
-			// 	}
-			// 	if (this.state.language === 'Telugu') {
-			// 		axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20telugu.htm').then((data) => {
-			// 			this.setState({ doc: data.data })
-			// 			this.saveinit()
-			// 		})
-			// 	}
-			// 	if (this.state.language === 'Tamil') {
-			// 		axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20tamil.htm').then((data) => {
-			// 			this.setState({ doc: data.data })
-			// 			this.saveinit()
-			// 		})
-			// 	}
-			// 	if (this.state.language === 'Kannada') {
-			// 		axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20kannada.htm').then((data) => {
-			// 			this.setState({ doc: data.data })
-			// 			this.saveinit()
-			// 		})
-			// 	}
-			// 	if (this.state.language === 'Malayalam') {
-			// 		axios.get('https://raw.githubusercontent.com/Aaryan-kapur/doc/main/le6%20malayalam.htm').then((data) => {
-			// 			this.setState({ doc: data.data })
-			// 			this.saveinit()
-			// 		})
-			// 	}
-			// }
+			if (this.state.course === 'MECHANICAL ENGINEERING') {
+				if (this.state.language === 'Hindi') {
+					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20hindi.htm').then((data) => {
+						this.setState({ doc: data.data })
+						this.saveinit()
+					})
+				}
+				if (this.state.language === 'Marathi') {
+					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20marathi.htm').then((data) => {
+						this.setState({ doc: data.data })
+						this.saveinit()
+					})
+				}
+				if (this.state.language === 'English') {
+					axios
+						.get(
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/lec2%20APPLIED%20THERMODYNAMICS%20FOR%20ENGINEERS%20corrected.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Gujurati') {
+					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20gujrati.htm').then((data) => {
+						this.setState({ doc: data.data })
+						this.saveinit()
+					})
+				}
+				if (this.state.language === 'Bengali') {
+					axios
+						.get(
+							// 'https://raw.githubusercontent.com/Aaryan-kapur/DOCHTML/master/MECHANICAL%20ENGINEERING/language/mechanical%20engineering-bengali.htm'
+							'https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20bengali.htm'
+						)
+						.then((data) => {
+							this.setState({ doc: data.data })
+							this.saveinit()
+						})
+				}
+				if (this.state.language === 'Telugu') {
+					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20telugu.htm').then((data) => {
+						this.setState({ doc: data.data })
+						this.saveinit()
+					})
+				}
+				if (this.state.language === 'Tamil') {
+					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20tamil.htm').then((data) => {
+						this.setState({ doc: data.data })
+						this.saveinit()
+					})
+				}
+				if (this.state.language === 'Kannada') {
+					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20kannada%20.htm').then((data) => {
+						this.setState({ doc: data.data })
+						this.saveinit()
+					})
+				}
+				if (this.state.language === 'Malayalam') {
+					axios.get('https://raw.githubusercontent.com/Aaryan-kapur/DOC7/main/le7%20malayalam.htm').then((data) => {
+						this.setState({ doc: data.data })
+						this.saveinit()
+					})
+				}
+			}
 			if (this.state.course === 'CHEMICAL ENGINEERING') {
 				if (this.state.language === 'Hindi') {
 					axios
@@ -1066,7 +999,7 @@ export default class Main extends Component {
 							this.saveinit()
 						})
 				}
-			}
+			
 		}
 	}
 	onTextCallback(text) {
@@ -1171,12 +1104,11 @@ export default class Main extends Component {
 					{this.state.course === 'MECHANICAL ENGINEERING' ? (
 						<div className='dropBUTTON'>
 							<br />
-
 							<div class='dropdown'>
 								<button class='dropbtn'>Lecture</button>
 								<div class='dropdown-content'>
-									<a>LEC 6</a>
-									<a href={'lec7/?usere=' + this.state.first}>LEC 7</a>
+									<a href={"/?usere=" + this.state.first}>LEC 6</a>
+									<a onClick={() => this.lec7()}>LEC 7</a>
 								</div>
 							</div>
 						</div>
@@ -1283,17 +1215,10 @@ export default class Main extends Component {
 								) : (
 									''
 								)}
-								{(this.state.course === 'MECHANICAL ENGINEERING') ? (
+								{(this.state.course === 'MECHANICAL ENGINEERING')  ? (
 									<>
-										{/* <iframe src='https://docs.google.com/document/d/e/2PACX-1vQN3HgJKBFY5FNimyqyK6Sod01OriyrdSyUuoYtvfkxYWESEfQNZ1OAX9raoet3ww/pub?embedded=true'></iframe>{' '} */}
-										{/* <iframe
-											src='https://docs.google.com/document/d/e/2PACX-1vT_X-P0PBpL3S14XJEYvSauXCdpGqj6ZU-RNuItKT-dYSAFxX87IZ0LPlU208t6ImrVM6mFXqpRTKEv/pub?embedded=true'
-											title='originalDoc'
-											className='documentOriginal'
-											frameBorder='0'
-										></iframe> */}
 										<iframe
-											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%212367&amp;authkey=AO5k_kKFZRyhHf4&amp;em=2&amp;wdStartOn=1'
+											src='https://onedrive.live.com/embed?cid=F8C06DA25257EAEC&amp;resid=F8C06DA25257EAEC%212366&amp;authkey=ADbIjcxDRvtSeAw&amp;em=2&amp;wdStartOn=1'
 											title='originalDoc'
 											className='documentOriginal'
 											frameBorder='0'
@@ -1417,7 +1342,7 @@ export default class Main extends Component {
 												['undo', 'redo'],
 												['math'],
 												// ['image'],
-												['codeView'],
+												// ['codeView'],
 											],
 										}}
 										// onChange={(e) => {
@@ -1442,7 +1367,6 @@ export default class Main extends Component {
 										onChange={this.sunhandleChange}
 										value={this.state.doc}
 									/>
-
 									<div className='recordbutton'>
 										<button
 											style={{
