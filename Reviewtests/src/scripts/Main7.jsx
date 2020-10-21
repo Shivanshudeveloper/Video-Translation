@@ -1107,7 +1107,7 @@ export default class Main extends Component {
 							<div class='dropdown'>
 								<button class='dropbtn'>Lecture</button>
 								<div class='dropdown-content'>
-									<a href={"/?usere=" + this.state.first}>LEC 6</a>
+									<a href={"/app?usere=" + this.state.first}>LEC 6</a>
 									<a onClick={() => this.lec7()}>LEC 7</a>
 								</div>
 							</div>
